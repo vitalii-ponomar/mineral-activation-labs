@@ -1,404 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mineral Activation Labs</title>
-  <meta name="description" content="Science-led mineral activation for low-carbon materials and industrial value creation.">
+  <meta
+    name="description"
+    content="Mineral Activation Labs helps Australian industry evaluate tailings, slags, soils, quarry fines, and mineral residues for low-carbon construction materials."
+  />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    :root{
-      --bg:#f8fafc;
-      --white:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --border:#e2e8f0;
-      --accent:#0f766e;
-      --accent-dark:#0c5f59;
-      --soft:#f1f5f9;
-      --shadow:0 12px 30px rgba(15, 23, 42, 0.06);
-      --radius:16px;
-      --container:min(1120px, 92%);
+    :root {
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #0f766e;
+      --accent-dark: #0c5f59;
+      --soft: #f1f5f9;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      --radius: 16px;
+      --container: min(1140px, 92%);
     }
 
-    *{
-      box-sizing:border-box;
+    * {
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      margin:0;
-      font-family:'Inter', sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.65;
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
     }
 
-    .container{
-      width:var(--container);
-      margin:0 auto;
+    .container {
+      width: var(--container);
+      margin: 0 auto;
     }
 
-    .site-header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(248,250,252,0.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--border);
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:18px 0;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
     }
 
-    .logo{
-      font-weight:700;
-      letter-spacing:-0.02em;
+    .logo {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 1rem;
     }
 
-    .nav-links{
-      display:flex;
-      gap:22px;
-      align-items:center;
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .nav-links a{
-      text-decoration:none;
-      color:var(--muted);
-      font-size:14px;
-      font-weight:500;
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
     }
 
-    .btn{
-      display:inline-block;
-      text-decoration:none;
-      padding:14px 22px;
-      border-radius:12px;
-      font-weight:600;
-      transition:0.2s ease;
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.2s ease;
     }
 
-    .btn-primary{
-      background:var(--accent);
-      color:white;
+    .btn-primary {
+      background: var(--accent);
+      color: white;
     }
 
-    .btn-primary:hover{
-      background:var(--accent-dark);
-      transform:translateY(-1px);
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
     }
 
-    .btn-secondary{
-      border:1px solid var(--border);
-      color:var(--text);
-      background:var(--white);
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--white);
     }
 
-    .btn-secondary:hover{
-      transform:translateY(-1px);
-      box-shadow:var(--shadow);
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
     }
 
-    .hero{
-      padding:120px 0 90px;
+    .hero {
+      padding: 120px 0 90px;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.2fr 0.8fr;
-      gap:42px;
-      align-items:center;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 42px;
+      align-items: center;
     }
 
-    .eyebrow{
-      display:inline-block;
-      margin-bottom:18px;
-      padding:8px 12px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background:var(--white);
-      color:var(--muted);
-      font-size:13px;
-      font-weight:600;
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    h1{
-      margin:0 0 20px;
-      font-size:52px;
-      line-height:1.1;
-      letter-spacing:-0.04em;
-      max-width:760px;
+    h1 {
+      margin: 0 0 20px;
+      font-size: 50px;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 760px;
     }
 
-    .hero p{
-      margin:0;
-      max-width:680px;
-      font-size:19px;
-      color:var(--muted);
+    .hero p {
+      margin: 0;
+      max-width: 720px;
+      font-size: 19px;
+      color: var(--muted);
     }
 
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      margin-top:28px;
-      flex-wrap:wrap;
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
     }
 
-    .hero-card{
-      background:linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-      border:1px solid var(--border);
-      border-radius:20px;
-      padding:28px;
-      box-shadow:var(--shadow);
+    .hero-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
-    .hero-card h3{
-      margin:0 0 10px;
-      font-size:18px;
+    .hero-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
     }
 
-    .hero-card p{
-      font-size:15px;
-      color:var(--muted);
-      margin-bottom:18px;
+    .hero-card p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 18px;
     }
 
-    .hero-list{
-      display:grid;
-      gap:12px;
+    .hero-list {
+      display: grid;
+      gap: 12px;
     }
 
-    .hero-list div{
-      padding:12px 14px;
-      background:rgba(255,255,255,0.85);
-      border:1px solid var(--border);
-      border-radius:12px;
-      font-size:14px;
-      color:var(--text);
+    .hero-list div {
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--text);
     }
 
-    .section{
-      padding:95px 0;
+    .section {
+      padding: 95px 0;
     }
 
-    .section-alt{
-      background:var(--soft);
-      border-top:1px solid var(--border);
-      border-bottom:1px solid var(--border);
+    .section-alt {
+      background: var(--soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    .section-intro{
-      max-width:760px;
-      margin-bottom:40px;
+    .section-intro {
+      max-width: 780px;
+      margin-bottom: 40px;
     }
 
-    h2{
-      margin:0 0 16px;
-      font-size:36px;
-      line-height:1.15;
-      letter-spacing:-0.03em;
+    h2 {
+      margin: 0 0 16px;
+      font-size: 36px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
     }
 
-    .section-intro p{
-      margin:0;
-      color:var(--muted);
-      font-size:18px;
+    .section-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
     }
 
-    .credibility-strip{
-      padding:18px 0;
-      border-top:1px solid var(--border);
-      border-bottom:1px solid var(--border);
-      background:var(--white);
+    .feedstock-strip {
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
     }
 
-    .credibility-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:20px;
+    .feedstock-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 14px;
     }
 
-    .credibility-item{
-      font-size:14px;
-      color:var(--muted);
-      font-weight:600;
+    .feedstock-item {
+      padding: 14px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fcfdff;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
     }
 
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
 
-    .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:24px;
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .card{
-      background:var(--white);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:28px;
-      transition:0.2s ease;
-      box-shadow:0 0 0 rgba(0,0,0,0);
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: 0.2s ease;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     }
 
-    .card:hover{
-      transform:translateY(-4px);
-      box-shadow:var(--shadow);
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
     }
 
-    .card h3{
-      margin:0 0 12px;
-      font-size:21px;
-      letter-spacing:-0.02em;
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 21px;
+      letter-spacing: -0.02em;
     }
 
-    .card p{
-      margin:0;
-      color:var(--muted);
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
     }
 
-    .number{
-      display:inline-flex;
-      width:34px;
-      height:34px;
-      align-items:center;
-      justify-content:center;
-      border-radius:999px;
-      background:#dff5f1;
-      color:var(--accent);
-      font-size:14px;
-      font-weight:700;
-      margin-bottom:16px;
+    .number {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: #dff5f1;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
     }
 
-    .why-us-box{
-      background:var(--white);
-      border:1px solid var(--border);
-      border-radius:20px;
-      padding:34px;
-      box-shadow:var(--shadow);
+    .why-us-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: var(--shadow);
     }
 
-    .bullet-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px 22px;
-      margin-top:22px;
+    .why-us-box p {
+      margin-top: 0;
+      color: var(--muted);
     }
 
-    .bullet-grid div{
-      padding:14px 16px;
-      border:1px solid var(--border);
-      border-radius:12px;
-      background:#fcfdff;
-      font-size:15px;
+    .founder-line {
+      margin-top: 18px;
+      font-weight: 600;
+      color: var(--text);
     }
 
-    .cta-box{
-      background:linear-gradient(135deg, #0f766e 0%, #115e59 100%);
-      color:white;
-      border-radius:24px;
-      padding:42px;
-      box-shadow:var(--shadow);
+    .bullet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px 22px;
+      margin-top: 24px;
     }
 
-    .cta-box h2{
-      color:white;
-      margin-bottom:14px;
+    .bullet-grid div {
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fcfdff;
+      font-size: 15px;
     }
 
-    .cta-box p{
-      color:rgba(255,255,255,0.88);
-      max-width:720px;
-      margin:0 0 24px;
-      font-size:18px;
+    .cta-box {
+      background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 42px;
+      box-shadow: var(--shadow);
     }
 
-    .cta-box .btn-primary{
-      background:white;
-      color:var(--accent);
+    .cta-box h2 {
+      color: white;
+      margin-bottom: 14px;
     }
 
-    .cta-box .btn-secondary{
-      background:transparent;
-      color:white;
-      border:1px solid rgba(255,255,255,0.35);
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 760px;
+      margin: 0 0 24px;
+      font-size: 18px;
     }
 
-    .site-footer{
-      padding:34px 0;
-      border-top:1px solid var(--border);
-      color:var(--muted);
-      font-size:14px;
-      background:var(--white);
+    .cta-box .btn-primary {
+      background: white;
+      color: var(--accent);
     }
 
-    @media (max-width: 980px){
+    .cta-box .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .site-footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      background: var(--white);
+    }
+
+    @media (max-width: 1080px) {
+      .feedstock-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 980px) {
       .hero-grid,
       .grid-3,
       .grid-2,
-      .credibility-grid,
-      .bullet-grid{
-        grid-template-columns:1fr;
+      .bullet-grid {
+        grid-template-columns: 1fr;
       }
 
-      .nav{
-        flex-wrap:wrap;
+      .nav {
+        flex-wrap: wrap;
       }
 
-      .nav-links{
-        order:3;
-        width:100%;
-        flex-wrap:wrap;
-        gap:14px;
+      .nav-links {
+        order: 3;
+        width: 100%;
+        gap: 14px;
       }
 
-      h1{
-        font-size:40px;
+      h1 {
+        font-size: 40px;
       }
 
-      h2{
-        font-size:30px;
+      h2 {
+        font-size: 30px;
       }
 
-      .hero{
-        padding:90px 0 70px;
+      .hero {
+        padding: 90px 0 70px;
       }
 
-      .section{
-        padding:72px 0;
+      .section {
+        padding: 72px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .feedstock-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-
   <header class="site-header">
     <div class="container nav">
       <div class="logo">Mineral Activation Labs</div>
+
       <nav class="nav-links">
-        <a href="#problem">Problem</a>
+        <a href="#why-now">Why now</a>
         <a href="#services">Services</a>
         <a href="#industries">Industries</a>
-        <a href="#why-us">Why us</a>
+        <a href="#opportunities">Opportunities</a>
         <a href="#contact">Contact</a>
       </nav>
+
       <a class="btn btn-primary" href="#contact">Request feedstock review</a>
     </div>
   </header>
@@ -407,13 +453,24 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Science-led mineral activation</div>
-          <h1>Turning underused minerals and industrial residues into material opportunity</h1>
+          <div class="eyebrow">From mineral side-streams to construction materials</div>
+
+          <h1>Unlocking value in mineral waste and industrial side-streams</h1>
+
           <p>
-            We help industry identify, qualify, and develop clays, slags, soils, and mineral side streams for low-carbon construction and related material applications.
+            We help Australian industry identify, qualify, and develop natural and industrial
+            mineral side-streams — including mine tailings, metallurgical slags, clay-rich soils,
+            quarry fines, and other mineral residues — for use in low-carbon construction materials.
           </p>
+
+          <p style="margin-top: 16px;">
+            Many of these materials are currently landfilled or stockpiled despite containing
+            valuable mineral phases. With the right understanding of mineralogy, reactivity, and
+            processing pathways, they can become useful material resources.
+          </p>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Request a feedstock review</a>
+            <a class="btn btn-primary" href="#contact">Request feedstock review</a>
             <a class="btn btn-secondary" href="#services">Explore capabilities</a>
           </div>
         </div>
@@ -421,6 +478,7 @@
         <div class="hero-card">
           <h3>Typical project questions</h3>
           <p>We help partners move from uncertain material data to realistic technical pathways.</p>
+
           <div class="hero-list">
             <div>Is this feedstock suitable for value-added use?</div>
             <div>Which activation pathway is technically realistic?</div>
@@ -431,39 +489,57 @@
       </div>
     </section>
 
-    <section class="credibility-strip">
-      <div class="container credibility-grid">
-        <div class="credibility-item">Civil engineering + mineralogy + geoscience</div>
-        <div class="credibility-item">Low-carbon materials focus</div>
-        <div class="credibility-item">Feedstock-to-pilot thinking</div>
-        <div class="credibility-item">Science-led, industry-relevant</div>
+    <section class="feedstock-strip">
+      <div class="container">
+        <div class="feedstock-grid">
+          <div class="feedstock-item">Mine tailings</div>
+          <div class="feedstock-item">Metallurgical slags</div>
+          <div class="feedstock-item">Clay-rich soils</div>
+          <div class="feedstock-item">Quarry fines</div>
+          <div class="feedstock-item">Industrial mineral residues</div>
+          <div class="feedstock-item">Construction &amp; demolition fines</div>
+          <div class="feedstock-item">Bauxite residues</div>
+        </div>
       </div>
     </section>
 
-    <section id="problem" class="section">
+    <section id="why-now" class="section">
       <div class="container">
         <div class="section-intro">
           <h2>Why this matters now</h2>
           <p>
-            Industry is under pressure to cut emissions, reduce landfill, and extract more value from mineral resources and byproducts. Yet many materials remain underused because decisions are often based on incomplete qualification. Chemistry alone is rarely enough. Practical decisions need mineralogical, processing, and performance insight.
+            Australia generates large volumes of mineral side-streams from mining, mineral
+            processing, infrastructure works, and construction activities. Many of these materials
+            remain underutilised because their technical suitability for new applications is unclear.
           </p>
         </div>
 
         <div class="grid-3">
           <div class="card">
             <div class="number">01</div>
-            <h3>Underused feedstocks</h3>
-            <p>Clays, residues, slags, and treated soils may hold value, but their real potential is often unclear.</p>
+            <h3>Large underused mineral streams</h3>
+            <p>
+              Tailings, slags, soils, fines, and mineral residues are often stockpiled or landfilled
+              despite containing potentially useful mineral phases.
+            </p>
           </div>
+
           <div class="card">
             <div class="number">02</div>
-            <h3>Uncertain pathways</h3>
-            <p>Even promising materials can fail without the right activation strategy, application fit, and testing sequence.</p>
+            <h3>Pressure to cut emissions and landfill</h3>
+            <p>
+              Construction and resource industries face growing pressure to reduce cement use,
+              improve circularity, and find better pathways for by-product reuse.
+            </p>
           </div>
+
           <div class="card">
             <div class="number">03</div>
-            <h3>Need for translation</h3>
-            <p>Technical data must be translated into practical next steps for product development, pilots, and decision-making.</p>
+            <h3>Need for practical qualification</h3>
+            <p>
+              Unlocking value requires more than chemistry alone. It needs mineralogical insight,
+              reaction pathways, and realistic routes into materials applications.
+            </p>
           </div>
         </div>
       </div>
@@ -474,22 +550,52 @@
         <div class="section-intro">
           <h2>What we do</h2>
           <p>
-            We help partners understand what a material is, what it could become, and what should happen next.
+            We help partners move from uncertain feedstock data to realistic technical pathways.
           </p>
         </div>
 
         <div class="grid-3">
           <div class="card">
             <h3>Feedstock qualification</h3>
-            <p>Assess chemistry, mineralogy, reactivity, and practical technical potential of mineral and industrial side streams.</p>
+            <p>
+              Assess chemistry, mineralogy, and reactivity of mineral side-streams.
+            </p>
           </div>
+
           <div class="card">
-            <h3>Activation pathway design</h3>
-            <p>Define technically grounded routes such as calcination, alkaline activation, blending, or hybrid processing.</p>
+            <h3>Mineralogical interpretation</h3>
+            <p>
+              Translate mineralogical and microstructural data into practical material insights.
+            </p>
           </div>
+
           <div class="card">
-            <h3>Pilot strategy support</h3>
-            <p>Structure the pathway from early screening to test plans, application fit, and pilot-ready questions.</p>
+            <h3>Activation strategy development</h3>
+            <p>
+              Identify pathways such as calcination, alkaline activation, blending, or carbonation.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Low-cement material concepts</h3>
+            <p>
+              Develop pathways to incorporate mineral side-streams into construction materials.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Tailings and residue valorisation</h3>
+            <p>
+              Evaluate opportunities to convert mining residues and industrial by-products into
+              useful products.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Immobilisation and stabilisation</h3>
+            <p>
+              Design mineral-based approaches to immobilise contaminants in soils and residues.
+            </p>
           </div>
         </div>
       </div>
@@ -500,26 +606,51 @@
         <div class="section-intro">
           <h2>Who we work with</h2>
           <p>
-            Mineral activation is not one market. It is a capability that creates value across multiple material-intensive sectors.
+            Mineral side-stream activation creates value across multiple material-intensive sectors.
           </p>
         </div>
 
         <div class="grid-2">
           <div class="card">
-            <h3>Cement and concrete</h3>
-            <p>Lower-cement blends, supplementary cementitious materials, calcined clays, activated binders, and non-traditional mineral feedstocks.</p>
+            <h3>Cement and concrete producers</h3>
+            <p>
+              Developing lower-cement materials and alternative supplementary cementitious materials.
+            </p>
           </div>
+
           <div class="card">
-            <h3>Mining and mineral processing</h3>
-            <p>Residue valorisation, byproduct qualification, and strategic pathways for underused mineral streams.</p>
+            <h3>Mining and mineral processing companies</h3>
+            <p>
+              Exploring new uses for tailings and mineral residues.
+            </p>
           </div>
+
           <div class="card">
-            <h3>Waste and remediation</h3>
-            <p>Treated soils, contaminated mineral streams, and landfill-diversion opportunities where technical fit can be demonstrated.</p>
+            <h3>Metallurgical and industrial producers</h3>
+            <p>
+              Valorisation of slags and other mineral by-products.
+            </p>
           </div>
+
           <div class="card">
-            <h3>Infrastructure and innovation</h3>
-            <p>Science-backed assessment of alternative material pathways for lower-carbon construction and circular resource use.</p>
+            <h3>Waste and remediation firms</h3>
+            <p>
+              Re-use of treated soils and contaminated mineral streams.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Government and infrastructure agencies</h3>
+            <p>
+              Assessment of circular material pathways and landfill reduction strategies.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Construction materials innovators</h3>
+            <p>
+              Startups and R&amp;D teams developing next-generation mineral materials.
+            </p>
           </div>
         </div>
       </div>
@@ -530,46 +661,86 @@
         <div class="section-intro">
           <h2>Why Mineral Activation Labs</h2>
           <p>
-            We combine materials engineering, mineralogy, and geoscience to solve practical feedstock problems with scientific depth and application thinking.
+            Mineral Activation Labs combines expertise in mineralogy, materials science, and civil
+            engineering to evaluate the real potential of mineral side-streams.
           </p>
         </div>
 
         <div class="why-us-box">
           <p>
-            Mineral Activation Labs is built around the idea that better material decisions require more than isolated test results. We connect characterization, reaction understanding, processing logic, and application context to help partners evaluate realistic opportunities.
+            Our approach connects mineralogical characterisation with reaction mechanisms and
+            practical material applications, helping partners move from uncertain feedstock data to
+            realistic technical pathways.
+          </p>
+
+          <p class="founder-line">
+            Led by Vitalii Ponomar, a researcher specialising in low-carbon construction materials,
+            mineral activation, calcined clays, and mineral-based binders.
           </p>
 
           <div class="bullet-grid">
-            <div>Interdisciplinary expertise across civil engineering, mineralogy, and sustainable materials</div>
-            <div>Strong focus on low-carbon construction and mineral-derived product concepts</div>
-            <div>Ability to connect laboratory results with pilot-oriented decisions</div>
-            <div>Clear, evidence-based communication without overclaiming technical potential</div>
+            <div>Australian market relevance</div>
+            <div>Strong understanding of construction materials</div>
+            <div>Scientific depth with application focus</div>
+            <div>Clear and realistic technical assessment</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section id="opportunities" class="section">
       <div class="container">
         <div class="section-intro">
           <h2>Example opportunities</h2>
           <p>
-            Representative technical pathways we help partners explore.
+            Representative pathways we help partners explore, assess, and structure for next-step
+            development.
           </p>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <h3>Treated soil to low-cement material pathway</h3>
-            <p>Assessment of mineralogy, calcination potential, blending behavior, and construction application fit.</p>
+            <h3>Tailings to supplementary cementitious materials</h3>
+            <p>
+              Evaluation of mineral composition, activation strategies, and performance potential
+              for low-cement systems.
+            </p>
           </div>
+
           <div class="card">
-            <h3>Fe-rich byproduct activation</h3>
-            <p>Evaluation of Fe-rich residues for activated binder systems and related mineral-based product pathways.</p>
+            <h3>Slag and metallurgical residues</h3>
+            <p>
+              Assessment of activation pathways and suitability for cementitious applications.
+            </p>
           </div>
+
           <div class="card">
-            <h3>Clay reactivity qualification</h3>
-            <p>Comparison of clay-rich feedstocks to identify realistic routes for SCM or activated materials development.</p>
+            <h3>Treated soils in construction materials</h3>
+            <p>
+              Evaluation of mineralogical suitability for fill materials, stabilised systems, or
+              blended binders.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Clay activation for low-cement binders</h3>
+            <p>
+              Identification of reactive clay sources and suitable calcination pathways.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Industrial mineral fines</h3>
+            <p>
+              Valorisation of fines from quarrying and mineral processing operations.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Residue stabilisation and immobilisation</h3>
+            <p>
+              Use of mineral binders to immobilise contaminants in soils and residues.
+            </p>
           </div>
         </div>
       </div>
@@ -578,13 +749,23 @@
     <section id="contact" class="section">
       <div class="container">
         <div class="cta-box">
-          <h2>Have a feedstock, side stream, or project challenge?</h2>
+          <h2>Have a mineral side-stream to evaluate?</h2>
           <p>
-            Send a short description of your material, intended application, or available data, and we can help identify practical next steps.
+            If you have tailings, slags, clay-rich soils, quarry fines, or other mineral residues,
+            we can help assess their potential for construction materials or other mineral-based
+            products.
           </p>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="mailto:hello@yourdomain.com">Email us</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a
+              class="btn btn-secondary"
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>
@@ -592,9 +773,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      © Mineral Activation Labs
-    </div>
+    <div class="container">© Mineral Activation Labs</div>
   </footer>
 </body>
 </html>
