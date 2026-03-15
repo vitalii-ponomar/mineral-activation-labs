@@ -69,20 +69,16 @@
       padding: 18px 0;
     }
 
-      .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-img {
-    height: 44px;
-    width: auto;
-    display: block;
-  }
     .logo {
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      display: block;
     }
 
     .nav-links {
@@ -271,6 +267,12 @@
       gap: 22px;
     }
 
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
     .card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -392,6 +394,7 @@
 
     @media (max-width: 980px) {
       .hero-grid,
+      .grid-4,
       .grid-3,
       .grid-2,
       .bullet-grid {
@@ -439,6 +442,10 @@
         width: 100%;
         text-align: center;
       }
+
+      .logo-img {
+        height: 36px;
+      }
     }
   </style>
 </head>
@@ -446,8 +453,8 @@
   <header class="site-header">
     <div class="container nav">
       <div class="logo">
-  <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="logo-img">
-</div>
+        <img src="assets/logo.png" alt="Mineral Activation Labs" class="logo-img">
+      </div>
 
       <nav class="nav-links">
         <a href="#why-now">Why now</a>
@@ -607,6 +614,52 @@
             <h3>Immobilisation and stabilisation</h3>
             <p>
               Design mineral-based approaches to immobilise contaminants in soils and residues.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-intro">
+          <h2>How projects usually start</h2>
+          <p>
+            Most projects begin with a short technical review of the available material data.
+            From there, we identify realistic activation pathways and define the next testing steps.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="number">1</div>
+            <h3>Send feedstock data</h3>
+            <p>
+              Share chemistry, mineralogy, or a short description of the material and its source.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="number">2</div>
+            <h3>Initial technical screening</h3>
+            <p>
+              We evaluate mineral phases, potential reactivity, and possible application pathways.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="number">3</div>
+            <h3>Activation pathways</h3>
+            <p>
+              Potential strategies may include calcination, alkaline activation, blending, or stabilisation.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="number">4</div>
+            <h3>Testing or pilot concept</h3>
+            <p>
+              Define the most useful laboratory tests or pilot steps to evaluate the material.
             </p>
           </div>
         </div>
