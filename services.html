@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Mineral Activation Labs</title>
+  <meta
+    name="description"
+    content="Mineral Activation Labs provides feedstock qualification, mineralogical interpretation, activation strategy development, and performance-focused technical advisory for mineral side-streams."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #0f766e;
+      --accent-dark: #0c5f59;
+      --soft: #f1f5f9;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      --radius: 16px;
+      --container: min(1140px, 92%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 72px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--white);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 120px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: 50px;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      max-width: 760px;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 720px;
+      font-size: 19px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .hero-card p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-list div {
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .section {
+      padding: 95px 0;
+    }
+
+    .section-alt {
+      background: var(--soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-intro {
+      max-width: 780px;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 36px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .services-strip {
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .services-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .services-strip-item {
+      padding: 14px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fcfdff;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: 0.2s ease;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .card li + li {
+      margin-top: 8px;
+    }
+
+    .number {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: #dff5f1;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .why-us-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .why-us-box p {
+      margin-top: 0;
+      color: var(--muted);
+    }
+
+    .founder-line {
+      margin-top: 18px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .bullet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px 22px;
+      margin-top: 24px;
+    }
+
+    .bullet-grid div {
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fcfdff;
+      font-size: 15px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      color: white;
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 760px;
+      margin: 0 0 24px;
+      font-size: 18px;
+    }
+
+    .cta-box .btn-primary {
+      background: white;
+      color: var(--accent);
+    }
+
+    .cta-box .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .site-footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      background: var(--white);
+    }
+
+    @media (max-width: 1080px) {
+      .services-strip-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .bullet-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        gap: 14px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .hero {
+        padding: 90px 0 70px;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .services-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .logo-img {
+        height: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="logo">
+        <img src="logo.png" alt="Mineral Activation Labs" class="logo-img" />
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html#why-now">Why now</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="feedstocks.html">Feedstocks</a>
+        <a href="index.html#industries">Industries</a>
+        <a href="index.html#opportunities">Opportunities</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary" href="index.html#contact">Request feedstock review</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Technical services for mineral feedstocks</div>
+
+          <h1>Services that turn uncertain mineral streams into actionable development pathways</h1>
+
+          <p>
+            We help Australian industry assess natural and industrial mineral side-streams — including tailings, slags, clay-rich soils, quarry fines, and mineral residues — and determine whether they are worth developing for low-carbon construction materials and related mineral products.
+          </p>
+
+          <p style="margin-top: 16px;">
+            Our work connects mineralogy, chemistry, reactivity, processing, and performance so clients can move from scattered material data to a realistic next step.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Explore services</a>
+            <a class="btn btn-secondary" href="index.html#contact">Discuss a project</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Typical service outcomes</h3>
+          <p>We help partners make better technical decisions before committing to broader testing or pilot work.</p>
+
+          <div class="hero-list">
+            <div>Clarify whether a feedstock is worth developing</div>
+            <div>Identify the most realistic activation or processing pathway</div>
+            <div>Define the key tests needed before pilot stage</div>
+            <div>Translate material data into decision-ready technical direction</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-strip">
+      <div class="container">
+        <div class="services-strip-grid">
+          <div class="services-strip-item">Feedstock screening</div>
+          <div class="services-strip-item">Reactivity testing</div>
+          <div class="services-strip-item">Mineralogical interpretation</div>
+          <div class="services-strip-item">Process pathways</div>
+          <div class="services-strip-item">Performance testing</div>
+          <div class="services-strip-item">Strategic assessment</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-intro">
+          <h2>Core services</h2>
+          <p>
+            We support mineral feedstock development from early screening through to performance-focused technical guidance.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Feedstock qualification</h3>
+            <p>
+              Assess chemistry, mineralogy, contaminants, and variability of mineral side-streams to determine whether they are technically worth advancing.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Reactivity assessment</h3>
+            <p>
+              Evaluate whether a material shows pozzolanic, alkali-activation, or other reactive potential relevant to low-carbon binder systems.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Mineralogical interpretation</h3>
+            <p>
+              Translate mineralogical and microstructural data into practical insights about likely behaviour, limitations, and product fit.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Activation strategy development</h3>
+            <p>
+              Identify technically realistic pathways such as calcination, alkaline activation, blending, classification, or stabilisation.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Material performance testing</h3>
+            <p>
+              Define and assess relevant testing pathways for strength, reaction behaviour, durability indicators, and early product feasibility.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Strategic resource assessment</h3>
+            <p>
+              Help prioritise deposits, residues, or stockpiled materials based on technical promise, likely constraints, and development logic.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-intro">
+          <h2>What each service can include</h2>
+          <p>
+            The exact scope depends on the material and the decision the client needs to make, but these are the typical elements.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Feedstock qualification and interpretation</h3>
+            <ul>
+              <li>Review of available chemistry and mineralogy data</li>
+              <li>Assessment of likely reactive phases and inert fractions</li>
+              <li>Identification of impurities, contaminants, or variability risks</li>
+              <li>Initial view on technical suitability and likely constraints</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Reactivity and binder relevance</h3>
+            <ul>
+              <li>Pozzolanic and dissolution-oriented assessment logic</li>
+              <li>Potential for alkali activation or thermal activation</li>
+              <li>Preliminary relevance for low-cement or alternative binder systems</li>
+              <li>Comparison of candidate material pathways</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Processing and activation pathways</h3>
+            <ul>
+              <li>Calcination pathway suitability</li>
+              <li>Grinding, classification, washing, or blending needs</li>
+              <li>Alignment between processing demand and target application</li>
+              <li>Practical next-step testing recommendations</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Performance-focused technical direction</h3>
+            <ul>
+              <li>Definition of the most useful next laboratory tests</li>
+              <li>Guidance for pilot-oriented material evaluation</li>
+              <li>Early no-go or prioritisation decisions where appropriate</li>
+              <li>Clear summary of what is promising and what is blocking progress</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-intro">
+          <h2>How projects usually start</h2>
+          <p>
+            Most projects begin with a short technical review of the available material data. From there, we identify realistic pathways and the most useful next tests.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="number">1</div>
+            <h3>Share material information</h3>
+            <p>
+              Provide chemistry, mineralogy, site context, or a short description of the feedstock and the opportunity being considered.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="number">2</div>
+            <h3>Initial technical screening</h3>
+            <p>
+              We review the material through the lens of mineral phases, reactivity, contaminants, processing demand, and possible end uses.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="number">3</div>
+            <h3>Define realistic pathways</h3>
+            <p>
+              We identify plausible activation, blending, or stabilisation routes and where the strongest technical case may sit.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="number">4</div>
+            <h3>Recommend next steps</h3>
+            <p>
+              The output is a practical direction for targeted testing, deeper evaluation, or an early no-go decision.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-intro">
+          <h2>Who these services are for</h2>
+          <p>
+            Mineral side-stream evaluation creates value across multiple material-intensive sectors that need practical, science-led qualification.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Cement and concrete producers</h3>
+            <p>
+              Developing lower-cement materials, alternative SCMs, and new mineral feedstock options.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Mining and mineral processing companies</h3>
+            <p>
+              Exploring new value pathways for tailings, fines, stockpiles, and mineral residues.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Metallurgical and industrial producers</h3>
+            <p>
+              Assessing slags and other by-products for useful material applications rather than disposal.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Waste and remediation firms</h3>
+            <p>
+              Evaluating treated soils and complex mineral streams for reuse, stabilisation, or immobilisation pathways.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Government and infrastructure agencies</h3>
+            <p>
+              Assessing circular material pathways and landfill reduction opportunities grounded in technical evidence.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Construction materials innovators</h3>
+            <p>
+              Startups and R&D teams developing next-generation mineral materials and low-carbon product concepts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="section section-alt">
+      <div class="container">
+        <div class="section-intro">
+          <h2>Why Mineral Activation Labs</h2>
+          <p>
+            Mineral Activation Labs combines expertise in mineralogy, materials science, and civil engineering to evaluate the real potential of mineral side-streams.
+          </p>
+        </div>
+
+        <div class="why-us-box">
+          <p>
+            Our approach connects mineralogical characterisation with reaction mechanisms, processing logic, and practical material applications, helping partners move from uncertain feedstock data to realistic technical pathways.
+          </p>
+
+          <p class="founder-line">
+            Led by Vitalii Ponomar, a researcher specialising in low-carbon construction materials, mineral activation, calcined clays, and mineral-based binders.
+          </p>
+
+          <div class="bullet-grid">
+            <div>Australian market relevance</div>
+            <div>Strong understanding of construction materials</div>
+            <div>Scientific depth with application focus</div>
+            <div>Clear and realistic technical assessment</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Need to assess a mineral feedstock?</h2>
+          <p>
+            If you have tailings, slags, clay-rich soils, quarry fines, or other mineral residues, we can help evaluate whether they have realistic value in construction materials or related mineral-based products.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:hello@yourdomain.com">Email us</a>
+            <a class="btn btn-secondary" href="feedstocks.html">View feedstocks</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© Mineral Activation Labs</div>
+  </footer>
+</body>
+</html>
