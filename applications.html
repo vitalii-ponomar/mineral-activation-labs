@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applications | Mineral Activation Labs</title>
+  <meta
+    name="description"
+    content="Application pathways for underused mineral feedstocks, including SCMs, activated binders, low-cement materials, stabilisation, fired products, and carbonation-related mineral products."
+  />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f6f7f4;
+      --text: #17261c;
+      --muted: rgba(23, 38, 28, 0.72);
+      --border: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(23, 38, 28, 0.2);
+      --tag-bg: #f1f3ef;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      --radius: 22px;
+      --container: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      height: 44px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.78;
+      transition: opacity 0.2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.active {
+      opacity: 1;
+    }
+
+    .page-section {
+      padding: 5rem 0;
+    }
+
+    .section-soft {
+      background: var(--bg-soft);
+    }
+
+    .section-heading {
+      margin-bottom: 2rem;
+    }
+
+    .section-heading.narrow,
+    .text-block.narrow {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.68;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .section-heading h1 {
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .section-heading h2,
+    .text-block h2,
+    .cta-box h2 {
+      margin-bottom: 1rem;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+    }
+
+    .section-lead,
+    .text-block p,
+    .info-card p,
+    .feature-card p,
+    .pathway-item p,
+    .cta-box p,
+    .footer-text {
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .card-grid,
+    .feature-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .card-grid.two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feature-grid.four-col {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .info-card,
+    .feature-card,
+    .pathway-item,
+    .cta-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h2,
+    .feature-card h3,
+    .pathway-item h3 {
+      margin-bottom: 0.85rem;
+    }
+
+    .info-card h2 {
+      font-size: 1.22rem;
+    }
+
+    .card-label {
+      margin-top: 1rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      opacity: 0.7;
+    }
+
+    .feature-number {
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      opacity: 0.55;
+    }
+
+    .pathway-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.65rem 0.95rem;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      font-size: 0.95rem;
+    }
+
+    .cta-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--text);
+      color: #ffffff;
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+    }
+
+    .site-footer {
+      padding: 2.25rem 0 3rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      background: #ffffff;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .footer-brand {
+      margin: 0 0 0.5rem;
+      font-weight: 700;
+    }
+
+    .footer-text {
+      margin: 0;
+      max-width: 560px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
+      .header-inner,
+      .footer-inner,
+      .cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .card-grid.two-col,
+      .feature-grid.four-col {
+        grid-template-columns: 1fr;
+      }
+
+      .site-nav {
+        gap: 0.9rem;
+      }
+
+      .brand-text {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Mineral Activation Labs home">
+        <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="brand-logo" />
+        <span class="brand-text">Mineral Activation Labs</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="feedstocks.html">Feedstocks</a>
+        <a href="services.html">Services</a>
+        <a href="applications.html" class="active" aria-current="page">Applications</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <div class="container">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Applications</p>
+          <h1>Core application categories</h1>
+          <p class="section-lead">
+            Mineral side streams can support a range of construction and mineral-based
+            products. The most suitable pathway depends on mineralogy, chemistry,
+            reactivity, processing demand, and performance requirements.
+          </p>
+        </div>
+
+        <div class="card-grid two-col">
+          <article class="info-card">
+            <h2>Supplementary cementitious materials (SCMs)</h2>
+            <p>
+              Selected mineral resources can partially replace Portland cement where
+              chemistry, amorphous content, and fineness support pozzolanic or latent
+              hydraulic behaviour.
+            </p>
+            <p class="card-label">Typical candidates</p>
+            <p>
+              Calcined clay-rich soils, certain metallurgical slags, reactive quarry fines,
+              and aluminosilicate residues.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h2>Alkali-activated and alternative binders</h2>
+            <p>
+              Some mineral streams are better suited to activated binder systems than to
+              direct cement replacement. Suitability depends on dissolution behaviour,
+              phase assemblage, and activator compatibility.
+            </p>
+            <p class="card-label">Typical candidates</p>
+            <p>
+              Slags, Fe-rich industrial byproducts, calcined clays, and blended mineral residues.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h2>Low-cement construction materials</h2>
+            <p>
+              Mineral resources can be incorporated into low-cement formulations where
+              the goal is to reduce clinker demand while maintaining practical performance.
+            </p>
+            <p class="card-label">Typical applications</p>
+            <p>
+              Concrete and mortar blends, flowable fill, controlled low-strength materials,
+              and stabilised construction products.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h2>Stabilisation and engineered fill</h2>
+            <p>
+              Some mineral streams are better suited to large-volume civil applications
+              than to high-reactivity binder systems, particularly where scale and logistics matter.
+            </p>
+            <p class="card-label">Typical applications</p>
+            <p>
+              Soil stabilisation, road base improvement, embankment materials, and engineered fill.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h2>Fired mineral products</h2>
+            <p>
+              Certain clay-rich or mineral-rich materials may be more suitable for thermally
+              processed products than for direct cementitious use.
+            </p>
+            <p class="card-label">Typical applications</p>
+            <p>
+              Bricks, ceramic products, lightweight aggregates, and thermally stabilised materials.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h2>Carbonation-related mineral products</h2>
+            <p>
+              Some calcium- or magnesium-bearing materials can participate in carbonation
+              pathways, enabling carbonated mineral products and CO₂-reactive construction materials.
+            </p>
+            <p class="card-label">Typical candidates</p>
+            <p>
+              Ca- or Mg-rich slags, alkaline residues, and reactive silicate-rich byproducts.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section section-soft">
+      <div class="container">
+        <div class="section-heading narrow">
+          <h2>How application pathways are identified</h2>
+          <p class="section-lead">
+            Selecting the right application pathway requires linking material properties
+            with realistic processing and performance targets.
+          </p>
+        </div>
+
+        <div class="feature-grid four-col">
+          <div class="feature-card">
+            <span class="feature-number">01</span>
+            <h3>Mineralogy</h3>
+            <p>
+              Phase assemblage controls reactivity, phase evolution, and compatibility
+              with binder or stabilisation systems.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-number">02</span>
+            <h3>Chemistry</h3>
+            <p>
+              Bulk and surface chemistry influence binder formation, impurity risks,
+              durability performance, and environmental fit.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-number">03</span>
+            <h3>Processing demand</h3>
+            <p>
+              Grinding, calcination, classification, washing, or activation steps often
+              determine whether a pathway is realistic.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-number">04</span>
+            <h3>Deployment context</h3>
+            <p>
+              Volume availability, supply consistency, location, and logistics strongly
+              influence whether a resource can support a practical product pathway.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="text-block narrow">
+          <h2>Not every feedstock belongs in the same product</h2>
+          <p>
+            Many mineral resources are assessed mainly through the lens of cement replacement.
+            In practice, this is often not the strongest pathway.
+          </p>
+          <p>
+            Some materials show limited pozzolanic performance but work well in activated
+            systems. Others may not justify complex processing but are well suited to
+            stabilisation or large-volume civil use.
+          </p>
+          <p>
+            Identifying the right pathway early helps avoid unnecessary testing and keeps
+            development focused on technically realistic opportunities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section section-soft">
+      <div class="container">
+        <div class="section-heading narrow">
+          <h2>Example development pathways</h2>
+        </div>
+
+        <div class="pathway-list">
+          <div class="pathway-item">
+            <h3>Clay-rich soils</h3>
+            <p>Calcination screening → SCM or low-cement blend potential</p>
+          </div>
+
+          <div class="pathway-item">
+            <h3>Fe-rich slags</h3>
+            <p>Activation assessment → Alternative binder systems</p>
+          </div>
+
+          <div class="pathway-item">
+            <h3>Mixed mineral fines</h3>
+            <p>Processing evaluation → Stabilised fill or civil materials</p>
+          </div>
+
+          <div class="pathway-item">
+            <h3>Calcium-rich residues</h3>
+            <p>Carbonation testing → Carbonated mineral products</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="section-heading narrow">
+          <h2>Relevant to</h2>
+        </div>
+
+        <div class="tag-list">
+          <span class="tag">Cement and concrete producers</span>
+          <span class="tag">Quarry and mining operators</span>
+          <span class="tag">Waste and resource recovery companies</span>
+          <span class="tag">Infrastructure and transport stakeholders</span>
+          <span class="tag">Low-carbon construction product developers</span>
+          <span class="tag">Industrial sites managing mineral residues</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <p class="eyebrow">Next step</p>
+            <h2>Looking for the right use pathway for a mineral resource?</h2>
+            <p>
+              We help determine which application pathways are technically credible and worth developing further.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <a class="button button-primary" href="contact.html">Discuss a project</a>
+            <a class="button button-secondary" href="services.html">Explore services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">Mineral Activation Labs</p>
+        <p class="footer-text">
+          Science-led evaluation of mineral feedstocks for low-carbon construction and related mineral products.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="feedstocks.html">Feedstocks</a>
+        <a href="services.html">Services</a>
+        <a href="applications.html">Applications</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
