@@ -1,854 +1,238 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Science | Mineral Activation Labs</title>
-  <meta name="description" content="Mechanism-level mineral science for difficult feedstocks, low-carbon materials, and decision-ready technical direction." />
-  <style>
-    :root {
-      --bg: #08111f;
-      --bg-2: #0d1728;
-      --panel: rgba(255,255,255,0.05);
-      --panel-2: rgba(255,255,255,0.08);
-      --line: rgba(255,255,255,0.12);
-      --line-strong: rgba(255,255,255,0.18);
-      --text: #e7eef8;
-      --muted: #9fb1c8;
-      --heading: #f8fbff;
-      --accent: #7dd3fc;
-      --accent-2: #86efac;
-      --accent-3: #c4b5fd;
-      --max: 1180px;
-      --radius: 22px;
-      --shadow: 0 24px 60px rgba(0,0,0,0.35);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(125,211,252,0.10), transparent 30%),
-        radial-gradient(circle at top right, rgba(134,239,172,0.08), transparent 26%),
-        linear-gradient(180deg, #07101c 0%, #0a1220 42%, #0d1728 100%);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(7, 13, 24, 0.78);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-wrap {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: linear-gradient(135deg, rgba(125,211,252,0.20), rgba(134,239,172,0.18));
-      display: grid;
-      place-items: center;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-      flex: 0 0 auto;
-    }
-
-    .brand-mark span {
-      font-size: 0.9rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      color: var(--heading);
-    }
-
-    .brand-title {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--heading);
-      letter-spacing: 0.01em;
-    }
-
-    .brand-sub {
-      margin: 2px 0 0;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
-    }
-
-    .nav a:hover,
-    .nav a.active {
-      color: var(--heading);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 650;
-      font-size: 0.96rem;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      cursor: pointer;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-primary {
-      color: #07111c;
-      background: linear-gradient(135deg, var(--accent-2), #d9f99d);
-      box-shadow: 0 14px 34px rgba(134,239,172,0.18);
-    }
-
-    .btn-secondary {
-      color: var(--heading);
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.12);
-    }
-
-    .section { padding: 92px 0; }
-    .section-tight { padding: 70px 0; }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: #c7fbdd;
-      background: rgba(134,239,172,0.08);
-      border: 1px solid rgba(134,239,172,0.18);
-    }
-
-    h1, h2, h3, h4 { margin: 0; color: var(--heading); line-height: 1.08; }
-    h1 { font-size: clamp(2.9rem, 5.2vw, 5.3rem); letter-spacing: -0.045em; max-width: 12ch; }
-    h2 { font-size: clamp(2rem, 3vw, 3.2rem); letter-spacing: -0.04em; max-width: 12ch; }
-    h3 { font-size: 1.28rem; letter-spacing: -0.02em; }
-    p { margin: 0; }
-
-    .lead { font-size: 1.12rem; color: #c6d3e5; max-width: 62ch; }
-    .section-head { display: grid; gap: 16px; margin-bottom: 34px; }
-    .section-kicker { max-width: 56ch; color: var(--muted); font-size: 1rem; }
-
-    .hero {
-      padding: 96px 0 54px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -120px;
-      top: 40px;
-      width: 440px;
-      height: 440px;
-      background: radial-gradient(circle, rgba(125,211,252,0.12), transparent 66%);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 34px;
-      align-items: end;
-    }
-
-    .hero-copy {
-      display: grid;
-      gap: 20px;
-    }
-
-    .hero-statement {
-      font-size: 1.36rem;
-      color: var(--heading);
-      font-weight: 650;
-      max-width: 34ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      padding-top: 8px;
-    }
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      margin-top: 8px;
-    }
-
-    .proof-card strong {
-      display: block;
-      font-size: 1.85rem;
-      letter-spacing: -0.04em;
-      color: var(--heading);
-    }
-
-    .proof-card span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .hero-panel {
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      box-shadow: var(--shadow);
-      padding: 28px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      top: -16%;
-      right: -10%;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(196,181,253,0.12), transparent 68%);
-    }
-
-    .panel-label {
-      display: inline-block;
-      margin-bottom: 14px;
-      font-size: 0.78rem;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: #bddcf7;
-    }
-
-    .panel-title {
-      font-size: 1.44rem;
-      letter-spacing: -0.03em;
-      max-width: 20ch;
-      margin-bottom: 16px;
-    }
-
-    .panel-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .panel-list li {
-      padding: 14px 0;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      color: #d7e3f3;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .thesis-card,
-    .stack-card,
-    .cta-card,
-    .focus-card,
-    .systems-card {
-      border-radius: var(--radius);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .thesis-card,
-    .cta-card,
-    .stack-card,
-    .systems-card { padding: 28px; }
-
-    .thesis-card p + p { margin-top: 16px; color: var(--muted); }
-    .thesis-quote {
-      margin-top: 22px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      font-size: 1.08rem;
-      color: var(--heading);
-      font-weight: 650;
-    }
-
-    .diagnostics-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .diagnostic-card {
-      padding: 24px;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.10);
-      display: grid;
-      gap: 14px;
-      min-height: 100%;
-    }
-
-    .card-number {
-      font-size: 0.84rem;
-      font-weight: 800;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .diagnostic-card p { color: #cbd8ea; }
-
-    .why-line {
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      color: var(--heading);
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .stack-card h3 { margin-bottom: 14px; }
-
-    .stack-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      color: #d0ddef;
-    }
-
-    .stack-list li {
-      position: relative;
-      padding-left: 18px;
-    }
-
-    .stack-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.72em;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    }
-
-    .stack-note {
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      color: var(--heading);
-      font-weight: 600;
-    }
-
-    .decision-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .decision-card {
-      padding: 22px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      display: grid;
-      gap: 12px;
-    }
-
-    .decision-card strong {
-      font-size: 1.05rem;
-      color: var(--heading);
-      letter-spacing: -0.02em;
-    }
-
-    .decision-card p { color: var(--muted); font-size: 0.95rem; }
-
-    .decision-outcome {
-      margin-top: 24px;
-      padding: 22px 24px;
-      border-radius: 20px;
-      border: 1px solid rgba(134,239,172,0.18);
-      background: linear-gradient(135deg, rgba(134,239,172,0.08), rgba(125,211,252,0.05));
-      color: var(--heading);
-      font-weight: 650;
-    }
-
-    .focus-grid,
-    .systems-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .focus-card,
-    .systems-card {
-      padding: 26px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .focus-card p,
-    .systems-card p { color: #ccdaec; }
-
-    .focus-list,
-    .systems-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .focus-list li,
-    .systems-list li {
-      padding-left: 18px;
-      position: relative;
-      color: #d7e4f4;
-    }
-
-    .focus-list li::before,
-    .systems-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.72em;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent-2);
-    }
-
-    .cta-shell {
-      border-radius: 30px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(125,211,252,0.32), rgba(134,239,172,0.22), rgba(196,181,253,0.18));
-      box-shadow: var(--shadow);
-    }
-
-    .cta-card {
-      border-radius: 29px;
-      background: linear-gradient(180deg, rgba(12,20,34,0.96), rgba(10,18,31,0.98));
-      border: 1px solid rgba(255,255,255,0.10);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 22px;
-      align-items: center;
-    }
-
-    .cta-copy h2 { max-width: 14ch; }
-    .cta-copy p { margin-top: 14px; max-width: 58ch; color: #cad7e9; }
-    .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
-
-    footer {
-      padding: 34px 0 54px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .footer-nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .split,
-      .cta-card,
-      .stack-grid,
-      .decision-grid,
-      .focus-grid,
-      .systems-grid,
-      .diagnostics-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-actions { justify-content: flex-start; }
-      h1 { max-width: 14ch; }
-      .decision-card { min-height: auto; }
-    }
-
-    @media (max-width: 760px) {
-      .container { width: min(var(--max), calc(100% - 28px)); }
-      .nav-wrap { padding: 14px 0; align-items: flex-start; }
-      .nav { gap: 14px; }
-      .hero { padding-top: 74px; }
-      .proof-grid { grid-template-columns: 1fr; }
-      .hero-panel,
-      .thesis-card,
-      .stack-card,
-      .focus-card,
-      .systems-card,
-      .diagnostic-card,
-      .decision-card,
-      .cta-card { padding: 22px; }
-    }
-  </style>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html">
-        <div class="brand-mark"><span>MA</span></div>
-        <div>
-          <p class="brand-title">Mineral Activation Labs</p>
-          <p class="brand-sub">Science-led mineral feedstock strategy</p>
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <span class="eyebrow">Science</span>
+        <h1>We solve the materials problems others can’t explain</h1>
+
+        <p>
+          Most mineral projects fail because the feedstock is not understood at the level that actually controls performance. 
+          We work at that level — linking mineralogy, reactivity, interfaces, processing, and durability to real decisions.
+        </p>
+
+        <div class="hero-actions">
+          <a href="index.html#contact" class="btn btn-primary">Discuss a material</a>
+          <a href="services.html" class="btn btn-secondary">Explore services</a>
         </div>
-      </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="feedstocks.html">Feedstocks</a>
-        <a href="services.html">Services</a>
-        <a href="applications.html">Applications</a>
-        <a href="projects.html">Projects</a>
-        <a class="active" href="science.html">Science</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+      </div>
+
+      <div class="hero-card">
+        <h3>Where this matters</h3>
+        <div class="hero-list">
+          <div>Material looks promising, but performance is unclear</div>
+          <div>Lab results don’t translate to scale</div>
+          <div>High variability with no clear explanation</div>
+          <div>Decision needed before pilot or investment</div>
+        </div>
+      </div>
+
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Mechanism-level science</span>
-          <h1>We solve the materials problems others can’t explain</h1>
-          <p class="lead">Most mineral projects fail because the feedstock is not understood at the level that actually controls performance. We work at that level — where mineralogy, chemistry, interfaces, and processing determine whether a material becomes viable or stalls.</p>
-          <p class="hero-statement">This is not generic testing. This is decision-grade scientific diagnosis for difficult mineral systems.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="contact.html">Discuss a material</a>
-            <a class="btn btn-secondary" href="services.html">Explore services</a>
-          </div>
-          <div class="proof-grid">
-            <div class="proof-card">
-              <strong>Mechanism</strong>
-              <span>Identify what is reactive, what is inert, and what limits the system.</span>
-            </div>
-            <div class="proof-card">
-              <strong>Processing</strong>
-              <span>Define the minimum viable route instead of over-processing by habit.</span>
-            </div>
-            <div class="proof-card">
-              <strong>Decision</strong>
-              <span>Translate complex material behaviour into proceed, modify, or stop.</span>
-            </div>
-          </div>
-        </div>
 
-        <aside class="hero-panel">
-          <div class="panel-label">Why clients come to us</div>
-          <h2 class="panel-title">When the feedstock is variable, impure, or technically uncertain</h2>
-          <ul class="panel-list">
-            <li>A material looks promising on chemistry but fails in performance.</li>
-            <li>Lab results are inconsistent, non-scalable, or difficult to interpret.</li>
-            <li>The project is approaching pilot stage with unresolved technical risk.</li>
-            <li>Processing cost is rising without a clear mechanism-based justification.</li>
+  <!-- CORE THESIS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-intro">
+        <h2>The scientific edge</h2>
+        <p>
+          Every mineral feedstock has a reaction pathway, a processing threshold, and a performance ceiling.
+          Most projects never identify them clearly.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <ul class="feature-list">
+            <li>Identify what is actually reactive</li>
+            <li>Map how reactions evolve over time</li>
+            <li>Link microstructure to performance</li>
+            <li>Define what must change for viability</li>
           </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="container split">
-        <div class="section-head">
-          <span class="eyebrow">Core thesis</span>
-          <h2>Materials do not fail randomly</h2>
-          <p class="section-kicker">Every mineral stream has a reaction pathway, a processing threshold, and a performance ceiling. Most projects never identify them clearly enough. That is the gap this page represents.</p>
-        </div>
-        <div class="thesis-card">
-          <p>Behind every underperforming feedstock is a mechanism that can be resolved: a locked-up phase assemblage, a passivating surface layer, a missing reactive fraction, an unstable gel, an avoidable processing burden, or a durability constraint that appears too late.</p>
-          <p>We interrogate those mechanisms directly so clients can act on technical reality rather than assumptions, averages, or scattered lab outputs.</p>
-          <div class="thesis-quote">If you understand the mechanism, you control the outcome. If you do not, you are guessing.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">What we actually resolve</span>
-          <h2>Five technical problems that decide whether a project moves</h2>
-          <p class="section-kicker">This is the science layer underneath feedstock strategy, activation design, and early development decisions.</p>
         </div>
 
-        <div class="diagnostics-grid">
-          <article class="diagnostic-card">
-            <div class="card-number">01 · Reactive fraction</div>
-            <h3>Identify what is truly reactive — and what is dead weight</h3>
-            <p>Separate reactive phases from inert mineral mass. Quantify amorphous versus crystalline contribution. Detect hidden constraints such as Fe-bearing phases, carbonates, clays, salts, or poorly accessible silica and alumina.</p>
-            <div class="why-line">Why it matters: many materials look attractive on bulk chemistry and fail on mineralogy.</div>
-          </article>
-
-          <article class="diagnostic-card">
-            <div class="card-number">02 · Reaction pathway</div>
-            <h3>Map what the system actually does after activation starts</h3>
-            <p>Track dissolution, ion release, gel formation, densification, and stabilisation. Distinguish a genuinely developing binder system from one limited by slow release, incomplete conversion, or surface passivation.</p>
-            <div class="why-line">Why it matters: performance is controlled by what forms, not just by what you begin with.</div>
-          </article>
-
-          <article class="diagnostic-card">
-            <div class="card-number">03 · Bonding mechanism</div>
-            <h3>Understand strength at the scale where it is created or lost</h3>
-            <p>Resolve interface-controlled bonding, intergranular bridge formation, local mechanical heterogeneity, and fracture pathways. Link nanoscale and microscale evidence to compressive performance and system robustness.</p>
-            <div class="why-line">Why it matters: strength is rarely a bulk mystery — it is usually an interface problem.</div>
-          </article>
-
-          <article class="diagnostic-card">
-            <div class="card-number">04 · Processing threshold</div>
-            <h3>Define the minimum viable processing pathway</h3>
-            <p>Clarify what actually needs to happen: grinding, calcination, classification, washing, blending, chemistry adjustment, or none of the above. Identify the point where extra energy stops generating real value.</p>
-            <div class="why-line">Why it matters: over-processing kills economics, under-processing kills performance.</div>
-          </article>
-
-          <article class="diagnostic-card">
-            <div class="card-number">05 · Durability risk</div>
-            <h3>Expose long-term failure mechanisms before scale-up absorbs them</h3>
-            <p>Assess whether formed phases are chemically stable, whether shrinkage or cracking risks are embedded in the system, and whether environmental exposure will degrade the product faster than early tests suggest.</p>
-            <div class="why-line">Why it matters: many materials pass early tests and fail in reality.</div>
-          </article>
-
-          <article class="diagnostic-card">
-            <div class="card-number">06 · Technical direction</div>
-            <h3>Turn complexity into a clear next move</h3>
-            <p>Once the controlling mechanism is visible, the path usually becomes simpler: proceed with confidence, modify the system intelligently, or stop before more money is spent on the wrong route.</p>
-            <div class="why-line">Why it matters: the goal is not more data. The goal is fewer wrong decisions.</div>
-          </article>
+        <div class="card">
+          <h3>If you understand the mechanism, you control the outcome</h3>
+          <p>
+            If you don’t — you are guessing.  
+            That difference decides whether projects succeed or fail.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Scientific stack</span>
-          <h2>We do not run instruments. We interrogate materials.</h2>
-          <p class="section-kicker">Advanced characterisation is only useful when it answers a mechanism-critical question.</p>
-        </div>
-
-        <div class="stack-grid">
-          <div class="stack-card">
-            <h3>Phase &amp; structure</h3>
-            <ul class="stack-list">
-              <li>XRD with quantitative phase analysis and Rietveld refinement</li>
-              <li>FTIR and Raman for bonding environment and reaction signatures</li>
-              <li>TGA / DSC for thermal evolution, dehydration, and phase stability</li>
-            </ul>
-          </div>
-
-          <div class="stack-card">
-            <h3>Interfaces &amp; microstructure</h3>
-            <ul class="stack-list">
-              <li>SEM / EDS for morphology, gel distribution, and fracture pathways</li>
-              <li>EPMA for higher-resolution compositional mapping where needed</li>
-              <li>AFM and nanomechanical mapping for interface-sensitive behaviour</li>
-            </ul>
-          </div>
-
-          <div class="stack-card">
-            <h3>Chemistry &amp; reactivity</h3>
-            <ul class="stack-list">
-              <li>ICP-based dissolution and leaching profiles</li>
-              <li>XPS for surface chemistry evolution and passivation behaviour</li>
-              <li>Solution or solid-state NMR where reaction environment demands it</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="stack-note">We select methods based on the mechanism we need to resolve — not the equipment we happen to have.</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">From mechanism to decision</span>
-          <h2>How complex material behaviour becomes actionable direction</h2>
-          <p class="section-kicker">This is where scientific depth becomes commercially useful.</p>
-        </div>
-
-        <div class="decision-grid">
-          <div class="decision-card">
-            <strong>What is present</strong>
-            <p>Resolve phase assemblage, impurities, and real feedstock architecture.</p>
-          </div>
-          <div class="decision-card">
-            <strong>What reacts</strong>
-            <p>Identify the accessible reactive fraction and the rate-limiting constraints.</p>
-          </div>
-          <div class="decision-card">
-            <strong>What forms</strong>
-            <p>Understand products, interfaces, densification, and stability pathways.</p>
-          </div>
-          <div class="decision-card">
-            <strong>What controls performance</strong>
-            <p>Link chemistry and structure to strength, consistency, and durability.</p>
-          </div>
-          <div class="decision-card">
-            <strong>What must change</strong>
-            <p>Adjust processing, blending, chemistry, or product direction with purpose.</p>
-          </div>
-        </div>
-
-        <div class="decision-outcome">Outcome: a decision-ready technical view on whether to proceed, modify, or stop — before uncertainty scales into cost.</div>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Where this becomes valuable</span>
-          <h2>The situations where deep technical resolution matters most</h2>
-        </div>
-
-        <div class="focus-grid">
-          <div class="focus-card">
-            <h3>When the project is technically stuck</h3>
-            <ul class="focus-list">
-              <li>A material should work on paper, but does not perform consistently.</li>
-              <li>Scale-up results diverge from laboratory outcomes.</li>
-              <li>Processing costs rise without a clear justification.</li>
-              <li>Durability or long-term stability remains uncertain.</li>
-            </ul>
-          </div>
-          <div class="focus-card">
-            <h3>When the project is commercially exposed</h3>
-            <ul class="focus-list">
-              <li>A feedstock looks promising but carries hidden technical risk.</li>
-              <li>A pilot decision is approaching and technical ambiguity remains.</li>
-              <li>An industrial residue is variable, impure, or difficult to qualify.</li>
-              <li>There is pressure to simplify the route without losing performance.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Grounded in real systems</span>
-          <h2>This is built on real materials, not ideal laboratory systems</h2>
-          <p class="section-kicker">We operate where variability, impurities, and commercial constraints are the norm.</p>
-        </div>
-
-        <div class="systems-grid">
-          <div class="systems-card">
-            <h3>Mineral streams we work around</h3>
-            <ul class="systems-list">
-              <li>Tailings, slags, and industrial mineral residues</li>
-              <li>Clay-rich soils, quarry fines, and low-grade side streams</li>
-              <li>Natural and industrial silicate-rich materials with variable behaviour</li>
-            </ul>
-          </div>
-          <div class="systems-card">
-            <h3>Material systems we think through</h3>
-            <ul class="systems-list">
-              <li>Alkali-activated and silicate-based binders</li>
-              <li>Low-cement and supplementary cementitious pathways</li>
-              <li>Alternative mineral products where reactivity and processing must align</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container cta-shell">
-        <div class="cta-card">
-          <div class="cta-copy">
-            <span class="eyebrow">Next step</span>
-            <h2>If the material is simple, you probably do not need this level of science</h2>
-            <p>If it is variable, reactive, poorly understood, or commercially important, this is often where projects either become decision-ready or become expensive detours.</p>
-          </div>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="contact.html">Discuss a material</a>
-            <a class="btn btn-secondary" href="projects.html">View project work</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-row">
-      <div>© Mineral Activation Labs</div>
-      <div class="footer-nav">
-        <a href="feedstocks.html">Feedstocks</a>
-        <a href="services.html">Services</a>
-        <a href="applications.html">Applications</a>
-        <a href="projects.html">Projects</a>
-        <a href="science.html">Science</a>
-        <a href="contact.html">Contact</a>
       </div>
     </div>
-  </footer>
-</body>
-</html>
+  </section>
+
+
+  <!-- WHAT WE SOLVE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h2>What we actually solve</h2>
+        <p>
+          These are the technical problems that determine whether a feedstock becomes a real material — or not.
+        </p>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="card">
+          <h3>Reactive vs inert</h3>
+          <p>Separate real reactivity from bulk mineral mass and misleading chemistry.</p>
+        </div>
+
+        <div class="card">
+          <h3>Reaction pathway</h3>
+          <p>Understand dissolution, gel formation, and where reactions stall.</p>
+        </div>
+
+        <div class="card">
+          <h3>Bonding mechanisms</h3>
+          <p>Resolve interface-controlled strength and failure behaviour.</p>
+        </div>
+
+        <div class="card">
+          <h3>Processing demand</h3>
+          <p>Define what processing is actually required — and what is waste.</p>
+        </div>
+
+        <div class="card">
+          <h3>Durability risk</h3>
+          <p>Predict long-term behaviour before it becomes a problem.</p>
+        </div>
+
+        <div class="card">
+          <h3>Decision point</h3>
+          <p>Translate complexity into a clear technical direction.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- METHODS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-intro">
+        <h2>How the science is applied</h2>
+        <p>
+          We use advanced characterisation selectively — to answer decision-critical questions.
+        </p>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="card">
+          <h4>Phase & structure</h4>
+          <p>XRD, FTIR, Raman, thermal analysis</p>
+        </div>
+
+        <div class="card">
+          <h4>Microstructure & interfaces</h4>
+          <p>SEM/EDS, EPMA, AFM, fracture analysis</p>
+        </div>
+
+        <div class="card">
+          <h4>Chemistry & reaction</h4>
+          <p>ICP, XPS, NMR, dissolution behaviour</p>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 30px;">
+        <p><strong>We select methods based on the mechanism — not the instrument.</strong></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROCESS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h2>From mechanism to decision</h2>
+      </div>
+
+      <div class="grid-4">
+
+        <div class="card">
+          <h4>1. What is present</h4>
+          <p>Real phase assemblage</p>
+        </div>
+
+        <div class="card">
+          <h4>2. What reacts</h4>
+          <p>Dissolution and kinetics</p>
+        </div>
+
+        <div class="card">
+          <h4>3. What forms</h4>
+          <p>Gel chemistry and interfaces</p>
+        </div>
+
+        <div class="card">
+          <h4>4. What controls performance</h4>
+          <p>Strength and durability limits</p>
+        </div>
+
+      </div>
+
+      <div class="process-card" style="margin-top: 30px;">
+        <p><strong>The goal is not more data. The goal is fewer wrong decisions.</strong></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROBLEMS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-intro">
+        <h2>When this becomes critical</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+          <ul class="feature-list">
+            <li>Material should work — but doesn’t</li>
+            <li>Performance is inconsistent</li>
+            <li>Scale-up fails</li>
+            <li>Processing cost is unclear</li>
+            <li>Hidden risks remain</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p>
+            At this stage, more testing is not the answer.  
+            Understanding the mechanism is.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>If your material is simple, you don’t need this level of science</h2>
+        <p>
+          If it isn’t — this is where projects succeed or fail.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="index.html#contact">Discuss a material</a>
+          <a class="btn btn-secondary" href="projects.html">View projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
