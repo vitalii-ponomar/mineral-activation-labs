@@ -6,7 +6,7 @@
   <title>Science | Mineral Activation Labs</title>
   <meta
     name="description"
-    content="Mechanism-level science for mineral feedstocks, activation pathways, and low-carbon material development."
+    content="Mineral Activation Labs applies mechanism-level science to understand mineral feedstocks, reaction pathways, and low-carbon material performance."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -154,7 +154,7 @@
       font-size: 50px;
       line-height: 1.08;
       letter-spacing: -0.04em;
-      max-width: 780px;
+      max-width: 760px;
     }
 
     .hero p {
@@ -329,17 +329,12 @@
       margin-bottom: 16px;
     }
 
-    .science-block,
-    .process-card,
-    .cta-box {
+    .science-block {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 34px;
       box-shadow: var(--shadow);
-    }
-
-    .science-block {
       margin-bottom: 24px;
     }
 
@@ -374,6 +369,7 @@
       border-radius: 20px;
       padding: 30px;
       box-shadow: var(--shadow);
+      border: 1px solid transparent;
     }
 
     .statement-box h3 {
@@ -388,6 +384,14 @@
       font-size: 16px;
     }
 
+    .process-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
     .signal-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -399,12 +403,13 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 28px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
       transition: 0.2s ease;
     }
 
     .signal-card:hover {
       transform: translateY(-4px);
+      box-shadow: var(--shadow);
     }
 
     .signal-card strong {
@@ -421,17 +426,12 @@
       font-size: 15px;
     }
 
-    .site-footer {
-      padding: 34px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 14px;
-      background: var(--white);
-    }
-
     .cta-box {
       background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
       color: white;
+      border-radius: 24px;
+      padding: 42px;
+      box-shadow: var(--shadow);
     }
 
     .cta-box h2 {
@@ -455,6 +455,14 @@
       background: transparent;
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .site-footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      background: var(--white);
     }
 
     @media (max-width: 1080px) {
