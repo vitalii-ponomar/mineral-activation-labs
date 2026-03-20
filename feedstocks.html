@@ -4,27 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Feedstocks | Mineral Activation Labs</title>
-  <meta name="description" content="Mineral feedstock categories, qualification logic, and the constraints that shape development potential." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Mineral Activation Labs evaluates clays, slags, tailings, soils, quarry fines, and mineral residues for low-carbon construction materials." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Mineral Activation Labs home">
-      <img src="logo.png" alt="Mineral Activation Labs logo" />
-      <span class="brand-text">Mineral Activation Labs</span>
+    <a href="index.html" class="brand" aria-label="Mineral Activation Labs home">
+      <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="brand-logo" />
+      <div class="brand-text">Mineral Activation Labs</div>
     </a>
-    <button class="nav-toggle" aria-label="Open navigation">☰</button>
-    <nav class="site-nav">
-      <a href="index.html" class="">Home</a>
-<a href="feedstocks.html" class="active">Feedstocks</a>
-<a href="services.html" class="">Services</a>
-<a href="applications.html" class="">Applications</a>
-<a href="projects.html" class="">Projects</a>
-<a href="science.html" class="">Science</a>
-<a href="about.html" class="">About</a>
-      <a href="contact.html" class="nav-cta ">Contact</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="">Home</a><a href="feedstocks.html" class="active">Feedstocks</a><a href="services.html" class="">Services</a><a href="applications.html" class="">Applications</a><a href="projects.html" class="">Projects</a><a href="science.html" class="">Science</a><a href="about.html" class="">About</a><a href="contact.html" class="nav-cta">Discuss a project</a>
     </nav>
   </div>
 </header>
@@ -32,90 +28,55 @@
 
 <section class="hero">
   <div class="container hero-grid">
-    <div class="hero-panel">
-      <span class="eyebrow">Feedstock strategy</span>
-      <h1>Strong mineral projects start with better feedstock selection.</h1>
-      <p>Not every mineral stream deserves the same development effort. The goal is to identify which materials are genuinely attractive, which only work under specific conditions, and which should be redirected or dropped early.</p>
+    <div class="hero-copy">
+      <div class="eyebrow">Feedstocks</div>
+      <h1>Core feedstock categories</h1>
+      <p>We focus on mineral feedstocks that may support low-carbon construction materials and related mineral products. The key question is not whether a material is available, but whether it can support a credible technical and commercial pathway.</p>
     </div>
-    <aside class="hero-side">
-      <div class="hero-kicker">The key feedstock questions</div>
-      <ul class="hero-list">
-        <li><strong>What is the material, really?</strong>Bulk chemistry alone rarely tells the full story.</li>
-        <li><strong>Where can it win?</strong>The right product route matters more than a generic “low-carbon” label.</li>
-        <li><strong>What could kill the opportunity?</strong>Processing demand, impurities, inconsistency, or weak market fit.</li>
-      </ul>
-    </aside>
+    <div class="hero-panel">
+      <h3>What usually decides feedstock value</h3>
+      <div class="hero-list">
+        <div class="hero-list-item"><strong>Reactivity</strong><span>Does the material actually contribute to useful phase formation or strength development?</span></div>
+        <div class="hero-list-item"><strong>Processing realism</strong><span>Will grinding, calcination, washing, or classification make the pathway uneconomic?</span></div>
+        <div class="hero-list-item"><strong>Supply reality</strong><span>Can it be sourced consistently at scale and in a location that makes sense?</span></div>
+      </div>
+    </div>
   </div>
 </section>
-
 <section class="section">
   <div class="container">
-    <div class="section-heading">
-      <div><span class="eyebrow">Core feedstock categories</span><h2>The most relevant material classes are broad. The technical logic for each is not.</h2></div>
-      <p>Different feedstocks carry different promises and different traps. Good qualification means recognising those differences early.</p>
-    </div>
+    <div class="section-heading"><h2>Feedstocks we evaluate</h2><p>Not every material belongs in the same product. Early evaluation helps determine whether a stream is best suited to SCM, activation, stabilisation, ceramics, carbonation, or no further development.</p></div>
     <div class="grid-3">
-      <div class="app-card"><span class="kicker">Clays</span><h3>Clay-rich soils and clay resources</h3><p>Useful in calcined clay routes, activated systems, stabilisation, and fired products when mineralogy and heat demand support the case.</p></div>
-      <div class="app-card"><span class="kicker">Slags</span><h3>Metallurgical and industrial slags</h3><p>Potentially strong in activated systems and blended materials, but often constrained by phase complexity, sulphates, iron-rich fractions, or processing history.</p></div>
-      <div class="app-card"><span class="kicker">Tailings</span><h3>Mining residues and quarry fines</h3><p>High-volume streams where scale can be attractive, but beneficiation burden and logistics often become decisive.</p></div>
-      <div class="app-card"><span class="kicker">Soils</span><h3>Excavated, treated, and fine earth materials</h3><p>Often overlooked, but capable of fitting stabilisation, low-cement blends, or fired products when properly classified and processed.</p></div>
-      <div class="app-card"><span class="kicker">Residues</span><h3>Fine mineral residues and process-derived materials</h3><p>Byproducts that may add real value as supplementary, filler, or blended components when composition and consistency are acceptable.</p></div>
-      <div class="app-card"><span class="kicker">Carbonation feedstocks</span><h3>Ca- and Mg-bearing mineral sources</h3><p>Relevant to accelerated carbonation, mineral curing, and carbon-linked product concepts where reaction pathway matters as much as chemistry.</p></div>
+      <div class="card"><div class="number">01</div><h3>Clay-rich soils and clays</h3><p>Often considered for calcined clay, low-cement blends, ceramics, or stabilisation. Mineral type and impurity profile matter more than bulk oxide chemistry alone.</p></div>
+      <div class="card"><div class="number">02</div><h3>Metallurgical slags</h3><p>Can behave as useful binder precursors or remain technically difficult depending on phase assemblage, chemistry, cooling history, and activator compatibility.</p></div>
+      <div class="card"><div class="number">03</div><h3>Tailings and mineral residues</h3><p>Need careful screening for inert dilution, variability, contaminant risk, and processing demand before higher-value applications are pursued.</p></div>
+      <div class="card"><div class="number">04</div><h3>Quarry fines and mixed mineral fines</h3><p>May create value in lower-intensity pathways such as blended materials, controlled low-strength applications, or engineered fill.</p></div>
+      <div class="card"><div class="number">05</div><h3>Calcium- or magnesium-rich residues</h3><p>Can open carbonation-related pathways where phase chemistry and reaction window support useful CO₂-reactive products.</p></div>
+      <div class="card"><div class="number">06</div><h3>Difficult secondary streams</h3><p>Some materials are neither simple wastes nor obvious products. These are often the most commercially interesting if the mechanism can be resolved.</p></div>
     </div>
   </div>
 </section>
-
 <section class="section">
-  <div class="container split">
-    <div>
-      <span class="eyebrow">What actually controls value</span>
-      <h2 style="margin:16px 0 14px;">A feedstock becomes attractive when technical fit and deployment fit line up.</h2>
-      <div class="timeline">
-        <div class="timeline-step"><strong>Mineralogy and phase assemblage</strong>Reactive phases, amorphous content, clay species, iron-bearing phases, and deleterious minerals define the real opportunity.</div>
-        <div class="timeline-step"><strong>Chemistry and impurities</strong>Major oxides matter, but salts, sulphates, organics, LOI, trace elements, and variability can matter more.</div>
-        <div class="timeline-step"><strong>Processing burden</strong>A feedstock that only works after intensive beneficiation may quickly lose its advantage.</div>
-        <div class="timeline-step"><strong>Supply reality</strong>Volume, repeatability, location, moisture, and handling often determine whether a pathway is commercially credible.</div>
-      </div>
-    </div>
-    <div class="table-card">
-      <table class="comparison">
-        <thead><tr><th>Indicator</th><th>Implication</th></tr></thead>
-        <tbody>
-          <tr><td><strong>High reactive fraction</strong></td><td>Improves the case for SCM or activated routes.</td></tr>
-          <tr><td><strong>Mostly inert mineralogy</strong></td><td>May still be valuable in fill, filler, ceramic, or blended pathways.</td></tr>
-          <tr><td><strong>Severe impurity burden</strong></td><td>Raises risk for standards fit, durability, processing, or environmental acceptance.</td></tr>
-          <tr><td><strong>Consistent large volume</strong></td><td>Makes project translation much more believable for manufacturers and infrastructure users.</td></tr>
-        </tbody>
-      </table>
+  <div class="container">
+    <div class="split-panel">
+      <div class="panel"><h2>Reactivity, scalability, and practicality</h2><p>A feedstock becomes valuable when mineralogy, chemistry, process demand, and likely performance align. Many streams fail not because they are unusable, but because the wrong pathway is selected too early.</p><ul class="list-clean"><li>Phase assemblage controls what is reactive and what is inert.</li><li>Chemistry shapes impurity risk, gel chemistry, and durability fit.</li><li>Processing determines whether technical promise survives commercial reality.</li></ul></div>
+      <div class="panel"><h2>Typical feedstock questions</h2><ul class="list-clean"><li>Is the feedstock worth developing at all?</li><li>Which application pathway is most technically credible?</li><li>What constraints will matter most before pilot scale?</li><li>What minimum testing set is needed to make the next decision?</li></ul></div>
     </div>
   </div>
 </section>
-
-<section class="section compact">
-  <div class="container band">
-    <div class="band-grid">
-      <div><span class="eyebrow">Early exclusion matters</span><h2>Knowing what not to develop is part of strong technical strategy.</h2><p>Feedstock qualification is not only about finding wins. It is also about stopping weak routes early and redirecting materials toward more realistic product categories.</p></div>
-      <div class="tags">
-        <span class="tag">Variability risk</span>
-        <span class="tag">Low reactive fraction</span>
-        <span class="tag">Heavy processing demand</span>
-        <span class="tag">Contaminant burden</span>
-        <span class="tag">Weak product fit</span>
-        <span class="tag">Poor logistics</span>
-      </div>
-    </div>
+<section class="section">
+  <div class="container">
+    <div class="cta-box"><h2>Have a mineral feedstock in mind?</h2><p>We help determine where the opportunity is real, what the main risks are, and what the next technically defensible step should be.</p><div class="cta-actions"><a href="contact.html" class="btn btn-primary">Discuss a feedstock</a><a href="applications.html" class="btn btn-secondary">See application pathways</a></div></div>
   </div>
 </section>
-
 </main>
 
-<footer class="footer">
+<footer class="site-footer">
   <div class="container footer-inner">
-    <p>Mineral Activation Labs — mineral feedstock strategy, materials science, and product direction for low-carbon development.</p>
-    <div class="footer-nav"><a href="index.html">Home</a><a href="feedstocks.html">Feedstocks</a><a href="services.html">Services</a><a href="applications.html">Applications</a><a href="projects.html">Projects</a><a href="science.html">Science</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
-    <p>© <span data-year></span> Mineral Activation Labs</p>
+    <div>© 2026 Mineral Activation Labs</div>
+    <div class="footer-nav"><a href="feedstocks.html">Feedstocks</a><a href="services.html">Services</a><a href="applications.html">Applications</a><a href="projects.html">Projects</a><a href="science.html">Science</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
   </div>
 </footer>
-<script src="script.js"></script>
+<script src="assets/script.js"></script>
 </body>
 </html>
