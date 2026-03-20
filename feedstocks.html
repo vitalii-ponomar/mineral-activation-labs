@@ -4,941 +4,118 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Feedstocks | Mineral Activation Labs</title>
-  <meta
-    name="description"
-    content="Mineral Activation Labs evaluates clays, slags, tailings, soils, quarry fines, and mineral residues for low-carbon construction materials."
-  />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --bg: #f8fafc;
-      --white: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --border: #e2e8f0;
-      --accent: #0f766e;
-      --accent-dark: #0c5f59;
-      --soft: #f1f5f9;
-      --shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-      --radius: 16px;
-      --container: min(1140px, 92%);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-
-    .container {
-      width: var(--container);
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(248, 250, 252, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 10px 0;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      min-width: 0;
-      flex-shrink: 0;
-    }
-
-    .logo-img {
-      height: 72px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .nav-links a.active {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 14px 22px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--border);
-      color: var(--text);
-      background: var(--white);
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow);
-    }
-
-    .hero {
-      padding: 120px 0 90px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: var(--white);
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    h1 {
-      margin: 0 0 20px;
-      font-size: 50px;
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      max-width: 760px;
-    }
-
-    .hero p {
-      margin: 0;
-      max-width: 720px;
-      font-size: 19px;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
-
-    .hero-card p {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .hero-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .hero-list div {
-      padding: 12px 14px;
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-size: 14px;
-      color: var(--text);
-    }
-
-    .anchor-strip {
-      padding: 18px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--white);
-      position: sticky;
-      top: 93px;
-      z-index: 900;
-    }
-
-    .anchor-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 14px;
-    }
-
-    .anchor-item {
-      padding: 14px 12px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: #fcfdff;
-      text-align: center;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    .anchor-item:hover {
-      color: var(--accent);
-      border-color: #c7d2e0;
-    }
-
-    .section {
-      padding: 95px 0;
-    }
-
-    .section-alt {
-      background: var(--soft);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-intro {
-      max-width: 820px;
-      margin-bottom: 40px;
-    }
-
-    h2 {
-      margin: 0 0 16px;
-      font-size: 36px;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-    }
-
-    .section-intro p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: 0.2s ease;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin: 0 0 12px;
-      font-size: 21px;
-      letter-spacing: -0.02em;
-    }
-
-    .card h4 {
-      margin: 0 0 10px;
-      font-size: 17px;
-      letter-spacing: -0.02em;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .number {
-      display: inline-flex;
-      width: 34px;
-      height: 34px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      background: #dff5f1;
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .feedstock-block {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 34px;
-      box-shadow: var(--shadow);
-      margin-bottom: 24px;
-    }
-
-    .feedstock-head {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 28px;
-      margin-bottom: 26px;
-      align-items: start;
-    }
-
-    .feedstock-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #eef8f6;
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 600;
-      border: 1px solid #d7ebe7;
-    }
-
-    .feature-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .feature-list li + li {
-      margin-top: 8px;
-    }
-
-    .matrix-wrap {
-      overflow-x: auto;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    table {
-      width: 100%;
-      min-width: 860px;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
-      font-size: 14px;
-    }
-
-    th {
-      background: #fcfdff;
-      color: var(--muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: #eef8f6;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      border: 1px solid #d7ebe7;
-      white-space: nowrap;
-    }
-
-    .process-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .faq-grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    details {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 20px;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    details p {
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
-      color: white;
-      border-radius: 24px;
-      padding: 42px;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-box h2 {
-      color: white;
-      margin-bottom: 14px;
-    }
-
-    .cta-box p {
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 760px;
-      margin: 0 0 24px;
-      font-size: 18px;
-    }
-
-    .cta-box .btn-primary {
-      background: white;
-      color: var(--accent);
-    }
-
-    .cta-box .btn-secondary {
-      background: transparent;
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-    }
-
-    .site-footer {
-      padding: 34px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 14px;
-      background: var(--white);
-    }
-
-    @media (max-width: 1080px) {
-      .anchor-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .grid-4,
-      .grid-3,
-      .grid-2,
-      .feedstock-head {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        flex-wrap: wrap;
-      }
-
-      .nav-links {
-        order: 3;
-        width: 100%;
-        gap: 14px;
-      }
-
-      h1 { font-size: 40px; }
-      h2 { font-size: 30px; }
-      .hero { padding: 90px 0 70px; }
-      .section { padding: 72px 0; }
-      .anchor-strip { top: 85px; }
-    }
-
-    @media (max-width: 640px) {
-      .anchor-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .logo-img {
-        height: 36px;
-      }
-
-      .feedstock-block,
-      .process-card,
-      .cta-box {
-        padding: 24px;
-      }
-    }
-  </style>
+  <meta name="description" content="Mineral feedstock categories, qualification logic, and the constraints that shape development potential." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <div class="logo">
-        <img src="logo.png" alt="Mineral Activation Labs" class="logo-img" />
-      </div>
 
-      <nav class="nav-links">
-        <a href="index.html#why-now">Why now</a>
-        <a href="index.html#services">Services</a>
-        <a href="feedstocks.html" class="active">Feedstocks</a>
-        <a href="index.html#industries">Industries</a>
-        <a href="index.html#opportunities">Opportunities</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Mineral Activation Labs home">
+      <img src="logo.png" alt="Mineral Activation Labs logo" />
+      <span class="brand-text">Mineral Activation Labs</span>
+    </a>
+    <button class="nav-toggle" aria-label="Open navigation">☰</button>
+    <nav class="site-nav">
+      <a href="index.html" class="">Home</a>
+<a href="feedstocks.html" class="active">Feedstocks</a>
+<a href="services.html" class="">Services</a>
+<a href="applications.html" class="">Applications</a>
+<a href="projects.html" class="">Projects</a>
+<a href="science.html" class="">Science</a>
+<a href="about.html" class="">About</a>
+      <a href="contact.html" class="nav-cta ">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
 
-      <a class="btn btn-primary" href="index.html#contact">Request feedstock review</a>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-panel">
+      <span class="eyebrow">Feedstock strategy</span>
+      <h1>Strong mineral projects start with better feedstock selection.</h1>
+      <p>Not every mineral stream deserves the same development effort. The goal is to identify which materials are genuinely attractive, which only work under specific conditions, and which should be redirected or dropped early.</p>
     </div>
-  </header>
+    <aside class="hero-side">
+      <div class="hero-kicker">The key feedstock questions</div>
+      <ul class="hero-list">
+        <li><strong>What is the material, really?</strong>Bulk chemistry alone rarely tells the full story.</li>
+        <li><strong>Where can it win?</strong>The right product route matters more than a generic “low-carbon” label.</li>
+        <li><strong>What could kill the opportunity?</strong>Processing demand, impurities, inconsistency, or weak market fit.</li>
+      </ul>
+    </aside>
+  </div>
+</section>
 
-  <main>
-    
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div><span class="eyebrow">Core feedstock categories</span><h2>The most relevant material classes are broad. The technical logic for each is not.</h2></div>
+      <p>Different feedstocks carry different promises and different traps. Good qualification means recognising those differences early.</p>
+    </div>
+    <div class="grid-3">
+      <div class="app-card"><span class="kicker">Clays</span><h3>Clay-rich soils and clay resources</h3><p>Useful in calcined clay routes, activated systems, stabilisation, and fired products when mineralogy and heat demand support the case.</p></div>
+      <div class="app-card"><span class="kicker">Slags</span><h3>Metallurgical and industrial slags</h3><p>Potentially strong in activated systems and blended materials, but often constrained by phase complexity, sulphates, iron-rich fractions, or processing history.</p></div>
+      <div class="app-card"><span class="kicker">Tailings</span><h3>Mining residues and quarry fines</h3><p>High-volume streams where scale can be attractive, but beneficiation burden and logistics often become decisive.</p></div>
+      <div class="app-card"><span class="kicker">Soils</span><h3>Excavated, treated, and fine earth materials</h3><p>Often overlooked, but capable of fitting stabilisation, low-cement blends, or fired products when properly classified and processed.</p></div>
+      <div class="app-card"><span class="kicker">Residues</span><h3>Fine mineral residues and process-derived materials</h3><p>Byproducts that may add real value as supplementary, filler, or blended components when composition and consistency are acceptable.</p></div>
+      <div class="app-card"><span class="kicker">Carbonation feedstocks</span><h3>Ca- and Mg-bearing mineral sources</h3><p>Relevant to accelerated carbonation, mineral curing, and carbon-linked product concepts where reaction pathway matters as much as chemistry.</p></div>
+    </div>
+  </div>
+</section>
 
-    <section id="categories" class="section section-alt">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Core feedstock categories</h2>
-          <p>
-            The page is intentionally focused on five feedstock groups that are most relevant to low-carbon construction materials and mineral valorisation work: clays, soils, slags, tailings, and fine mineral residues.
-          </p>
-        </div>
-
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">01</div>
-              <h3>Clays</h3>
-            </div>
-            <p>
-              Clays are one of the clearest mineral feedstock opportunities for low-carbon binders, especially where activation or calcination can convert locally available materials into useful cementitious components.
-            </p>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Kaolinitic clays</span>
-            <span class="tag">Illitic clays</span>
-            <span class="tag">Smectitic clays</span>
-            <span class="tag">Mixed clay soils</span>
-          </div>
-          <div class="grid-3" style="margin-top: 24px;">
-            <div class="card">
-              <h4>Where the opportunity sits</h4>
-              <ul class="feature-list">
-                <li>Calcined clay SCMs</li>
-                <li>Reactive aluminosilicate precursors</li>
-                <li>Blended cement systems</li>
-                <li>Local substitution strategies</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>What usually limits value</h4>
-              <ul class="feature-list">
-                <li>Mineralogical variability</li>
-                <li>Quartz dilution and impurities</li>
-                <li>Thermal activation sensitivity</li>
-                <li>Processing cost and consistency</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Strategic note</h4>
-              <p>Clays tend to sit at the strongest intersection of technical promise, regional relevance, and long-term scalability.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">02</div>
-              <h3>Soils</h3>
-            </div>
-            <p>
-              Soil-derived feedstocks are usually less ideal in a purely chemical sense than selected clays or slags, but they become important where reuse, disposal pressure, and local circularity create a strong practical case.
-            </p>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Excavated soils</span>
-            <span class="tag">Treated soils</span>
-            <span class="tag">Construction spoil</span>
-            <span class="tag">Fine mineral fractions</span>
-          </div>
-          <div class="grid-3" style="margin-top: 24px;">
-            <div class="card">
-              <h4>Where the opportunity sits</h4>
-              <ul class="feature-list">
-                <li>Low-cement fill and flowable materials</li>
-                <li>Stabilised or activated soil-based systems</li>
-                <li>Blended mineral feedstocks</li>
-                <li>Higher-value reuse pathways</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>What usually limits value</h4>
-              <ul class="feature-list">
-                <li>Heterogeneity and moisture variability</li>
-                <li>Organics and contamination history</li>
-                <li>Regulatory constraints</li>
-                <li>Lower intrinsic reactivity</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Strategic note</h4>
-              <p>Soils are most compelling where practical reuse value matters more than maximum reactivity.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">03</div>
-              <h3>Slags</h3>
-            </div>
-            <p>
-              Slags remain benchmark industrial feedstocks for many cementitious and activated systems, although technical quality, route fit, and supply constraints differ strongly between slag types.
-            </p>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Granulated slag</span>
-            <span class="tag">Steel slag</span>
-            <span class="tag">Copper slag</span>
-            <span class="tag">Fe-rich slags</span>
-          </div>
-          <div class="grid-3" style="margin-top: 24px;">
-            <div class="card">
-              <h4>Where the opportunity sits</h4>
-              <ul class="feature-list">
-                <li>Alkali-activated binders</li>
-                <li>SCM replacement and blended systems</li>
-                <li>High-performance matrices</li>
-                <li>Selected carbonation routes</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>What usually limits value</h4>
-              <ul class="feature-list">
-                <li>Crystalline versus amorphous balance</li>
-                <li>Expansion or instability risks</li>
-                <li>Residual metals or sulfur</li>
-                <li>Plant-to-plant variability</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Strategic note</h4>
-              <p>Slags often offer strong performance, but the best slag opportunities are no longer simply about availability—they are about selective, route-specific use.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">04</div>
-              <h3>Tailings</h3>
-            </div>
-            <p>
-              Tailings matter because of their scale. They are rarely simple drop-in feedstocks, but they can become important where very large volumes justify pathway-specific development.
-            </p>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Silicate tailings</span>
-            <span class="tag">Iron ore tailings</span>
-            <span class="tag">Lithium residues</span>
-            <span class="tag">Beneficiation fines</span>
-          </div>
-          <div class="grid-3" style="margin-top: 24px;">
-            <div class="card">
-              <h4>Where the opportunity sits</h4>
-              <ul class="feature-list">
-                <li>Carbonation-reactive pathways</li>
-                <li>Supplementary mineral components</li>
-                <li>Engineered fill or binder blends</li>
-                <li>Large-volume regional material strategies</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>What usually limits value</h4>
-              <ul class="feature-list">
-                <li>Low reactivity in many systems</li>
-                <li>Residual reagents and contaminants</li>
-                <li>Water management and handling</li>
-                <li>Remote-site logistics</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Strategic note</h4>
-              <p>Tailings are most attractive when volume, site context, and pathway design align closely enough to overcome modest intrinsic value.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">05</div>
-              <h3>Fine mineral residues</h3>
-            </div>
-            <p>
-              Fine residues are often overlooked because they are not always highly reactive, yet they can still be commercially useful where modest performance contribution solves a real blending, packing, or disposal problem.
-            </p>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Fly ash</span>
-            <span class="tag">Kiln dusts</span>
-            <span class="tag">Crusher fines</span>
-            <span class="tag">Filter cakes</span>
-            <span class="tag">Quarry residues</span>
-          </div>
-          <div class="grid-3" style="margin-top: 24px;">
-            <div class="card">
-              <h4>Where the opportunity sits</h4>
-              <ul class="feature-list">
-                <li>Fine mineral blending</li>
-                <li>Filler and SCM hybrid roles</li>
-                <li>Packing optimisation</li>
-                <li>Local valorisation of overlooked by-products</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>What usually limits value</h4>
-              <ul class="feature-list">
-                <li>Inconsistent chemistry</li>
-                <li>Salts, carbon residues, or moisture</li>
-                <li>Limited fit without pre-treatment</li>
-                <li>Lower intrinsic reactivity</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Strategic note</h4>
-              <p>Fine residues are often strongest as practical system components rather than standalone headline feedstocks.</p>
-            </div>
-          </div>
-        </article>
+<section class="section">
+  <div class="container split">
+    <div>
+      <span class="eyebrow">What actually controls value</span>
+      <h2 style="margin:16px 0 14px;">A feedstock becomes attractive when technical fit and deployment fit line up.</h2>
+      <div class="timeline">
+        <div class="timeline-step"><strong>Mineralogy and phase assemblage</strong>Reactive phases, amorphous content, clay species, iron-bearing phases, and deleterious minerals define the real opportunity.</div>
+        <div class="timeline-step"><strong>Chemistry and impurities</strong>Major oxides matter, but salts, sulphates, organics, LOI, trace elements, and variability can matter more.</div>
+        <div class="timeline-step"><strong>Processing burden</strong>A feedstock that only works after intensive beneficiation may quickly lose its advantage.</div>
+        <div class="timeline-step"><strong>Supply reality</strong>Volume, repeatability, location, moisture, and handling often determine whether a pathway is commercially credible.</div>
       </div>
-    </section>
+    </div>
+    <div class="table-card">
+      <table class="comparison">
+        <thead><tr><th>Indicator</th><th>Implication</th></tr></thead>
+        <tbody>
+          <tr><td><strong>High reactive fraction</strong></td><td>Improves the case for SCM or activated routes.</td></tr>
+          <tr><td><strong>Mostly inert mineralogy</strong></td><td>May still be valuable in fill, filler, ceramic, or blended pathways.</td></tr>
+          <tr><td><strong>Severe impurity burden</strong></td><td>Raises risk for standards fit, durability, processing, or environmental acceptance.</td></tr>
+          <tr><td><strong>Consistent large volume</strong></td><td>Makes project translation much more believable for manufacturers and infrastructure users.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-    <section id="comparison" class="section">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Reactivity, scalability, and practicality</h2>
-          <p>
-            A useful feedstock is not simply the most reactive one. The more meaningful comparison is usually across three questions at once: how strong is the technical potential, how scalable is the supply, and how practical is the route to real use.
-          </p>
-        </div>
-
-        <div class="matrix-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Feedstock</th>
-                <th>Technical promise</th>
-                <th>Scalability</th>
-                <th>Practicality</th>
-                <th>Main advantage</th>
-                <th>Main constraint</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Kaolinitic clay</td>
-                <td><span class="pill">High</span></td>
-                <td><span class="pill">Medium–High</span></td>
-                <td><span class="pill">Medium</span></td>
-                <td>Strong reactivity pathway after activation</td>
-                <td>Processing intensity and deposit quality</td>
-              </tr>
-              <tr>
-                <td>Illitic or mixed clay soil</td>
-                <td><span class="pill">Medium</span></td>
-                <td><span class="pill">High</span></td>
-                <td><span class="pill">Medium</span></td>
-                <td>Broad regional relevance</td>
-                <td>More pathway-sensitive performance</td>
-              </tr>
-              <tr>
-                <td>Granulated slag-type feedstock</td>
-                <td><span class="pill">High</span></td>
-                <td><span class="pill">Medium</span></td>
-                <td><span class="pill">High</span></td>
-                <td>Strong benchmark performance</td>
-                <td>Supply and strategic availability</td>
-              </tr>
-              <tr>
-                <td>Steel slag</td>
-                <td><span class="pill">Medium</span></td>
-                <td><span class="pill">Medium</span></td>
-                <td><span class="pill">Medium</span></td>
-                <td>Large industrial relevance</td>
-                <td>Stability and route control</td>
-              </tr>
-              <tr>
-                <td>Mine tailings</td>
-                <td><span class="pill">Low–Medium</span></td>
-                <td><span class="pill">High</span></td>
-                <td><span class="pill">Low–Medium</span></td>
-                <td>Very large volume potential</td>
-                <td>Low intrinsic value in many cases</td>
-              </tr>
-              <tr>
-                <td>Excavated soils</td>
-                <td><span class="pill">Low–Medium</span></td>
-                <td><span class="pill">High</span></td>
-                <td><span class="pill">Medium</span></td>
-                <td>Strong circularity and reuse relevance</td>
-                <td>Variability and compliance constraints</td>
-              </tr>
-              <tr>
-                <td>Fine mineral residues</td>
-                <td><span class="pill">Low–Medium</span></td>
-                <td><span class="pill">Medium–High</span></td>
-                <td><span class="pill">High</span></td>
-                <td>Useful as pragmatic system components</td>
-                <td>Often limited as standalone reactive feedstocks</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<section class="section compact">
+  <div class="container band">
+    <div class="band-grid">
+      <div><span class="eyebrow">Early exclusion matters</span><h2>Knowing what not to develop is part of strong technical strategy.</h2><p>Feedstock qualification is not only about finding wins. It is also about stopping weak routes early and redirecting materials toward more realistic product categories.</p></div>
+      <div class="tags">
+        <span class="tag">Variability risk</span>
+        <span class="tag">Low reactive fraction</span>
+        <span class="tag">Heavy processing demand</span>
+        <span class="tag">Contaminant burden</span>
+        <span class="tag">Weak product fit</span>
+        <span class="tag">Poor logistics</span>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="faq" class="section"> class="section">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Feedstock questions</h2>
-          <p>
-            A few common questions that usually come up when thinking about whether a material stream is worth pursuing.
-          </p>
-        </div>
+</main>
 
-        <div class="faq-grid">
-          <details>
-            <summary>Do you only work with waste materials?</summary>
-            <p>No. The focus is broader than waste alone. Natural minerals, industrial residues, and underused side streams can all be relevant if they offer a credible low-carbon or circular-material opportunity.</p>
-          </details>
-          <details>
-            <summary>Can low-grade clays still be useful?</summary>
-            <p>Yes. Lower-grade materials can still be valuable when the target pathway, activation route, processing intensity, and local economics are aligned.</p>
-          </details>
-          <details>
-            <summary>Does a reactive material always make the best feedstock?</summary>
-            <p>Not necessarily. A highly reactive material may still be unattractive if supply is limited, variability is high, contaminants are problematic, or processing demand is too heavy.</p>
-          </details>
-          <details>
-            <summary>Do contaminants always rule out reuse?</summary>
-            <p>No. But contaminants can narrow pathway options, increase testing burden, or shift the most realistic use case toward more controlled applications.</p>
-          </details>
-          <details>
-            <summary>Can variable materials still be commercially viable?</summary>
-            <p>Sometimes yes. Variability can often be managed through screening, blending, quality windows, and pathway-specific specifications, provided the economics remain sensible.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="cta-box">
-          <h2>Have a mineral feedstock in mind?</h2>
-          <p>
-            Whether the material is a clay, slag, tailings stream, treated soil, or fine mineral residue, the key question is usually the same: is there a credible route from material availability to useful product value?
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:hello@yourdomain.com">Email us</a>
-            <a class="btn btn-secondary" href="index.html#contact">Contact page</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">© Mineral Activation Labs</div>
-  </footer>
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>Mineral Activation Labs — mineral feedstock strategy, materials science, and product direction for low-carbon development.</p>
+    <div class="footer-nav"><a href="index.html">Home</a><a href="feedstocks.html">Feedstocks</a><a href="services.html">Services</a><a href="applications.html">Applications</a><a href="projects.html">Projects</a><a href="science.html">Science</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    <p>© <span data-year></span> Mineral Activation Labs</p>
+  </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
