@@ -4,27 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Mineral Activation Labs</title>
-  <meta name="description" content="Contact Mineral Activation Labs for feedstock review, technical advisory, and collaboration enquiries." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Contact Mineral Activation Labs about feedstocks, projects, and technical collaborations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Mineral Activation Labs home">
-      <img src="logo.png" alt="Mineral Activation Labs logo" />
-      <span class="brand-text">Mineral Activation Labs</span>
+    <a href="index.html" class="brand" aria-label="Mineral Activation Labs home">
+      <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="brand-logo" />
+      <div class="brand-text">Mineral Activation Labs</div>
     </a>
-    <button class="nav-toggle" aria-label="Open navigation">☰</button>
-    <nav class="site-nav">
-      <a href="index.html" class="">Home</a>
-<a href="feedstocks.html" class="">Feedstocks</a>
-<a href="services.html" class="">Services</a>
-<a href="applications.html" class="">Applications</a>
-<a href="projects.html" class="">Projects</a>
-<a href="science.html" class="">Science</a>
-<a href="about.html" class="">About</a>
-      <a href="contact.html" class="nav-cta active">Contact</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="">Home</a><a href="feedstocks.html" class="">Feedstocks</a><a href="services.html" class="">Services</a><a href="applications.html" class="">Applications</a><a href="projects.html" class="">Projects</a><a href="science.html" class="">Science</a><a href="about.html" class="">About</a><a href="contact.html" class="nav-cta">Discuss a project</a>
     </nav>
   </div>
 </header>
@@ -32,68 +28,59 @@
 
 <section class="hero">
   <div class="container hero-grid">
-    <div class="hero-panel">
-      <span class="eyebrow">Contact</span>
-      <h1>Discuss a feedstock, technical question, or collaboration idea.</h1>
-      <p>Bring the material, the context, and the decision that needs to be made. Even limited data can be enough to begin a sharper conversation.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:hello@mineralactivationlabs.com">Email the team</a>
-      </div>
+    <div class="hero-copy">
+      <div class="eyebrow">Contact</div>
+      <h1>Discuss a feedstock, project, or technical collaboration</h1>
+      <p>This page is designed for serious enquiries around mineral feedstocks, industrial side streams, low-carbon materials development, and research or industry collaboration.</p>
+      <div class="hero-actions"><a href="mailto:hello@mineralactivationlabs.com" class="btn btn-primary">Email directly</a><a href="#enquiry" class="btn btn-secondary">Use the enquiry form</a></div>
     </div>
-    <aside class="hero-side">
-      <div class="hero-kicker">Typical reasons to get in touch</div>
-      <ul class="hero-list">
-        <li><strong>Feedstock assessment</strong>You need an early technical view on a mineral stream.</li>
-        <li><strong>Pathway definition</strong>You want to know where the material most realistically fits.</li>
-        <li><strong>Research or industry collaboration</strong>You are exploring a project, proposal, pilot, or strategic partnership.</li>
-      </ul>
-    </aside>
+    <div class="hero-panel"><h3>Typical contact reasons</h3><div class="hero-list"><div class="hero-list-item"><strong>Feedstock review</strong><span>Technical screening of clays, slags, soils, tailings, fines, or residues.</span></div><div class="hero-list-item"><strong>Project discussion</strong><span>Questions around pathway fit, test planning, or scale-up direction.</span></div><div class="hero-list-item"><strong>Research or partnership</strong><span>Industry-university collaboration, advisory support, or expert input.</span></div></div></div>
   </div>
 </section>
-
+<section class="section tight">
+  <div class="container">
+    <div class="grid-2">
+      <div class="contact-card"><h2>Contact details</h2><p class="kicker">Placeholder details ready to replace later</p><p><strong>General enquiries</strong><br /><a href="mailto:hello@mineralactivationlabs.com">hello@mineralactivationlabs.com</a></p><p><strong>Projects and technical discussions</strong><br /><a href="mailto:projects@mineralactivationlabs.com">projects@mineralactivationlabs.com</a></p><p><strong>Research and partnerships</strong><br /><a href="mailto:collaborate@mineralactivationlabs.com">collaborate@mineralactivationlabs.com</a></p><p><strong>Location</strong><br />Sydney, Australia</p></div>
+      <div class="contact-card"><h2>For faster review</h2><ul class="list-clean"><li>Material type and source context</li><li>Available chemistry or mineralogy</li><li>Current disposal, stockpiling, or use pathway</li><li>Target application or commercial direction</li><li>Known constraints, risks, or questions</li></ul></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="enquiry">
+  <div class="container">
+    <div class="section-heading"><h2>Send an enquiry</h2><p>This static form is ready for later connection to Formspree, Netlify Forms, or another backend. For now, the main working contact path is direct email.</p></div>
+    <div class="card">
+      <form action="mailto:hello@mineralactivationlabs.com" method="post" enctype="text/plain">
+        <div class="form-grid">
+          <div><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" /></div>
+          <div><label for="organisation">Organisation</label><input id="organisation" name="organisation" type="text" placeholder="Company, university, or organisation" /></div>
+        </div>
+        <div class="form-grid">
+          <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="name@example.com" /></div>
+          <div><label for="topic">Topic</label><select id="topic" name="topic"><option>Feedstock assessment</option><option>Technical collaboration</option><option>Research partnership</option><option>Pilot or product development</option><option>Advisory or speaking</option></select></div>
+        </div>
+        <div><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about the material, data, or development question."></textarea></div>
+        <div class="form-actions"><button type="submit" class="btn btn-primary">Open email draft</button><a href="mailto:hello@mineralactivationlabs.com" class="btn btn-secondary">Use normal email instead</a></div>
+      </form>
+    </div>
+  </div>
+</section>
 <section class="section">
-  <div class="container contact-grid">
-    <div class="contact-card">
-      <span class="kicker">Prototype enquiry form</span>
-      <div class="form-grid">
-        <input class="input" value="Your name" aria-label="Name" />
-        <input class="input" value="Organisation" aria-label="Organisation" />
-        <input class="input" value="Email" aria-label="Email" />
-        <textarea class="input" aria-label="Enquiry">What is the material? What are you trying to decide? What data already exists?</textarea>
-        <div class="notice">This is a static placeholder form for the current website build. Replace it later with your preferred form backend, email workflow, or CRM integration.</div>
-      </div>
-    </div>
-    <div class="contact-card">
-      <span class="kicker">For faster review</span>
-      <ul class="detail-list">
-        <li><strong>Describe the feedstock source</strong>Tailings, slag, clay deposit, excavated soil, residue, fines, or another mineral stream.</li>
-        <li><strong>Share available technical data</strong>Chemistry, mineralogy, PSD, moisture, LOI, process history, and target applications.</li>
-        <li><strong>State the decision clearly</strong>Screen, compare, position, test, de-risk, or prepare for pilot-stage work.</li>
-      </ul>
-      <div style="height:16px"></div>
-      <h3>Simulated contact details</h3>
-      <p>hello@mineralactivationlabs.com<br/>Sydney, Australia<br/>Research-linked and industry-facing mineral development support</p>
+  <div class="container">
+    <div class="faq-grid grid-3">
+      <div class="faq-item"><h3>Relevant enquiries</h3><p>Feedstock screening, low-carbon materials questions, difficult residues, pilot framing, and collaboration discussions.</p></div>
+      <div class="faq-item"><h3>What to expect</h3><p>Most useful enquiries are specific, technically grounded, and tied to a real material or development problem.</p></div>
+      <div class="faq-item"><h3>What to replace later</h3><p>Email addresses, final location, response-time wording, and form backend can all be updated without changing the site structure.</p></div>
     </div>
   </div>
 </section>
-
-<section class="section compact">
-  <div class="container grid-3">
-    <div class="contact-card"><h3>Feedstock review</h3><p>Early-stage technical qualification for natural and industrial mineral streams.</p></div>
-    <div class="contact-card"><h3>Project framing</h3><p>Sharper definition of route, scope, and next-step experimental priorities.</p></div>
-    <div class="contact-card"><h3>Partnership conversations</h3><p>Support for research, industry, funding, and product-development collaboration.</p></div>
-  </div>
-</section>
-
 </main>
 
-<footer class="footer">
+<footer class="site-footer">
   <div class="container footer-inner">
-    <p>Mineral Activation Labs — mineral feedstock strategy, materials science, and product direction for low-carbon development.</p>
-    <div class="footer-nav"><a href="index.html">Home</a><a href="feedstocks.html">Feedstocks</a><a href="services.html">Services</a><a href="applications.html">Applications</a><a href="projects.html">Projects</a><a href="science.html">Science</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
-    <p>© <span data-year></span> Mineral Activation Labs</p>
+    <div>© 2026 Mineral Activation Labs</div>
+    <div class="footer-nav"><a href="feedstocks.html">Feedstocks</a><a href="services.html">Services</a><a href="applications.html">Applications</a><a href="projects.html">Projects</a><a href="science.html">Science</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
   </div>
 </footer>
-<script src="script.js"></script>
+<script src="assets/script.js"></script>
 </body>
 </html>
