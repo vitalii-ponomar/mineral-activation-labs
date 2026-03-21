@@ -6,135 +6,546 @@
   <title>Contact | Mineral Activation Labs</title>
   <meta
     name="description"
-    content="Contact Mineral Activation Labs for feedstock assessment, technical collaboration, and mineral development enquiries."
+    content="Contact Mineral Activation Labs for feedstock assessment, technical review, research collaboration, and industry partnership enquiries."
   />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="assets/site.css" />
+  <style>
+    :root {
+      --bg: #f6f8f7;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f3;
+      --text: #183028;
+      --muted: #5d7169;
+      --line: #dce7e1;
+      --accent: #1f6b57;
+      --accent-dark: #174f41;
+      --accent-soft: #e7f2ee;
+      --max: 1180px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 30px rgba(20, 48, 39, 0.08);
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246, 248, 247, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(220, 231, 225, 0.8);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      color: var(--text);
+    }
+
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-dark);
+    }
+
+    main {
+      padding: 42px 0 80px;
+    }
+
+    .section {
+      margin: 0 0 70px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .contact-panel,
+    .info-card,
+    .faq-card,
+    .form-panel,
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card,
+    .faq-card {
+      background: var(--surface-soft);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: none;
+    }
+
+    .contact-item {
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-item:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    .contact-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .contact-value {
+      font-size: 1.05rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .contact-value a {
+      color: var(--accent-dark);
+    }
+
+    .contact-note,
+    .info-card p,
+    .faq-card p,
+    .form-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      width: auto;
+      height: auto;
+    }
+
+    .info-card h3,
+    .faq-card h3,
+    .form-panel h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .info-card h4 {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+    }
+
+    .feature-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .feature-list li + li {
+      margin-top: 8px;
+    }
+
+    form {
+      display: grid;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--text);
+      background: var(--surface);
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(31, 107, 87, 0.45);
+      box-shadow: 0 0 0 3px rgba(31, 107, 87, 0.08);
+    }
+
+    textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-soft);
+    }
+
+    .form-note {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .cta-section {
+      margin-top: 70px;
+    }
+
+    .cta-box {
+      background: var(--text);
+      color: #fff;
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: 0 18px 40px rgba(24, 48, 40, 0.18);
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-box p {
+      margin: 0;
+      max-width: 760px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.04rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .cta-box .btn-primary {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .cta-box .btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .cta-box .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .site-footer {
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1000px) {
+      .grid-3,
+      .grid-2,
+      .section-heading,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .header-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 12px 16px;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .contact-panel,
+      .info-card,
+      .faq-card,
+      .form-panel,
+      .cta-box {
+        padding: 24px;
+      }
+
+      main {
+        padding-top: 26px;
+      }
+
+      .brand-logo {
+        height: 36px;
+      }
+
+      .actions,
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav">
-      <div class="logo">
-        <img src="assets/logo.png" alt="Mineral Activation Labs" class="logo-img" />
-      </div>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Mineral Activation Labs home">
+        <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="brand-logo" />
+      </a>
 
-      <nav class="nav-links">
-        <a href="index.html#why-now">Why now</a>
-        <a href="index.html#services">Services</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="science.html">Science</a>
         <a href="feedstocks.html">Feedstocks</a>
-        <a href="index.html#industries">Industries</a>
-        <a href="index.html#opportunities">Opportunities</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="services.html">Services</a>
+        <a href="applications.html">Applications</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
       </nav>
-
-      <a class="btn btn-primary" href="#enquiry">Start an enquiry</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Contact</span>
-          <h1>Discuss a feedstock, project, or technical collaboration.</h1>
-          <p>
-            This page is designed for serious enquiries around mineral feedstocks, industrial side-streams,
-            low-carbon materials development, and research or industry collaboration.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#enquiry">Send an enquiry</a>
-            <a class="btn btn-secondary" href="mailto:hello@mineralactivationlabs.com">Email directly</a>
-          </div>
-        </div>
-
-        <aside class="hero-card">
-          <h3>Typical contact reasons</h3>
-          <p>
-            Simulated details below can be updated later with your real contact information,
-            team details, or workflow.
-          </p>
-
-          <div class="hero-list">
-            <div>Feedstock review or technical screening</div>
-            <div>Clay, slag, soil, or tailings opportunity discussion</div>
-            <div>Research collaboration or partnership enquiry</div>
-            <div>Expert input, advisory, or speaking request</div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="anchor-strip">
-      <div class="container anchor-grid">
-        <a href="#details" class="anchor-item">Contact details</a>
-        <a href="#relevant" class="anchor-item">Relevant enquiries</a>
-        <a href="#enquiry" class="anchor-item">Enquiry form</a>
-        <a href="#partnerships" class="anchor-item">Partnerships</a>
-        <a href="#faq" class="anchor-item">FAQ</a>
-      </div>
-    </section>
-
-    <section id="details" class="section section-alt">
+    <section class="section">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-heading">
           <h2>Contact details</h2>
           <p>
-            Use the enquiry form for structured requests, or contact the team directly using the
-            simulated placeholder details below.
+            Contact Mineral Activation Labs for feedstock assessment, technical review,
+            research collaboration, or industry partnership enquiries.
           </p>
         </div>
 
         <div class="grid-2">
-          <div class="contact-block">
-            <div class="contact-meta">
-              <div class="contact-item">
-                <span class="contact-label">General enquiries</span>
-                <div class="contact-value">
-                  <a href="mailto:hello@mineralactivationlabs.com">hello@mineralactivationlabs.com</a>
-                </div>
+          <div class="contact-panel">
+            <div class="contact-item">
+              <div class="contact-label">General enquiries</div>
+              <div class="contact-value">
+                <a href="mailto:hello@mineralactivationlabs.com">hello@mineralactivationlabs.com</a>
               </div>
+            </div>
 
-              <div class="contact-item">
-                <span class="contact-label">Projects and technical discussions</span>
-                <div class="contact-value">
-                  <a href="mailto:projects@mineralactivationlabs.com">projects@mineralactivationlabs.com</a>
-                </div>
+            <div class="contact-item">
+              <div class="contact-label">Projects and technical discussions</div>
+              <div class="contact-value">
+                <a href="mailto:projects@mineralactivationlabs.com">projects@mineralactivationlabs.com</a>
               </div>
+            </div>
 
-              <div class="contact-item">
-                <span class="contact-label">Research and partnerships</span>
-                <div class="contact-value">
-                  <a href="mailto:collaborate@mineralactivationlabs.com">collaborate@mineralactivationlabs.com</a>
-                </div>
+            <div class="contact-item">
+              <div class="contact-label">Research and partnerships</div>
+              <div class="contact-value">
+                <a href="mailto:collaborate@mineralactivationlabs.com">collaborate@mineralactivationlabs.com</a>
               </div>
+            </div>
 
-              <div class="contact-item">
-                <span class="contact-label">Location</span>
-                <div class="contact-value">Sydney, Australia</div>
-              </div>
+            <div class="contact-item">
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Sydney, Australia</div>
+            </div>
 
-              <div class="contact-item">
-                <span class="contact-label">Response expectation</span>
-                <div class="contact-value">Relevant enquiries answered within 2–3 business days</div>
-              </div>
+            <div class="contact-item">
+              <div class="contact-label">Response expectation</div>
+              <div class="contact-value">Relevant enquiries answered within 2–3 business days</div>
             </div>
           </div>
 
-          <div class="card">
+          <div class="info-card">
             <div class="number">01</div>
             <h3>For faster review</h3>
-            <p style="margin-bottom: 16px;">
+            <p style="margin-bottom: 14px;">
               For feedstock or technical enquiries, it helps to include:
             </p>
-            <ul class="section-list">
+            <ul class="feature-list">
               <li>material type and source context</li>
               <li>available chemistry or mineralogy</li>
               <li>current disposal, stockpiling, or use pathway</li>
@@ -146,86 +557,102 @@
       </div>
     </section>
 
-    <section id="relevant" class="section">
+    <section class="section">
       <div class="container">
-        <div class="section-intro">
-          <h2>What enquiries are relevant</h2>
+        <div class="section-heading">
+          <h2>Relevant enquiries</h2>
           <p>
-            The strongest enquiries are usually specific, technically grounded, and tied to a real material
-            or development question.
+            The most relevant enquiries involve a defined material, technical constraint,
+            or development opportunity.
           </p>
         </div>
 
         <div class="grid-3">
-          <div class="card">
+          <div class="info-card">
             <div class="number">01</div>
             <h3>Feedstock assessment</h3>
             <p>Screening and technical review of clays, slags, soils, tailings, fines, and mineral residues.</p>
           </div>
 
-          <div class="card">
+          <div class="info-card">
             <div class="number">02</div>
-            <h3>Development questions</h3>
-            <p>Questions around mineral reactivity, pathway fit, processing intensity, or technical risk.</p>
+            <h3>Material pathway review</h3>
+            <p>Evaluation of whether a mineral stream has a realistic route into low-carbon materials or related applications.</p>
           </div>
 
-          <div class="card">
+          <div class="info-card">
             <div class="number">03</div>
-            <h3>Research collaboration</h3>
-            <p>Industry-university collaboration, technical partnership, or applied mineral development work.</p>
+            <h3>Technical problems</h3>
+            <p>Questions around reactivity, processing demand, variability, contaminants, durability, or pathway fit.</p>
           </div>
 
-          <div class="card">
+          <div class="info-card">
             <div class="number">04</div>
-            <h3>Low-carbon materials</h3>
-            <p>Enquiries related to cementitious materials, SCMs, activated systems, and mineral valorisation routes.</p>
+            <h3>Pilot or product development</h3>
+            <p>Support for early-stage development decisions before broader testing, scale-up, or commercial commitment.</p>
           </div>
 
-          <div class="card">
+          <div class="info-card">
             <div class="number">05</div>
-            <h3>Advisory input</h3>
-            <p>Expert review, technical framing, project input, and selected speaking or workshop requests.</p>
+            <h3>Low-carbon materials</h3>
+            <p>Enquiries related to cementitious materials, SCMs, activated systems, mineral valorisation, and adjacent material pathways.</p>
           </div>
 
-          <div class="card">
+          <div class="info-card">
             <div class="number">06</div>
-            <h3>Partnership discussions</h3>
-            <p>Early-stage conversations where a feedstock, material problem, or opportunity needs clearer direction.</p>
+            <h3>Advisory input</h3>
+            <p>Expert review, technical framing, project input, and selected workshop, presentation, or advisory requests.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="enquiry" class="section section-alt">
+    <section class="section">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-heading">
           <h2>Send an enquiry</h2>
           <p>
-            This form structure is intentionally more technical than a generic contact form and can be connected later to Formspree, Netlify Forms, or another backend.
+            This form is designed for technically serious enquiries and can later be connected
+            to Formspree, Netlify Forms, or another backend.
           </p>
         </div>
 
-        <div class="form-wrap">
+        <div class="form-panel">
           <form action="#" method="post">
             <div class="form-grid">
-              <div>
+              <div class="field">
                 <label for="name">Name</label>
                 <input id="name" name="name" type="text" placeholder="Your name" />
               </div>
 
-              <div>
+              <div class="field">
                 <label for="organisation">Organisation</label>
                 <input id="organisation" name="organisation" type="text" placeholder="Company, university, or organisation" />
               </div>
             </div>
 
             <div class="form-grid">
-              <div>
+              <div class="field">
                 <label for="email">Email</label>
                 <input id="email" name="email" type="email" placeholder="name@example.com" />
               </div>
 
-              <div>
+              <div class="field">
+                <label for="org-type">Organisation type</label>
+                <select id="org-type" name="org-type">
+                  <option value="">Select organisation type</option>
+                  <option>Industry</option>
+                  <option>Research organisation</option>
+                  <option>University</option>
+                  <option>Government</option>
+                  <option>Investor / strategic partner</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
                 <label for="topic">Topic of enquiry</label>
                 <select id="topic" name="topic">
                   <option value="">Select a topic</option>
@@ -237,15 +664,28 @@
                   <option>Other</option>
                 </select>
               </div>
+
+              <div class="field">
+                <label for="region">Location / region</label>
+                <select id="region" name="region">
+                  <option value="">Select region</option>
+                  <option>Australia</option>
+                  <option>New Zealand</option>
+                  <option>Asia-Pacific</option>
+                  <option>Europe</option>
+                  <option>North America</option>
+                  <option>Other</option>
+                </select>
+              </div>
             </div>
 
             <div class="form-grid">
-              <div>
+              <div class="field">
                 <label for="material">Material / feedstock type</label>
                 <input id="material" name="material" type="text" placeholder="e.g. clay, slag, soil, tailings" />
               </div>
 
-              <div>
+              <div class="field">
                 <label for="stage">Project stage</label>
                 <select id="stage" name="stage">
                   <option value="">Select stage</option>
@@ -258,7 +698,7 @@
               </div>
             </div>
 
-            <div>
+            <div class="field">
               <label for="message">Message</label>
               <textarea
                 id="message"
@@ -267,18 +707,22 @@
               ></textarea>
             </div>
 
-            <div class="hero-actions" style="margin-top: 0;">
+            <div class="actions">
               <button class="btn btn-primary" type="submit">Submit enquiry</button>
               <a class="btn btn-secondary" href="mailto:hello@mineralactivationlabs.com">Email instead</a>
+            </div>
+
+            <div class="form-note">
+              Initial discussions can be exploratory and confidential.
             </div>
           </form>
         </div>
       </div>
     </section>
 
-    <section id="partnerships" class="section">
+    <section class="section">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-heading">
           <h2>Research and partnership enquiries</h2>
           <p>
             Mineral Activation Labs welcomes selected discussions with industry, research groups,
@@ -288,9 +732,9 @@
         </div>
 
         <div class="grid-2">
-          <div class="card">
-            <h3>Where collaboration can fit</h3>
-            <ul class="section-list">
+          <div class="info-card">
+            <h4>Where collaboration can fit</h4>
+            <ul class="feature-list">
               <li>industry-linked technical investigations</li>
               <li>collaborative research and grant development</li>
               <li>feedstock qualification and pathway framing</li>
@@ -298,40 +742,12 @@
             </ul>
           </div>
 
-          <div class="card">
-            <h3>Typical collaboration context</h3>
+          <div class="info-card">
+            <h4>Typical collaboration context</h4>
             <p>
-              Partnerships may involve early-stage technical scoping, applied materials development,
-              targeted scientific input, or broader strategic discussions around mineral opportunity and route selection.
+              Partnerships may involve collaborative R&amp;D, research-linked validation, technical advisory
+              input, or broader strategic discussions around mineral opportunity and route selection.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section section-alt">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Frequently asked questions</h2>
-          <p>
-            A few practical questions users often have before reaching out.
-          </p>
-        </div>
-
-        <div class="faq-grid">
-          <div class="faq-item">
-            <h4>Do you work with early-stage opportunities?</h4>
-            <p>Yes. Early-stage cases are welcome, including situations where only limited material data is available.</p>
-          </div>
-
-          <div class="faq-item">
-            <h4>Do you only work on construction materials?</h4>
-            <p>The main focus is low-carbon construction materials and adjacent mineral applications.</p>
-          </div>
-
-          <div class="faq-item">
-            <h4>Can confidential opportunities be discussed?</h4>
-            <p>Yes. Initial discussions can remain confidential, with more formal arrangements where needed.</p>
           </div>
         </div>
       </div>
@@ -339,16 +755,44 @@
 
     <section class="section">
       <div class="container">
-        <div class="cta-box">
-          <h2>Have a material or feedstock worth discussing?</h2>
+        <div class="section-heading">
+          <h2>Frequently asked questions</h2>
           <p>
-            Whether the enquiry is technical, commercial, or collaborative, the goal is the same:
-            clarify whether the material has a credible pathway to useful value.
+            A few practical questions users often have before reaching out.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="faq-card">
+            <h3>Do you work with early-stage opportunities?</h3>
+            <p>Yes. Early-stage cases are welcome, including situations where only limited material data is available.</p>
+          </div>
+
+          <div class="faq-card">
+            <h3>Do you only work on construction materials?</h3>
+            <p>The main focus is low-carbon construction materials and adjacent mineral applications.</p>
+          </div>
+
+          <div class="faq-card">
+            <h3>Can confidential opportunities be discussed?</h3>
+            <p>Yes. Initial discussions can remain confidential, with more formal arrangements where needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Discuss a feedstock, material problem, or partnership opportunity</h2>
+          <p>
+            Whether the question is technical, commercial, or collaborative, the aim is to
+            clarify whether the opportunity has a credible pathway forward.
           </p>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:hello@mineralactivationlabs.com">Email us</a>
-            <a class="btn btn-secondary" href="#enquiry">Use the enquiry form</a>
+          <div class="cta-actions">
+            <a href="mailto:hello@mineralactivationlabs.com" class="btn btn-primary">Email us</a>
+            <a href="#top" class="btn btn-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top</a>
           </div>
         </div>
       </div>
@@ -356,7 +800,10 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">© Mineral Activation Labs</div>
+    <div class="container footer-inner">
+      <div>© 2026 Mineral Activation Labs</div>
+      <div>Science-led mineral feedstock assessment for low-carbon material pathways</div>
+    </div>
   </footer>
 </body>
 </html>
