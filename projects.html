@@ -4,163 +4,528 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Mineral Activation Labs</title>
-  <meta name="description" content="Selected projects showing how mineral feedstocks, residues, and underused materials can be screened, de-risked, and translated into practical development pathways." />
-  <link rel="stylesheet" href="assets/site.css" />
+  <meta name="description" content="Selected projects showing how difficult mineral feedstocks can be screened, qualified, and directed toward realistic product pathways." />
+  <style>
+    :root {
+      --bg: #f6f8f7;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f3;
+      --text: #183028;
+      --muted: #5d7169;
+      --line: #dce7e1;
+      --accent: #1f6b57;
+      --accent-dark: #174f41;
+      --accent-soft: #e7f2ee;
+      --max: 1180px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 30px rgba(20, 48, 39, 0.08);
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246, 248, 247, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(220, 231, 225, 0.8);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      color: var(--text);
+    }
+
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-dark);
+    }
+
+    main {
+      padding: 42px 0 80px;
+    }
+
+    .section {
+      margin: 0 0 70px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .project-card.featured {
+      border-color: rgba(31, 107, 87, 0.22);
+      box-shadow: 0 14px 36px rgba(20, 48, 39, 0.1);
+    }
+
+    .project-kicker {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .project-title-wrap h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .project-subtitle {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .project-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      color: var(--accent-dark);
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .project-block {
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .project-block h4 {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+    }
+
+    .project-block p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.97rem;
+    }
+
+    .value-panel {
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7f5 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .value-item {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .value-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.03rem;
+      letter-spacing: -0.02em;
+    }
+
+    .value-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .sector-line {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .cta-section {
+      margin-top: 70px;
+    }
+
+    .cta-box {
+      background: var(--text);
+      color: #fff;
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: 0 18px 40px rgba(24, 48, 40, 0.18);
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-box p {
+      margin: 0;
+      max-width: 760px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.04rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .site-footer {
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1000px) {
+      .project-grid,
+      .value-grid,
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .header-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 12px 16px;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .project-grid,
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card,
+      .value-panel,
+      .cta-box {
+        padding: 24px;
+      }
+
+      main {
+        padding-top: 26px;
+      }
+
+      .brand-logo {
+        height: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="Mineral Activation Labs home">
-        <div class="brand-mark" aria-hidden="true"></div>
-        <div class="brand-text">Mineral Activation Labs</div>
+        <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="brand-logo" />
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="science.html">Science</a>
         <a href="feedstocks.html">Feedstocks</a>
         <a href="services.html">Services</a>
         <a href="applications.html">Applications</a>
         <a href="projects.html" class="active">Projects</a>
-        <a href="contact.html" class="nav-cta">Discuss a project</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-intro">
-      <div class="container">
-        <div class="eyebrow">Selected project experience</div>
-        <h1>Projects that turn mineral uncertainty into development direction</h1>
-        <p class="lead">
-          Real projects showing how underused mineral feedstocks can be screened, de-risked, and translated into practical material pathways. Our work spans treated soils, slags, Fe-rich residues, and clay-based systems across industry-linked and research-led programmes in Australia and Europe.
-        </p>
-
-        <div class="highlight-strip">
-          <div class="highlight-card">
-            <strong>Soils</strong>
-            <span>Treated and excavated soil streams assessed for reuse in low-carbon materials and ceramics.</span>
-          </div>
-          <div class="highlight-card">
-            <strong>Slags</strong>
-            <span>Fe-rich and steel-related residues evaluated for binder performance and environmental fit.</span>
-          </div>
-          <div class="highlight-card">
-            <strong>Clays</strong>
-            <span>Feedstock selection and calcination response analysed to support SCM development.</span>
-          </div>
-          <div class="highlight-card">
-            <strong>Pathways</strong>
-            <span>Projects focused on go / no-go decisions, processing routes, and realistic next steps.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
       <div class="container">
         <div class="section-heading">
           <h2>Featured projects</h2>
           <p>
-            These examples show the kind of technical-commercial questions we help clarify: whether a feedstock is worth developing, what the main constraints are, and what the most realistic pathway looks like.
+            Selected projects showing how difficult mineral feedstocks can be screened, qualified, and directed toward realistic product pathways.
           </p>
         </div>
 
         <div class="projects-grid">
-          <article class="project-card">
+          <article class="project-card featured">
+            <div class="project-kicker">Soils</div>
             <div class="project-top">
               <div class="project-title-wrap">
-                <h3>Treated soils for low-cement construction materials</h3>
-                <div class="project-subtitle">Australia</div>
+                <h3>Treated soils for low-cement binder pathways</h3>
+                <div class="project-subtitle">Australia · treated soil reuse</div>
               </div>
-              <div class="project-tag">Feedstock reuse decision</div>
+              <div class="project-tag">Reuse qualification</div>
             </div>
 
             <div class="project-grid">
               <div class="project-block">
                 <h4>The challenge</h4>
                 <p>
-                  Large volumes of treated and excavated soils are generated with limited high-value reuse options. The key issue is whether these materials can be upgraded into useful low-carbon construction inputs or whether technical limitations make them unsuitable.
+                  Large treated and excavated soil streams are generated with limited high-value reuse options. The core question is whether these materials can support low-cement products or should be ruled out early.
                 </p>
               </div>
               <div class="project-block">
                 <h4>What we did</h4>
                 <p>
-                  Assessed mineralogy, chemistry, impurity constraints, and reactivity, then examined realistic processing options including calcination, blending, and alternative binder use.
+                  Assessed mineralogy, chemistry, impurity constraints, and reactivity, then tested realistic pathways including calcination, blending, and alternative binder use.
                 </p>
               </div>
               <div class="project-block">
                 <h4>What became clear</h4>
                 <p>
-                  Some soil streams show real potential as reactive binder components, while others are constrained by low clay reactivity, quartz dilution, or contaminant-related risks.
+                  Some soil streams showed credible potential as reactive binder components. Others were constrained by low clay reactivity, quartz dilution, or contaminant-related limitations.
                 </p>
               </div>
               <div class="project-block">
                 <h4>Why it matters</h4>
                 <p>
-                  Helps distinguish between materials worth developing and materials likely to consume budget without a credible pathway to product use.
+                  This helps distinguish between soils worth developing and soils unlikely to justify further processing or pilot effort.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card featured">
+            <div class="project-kicker">Slags</div>
+            <div class="project-top">
+              <div class="project-title-wrap">
+                <h3>Fe-rich slags for low-carbon binder development</h3>
+                <div class="project-subtitle">Finland · steel and slag valorisation</div>
+              </div>
+              <div class="project-tag">Binder development</div>
+            </div>
+
+            <div class="project-grid">
+              <div class="project-block">
+                <h4>The challenge</h4>
+                <p>
+                  Fe-rich slags are often treated as difficult or inconsistent feedstocks. The commercial question is whether they can support reliable binder performance and acceptable environmental behaviour.
+                </p>
+              </div>
+              <div class="project-block">
+                <h4>What we did</h4>
+                <p>
+                  Evaluated phase assemblage, activator response, microstructure development, and leaching behaviour under practical alkali-activation conditions.
+                </p>
+              </div>
+              <div class="project-block">
+                <h4>What became clear</h4>
+                <p>
+                  Fe-rich slags are not simply problematic by-products. Under the right chemistry, they can function as viable binder precursors, but performance depends strongly on feedstock chemistry and process control.
+                </p>
+              </div>
+              <div class="project-block">
+                <h4>Why it matters</h4>
+                <p>
+                  This supports more confident decisions around slag development, product positioning, and whether further pilot work is justified.
                 </p>
               </div>
             </div>
           </article>
 
           <article class="project-card">
+            <div class="project-kicker">Residues</div>
             <div class="project-top">
               <div class="project-title-wrap">
-                <h3>Fe-rich slags for alkali-activated binders</h3>
-                <div class="project-subtitle">Finland · industry-linked</div>
+                <h3>Secondary residues for carbonation-based products</h3>
+                <div class="project-subtitle">Europe · processing and scale-up context</div>
               </div>
-              <div class="project-tag">Slag valorisation</div>
+              <div class="project-tag">Processing route</div>
             </div>
 
             <div class="project-grid">
               <div class="project-block">
                 <h4>The challenge</h4>
                 <p>
-                  Fe-rich slags are often treated as difficult or inconsistent feedstocks. For industrial operators, the core question is whether they can support stable binder performance and acceptable environmental behaviour.
+                  Many secondary mineral residues are abundant but difficult to use in conventional cementitious systems. The key issue is whether processing can unlock enough value to justify development.
                 </p>
               </div>
               <div class="project-block">
                 <h4>What we did</h4>
                 <p>
-                  Examined phase assemblage, activator response, microstructure development, and leaching behaviour to determine how these slag systems perform under practical alkali-activation conditions.
-                </p>
-              </div>
-              <div class="project-block">
-                <h4>What became clear</h4>
-                <p>
-                  Fe-rich slags are not simply problematic by-products. Under the right chemistry, they can function as viable binder precursors, but performance depends strongly on feedstock chemistry, activator design, and process control.
-                </p>
-              </div>
-              <div class="project-block">
-                <h4>Why it matters</h4>
-                <p>
-                  Supports more confident decisions around slag development, product positioning, and when further pilot work is commercially justified.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-title-wrap">
-                <h3>Carbonation–hydration pathways for secondary mineral resources</h3>
-                <div class="project-subtitle">Europe · multi-partner research and scale-up context</div>
-              </div>
-              <div class="project-tag">Processing pathway design</div>
-            </div>
-
-            <div class="project-grid">
-              <div class="project-block">
-                <h4>The challenge</h4>
-                <p>
-                  Many secondary mineral resources are abundant but difficult to use in conventional cementitious systems. The commercial question is whether processing can unlock enough value to justify further development.
-                </p>
-              </div>
-              <div class="project-block">
-                <h4>What we did</h4>
-                <p>
-                  Developed and evaluated carbonation–hydration routes while tracking phase evolution, microstructure, and resulting material performance under controlled processing conditions.
+                  Developed and evaluated carbonation–hydration routes while tracking phase evolution, microstructure, and resulting material performance.
                 </p>
               </div>
               <div class="project-block">
@@ -172,32 +537,71 @@
               <div class="project-block">
                 <h4>Why it matters</h4>
                 <p>
-                  Turns broad waste reuse ambition into a clearer go / no-go view on processing-led product development.
+                  This turns broad waste-reuse ambition into a clearer go / no-go position on processing-led product development.
                 </p>
               </div>
             </div>
           </article>
 
           <article class="project-card">
+            <div class="project-kicker">Clays</div>
             <div class="project-top">
               <div class="project-title-wrap">
-                <h3>Excavated soils for fired brick applications</h3>
-                <div class="project-subtitle">Australia</div>
+                <h3>Calcined clays for SCM feedstock qualification</h3>
+                <div class="project-subtitle">Australia · clay reactivity and qualification</div>
               </div>
-              <div class="project-tag">Alternative product route</div>
+              <div class="project-tag">SCM qualification</div>
             </div>
 
             <div class="project-grid">
               <div class="project-block">
                 <h4>The challenge</h4>
                 <p>
-                  Excavated soils are widely available, but their suitability for ceramic products depends on mineral composition, contaminant behaviour, and firing response. The issue is whether they can become reliable products rather than disposal liabilities.
+                  Calcined clays are attracting strong market interest, but not all clay-rich materials behave the same way. A major risk is assuming feedstocks are interchangeable.
                 </p>
               </div>
               <div class="project-block">
                 <h4>What we did</h4>
                 <p>
-                  Evaluated chemistry, mineralogy, firing behaviour, and material evolution during thermal treatment, with attention to technical and environmental constraints.
+                  Combined advanced and laboratory characterisation to examine how mineral type, structural change, and calcination response influence downstream reactivity.
+                </p>
+              </div>
+              <div class="project-block">
+                <h4>What became clear</h4>
+                <p>
+                  Feedstock selection matters. Clay mineral type, structural disorder, and thermal response all influence whether a material is likely to perform as a useful SCM.
+                </p>
+              </div>
+              <div class="project-block">
+                <h4>Why it matters</h4>
+                <p>
+                  This supports more disciplined clay selection before larger processing, product-development, or pilot-stage commitments are made.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-kicker">Ceramics</div>
+            <div class="project-top">
+              <div class="project-title-wrap">
+                <h3>Excavated soils for ceramic and brick products</h3>
+                <div class="project-subtitle">Australia · alternative product pathway</div>
+              </div>
+              <div class="project-tag">Ceramic pathway</div>
+            </div>
+
+            <div class="project-grid">
+              <div class="project-block">
+                <h4>The challenge</h4>
+                <p>
+                  Excavated soils are widely available, but their suitability for ceramic products depends on mineral composition, contaminant behaviour, and firing response.
+                </p>
+              </div>
+              <div class="project-block">
+                <h4>What we did</h4>
+                <p>
+                  Evaluated chemistry, mineralogy, firing behaviour, and material evolution during thermal treatment, with attention to both technical and environmental constraints.
                 </p>
               </div>
               <div class="project-block">
@@ -209,44 +613,7 @@
               <div class="project-block">
                 <h4>Why it matters</h4>
                 <p>
-                  Provides a clearer basis for deciding whether brick or ceramic product development is realistic for a given soil stream.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-title-wrap">
-                <h3>Calcined clay reactivity and feedstock selection</h3>
-                <div class="project-subtitle">Australia · synchrotron-led characterisation context</div>
-              </div>
-              <div class="project-tag">SCM feedstock qualification</div>
-            </div>
-
-            <div class="project-grid">
-              <div class="project-block">
-                <h4>The challenge</h4>
-                <p>
-                  Calcined clays are attracting strong market interest, but not all clay-rich materials behave the same way. A major development risk is assuming feedstocks are interchangeable.
-                </p>
-              </div>
-              <div class="project-block">
-                <h4>What we did</h4>
-                <p>
-                  Combined advanced and laboratory characterisation to examine how structural changes during calcination affect reactivity and downstream performance.
-                </p>
-              </div>
-              <div class="project-block">
-                <h4>What became clear</h4>
-                <p>
-                  Feedstock selection matters. Clay mineral type, structural disorder, and thermal response all influence whether a material is likely to perform as a useful SCM or activated precursor.
-                </p>
-              </div>
-              <div class="project-block">
-                <h4>Why it matters</h4>
-                <p>
-                  Supports more disciplined clay selection before larger processing, product-development, or pilot-stage commitments are made.
+                  This provides a more realistic basis for deciding whether ceramic product development is viable for a given soil stream.
                 </p>
               </div>
             </div>
@@ -261,7 +628,7 @@
           <div class="section-heading" style="margin-bottom:0;">
             <h2>What these projects show</h2>
             <p>
-              Across different feedstocks and applications, the recurring value is the same: better technical decisions earlier, with less wasted effort on unrealistic pathways.
+              Across different feedstocks, the recurring value is the same: identify viable pathways earlier, reject weak ones sooner, and reduce uncertainty before larger development commitments are made.
             </p>
           </div>
 
@@ -269,27 +636,31 @@
             <div class="value-item">
               <h3>Clarify whether a feedstock is worth developing</h3>
               <p>
-                Not every mineral stream deserves pilot work. Early screening helps separate real opportunity from technical dead ends.
+                Early screening helps separate real technical opportunity from materials unlikely to support a viable pathway.
               </p>
             </div>
             <div class="value-item">
-              <h3>Define the most realistic processing route</h3>
+              <h3>Define the most realistic route</h3>
               <p>
-                Whether the pathway is calcination, blending, activation, carbonation, or ceramic conversion, projects should narrow the options quickly.
+                Projects narrow the field quickly — whether the answer is calcination, blending, activation, carbonation, ceramics, or no further development.
               </p>
             </div>
             <div class="value-item">
-              <h3>Reveal key constraints before scale-up</h3>
+              <h3>Expose constraints before scale-up</h3>
               <p>
-                Mineralogy, impurities, variability, and processing demand often decide commercial viability long before formal pilot trials begin.
+                Mineralogy, impurities, variability, and processing demand often determine viability well before formal pilot work begins.
               </p>
             </div>
             <div class="value-item">
-              <h3>Turn material data into action</h3>
+              <h3>Turn testing into direction</h3>
               <p>
-                The aim is not just characterisation. It is a clearer go / no-go view, stronger development direction, and a more defensible next step.
+                The goal is not more data for its own sake, but a clearer go / no-go position and a stronger next step.
               </p>
             </div>
+          </div>
+
+          <div class="sector-line">
+            Relevant to remediation, construction materials, cementitious products, ceramics, and industrial residue valorisation.
           </div>
         </div>
       </div>
@@ -300,10 +671,10 @@
         <div class="cta-box">
           <h2>Discuss a project</h2>
           <p>
-            If you are assessing a mineral stream, residue, clay-rich material, or underused feedstock, we can help clarify whether it has a credible pathway into a usable product.
+            Assessing a mineral feedstock, residue, or clay-rich material? We help determine whether it is worth developing, and what the most realistic next step looks like.
           </p>
           <div class="cta-actions">
-            <a href="contact.html" class="btn btn-primary">Discuss a project</a>
+            <a href="contact.html" class="btn btn-primary">Contact us</a>
             <a href="services.html" class="btn btn-secondary">View services</a>
           </div>
         </div>
