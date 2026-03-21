@@ -6,95 +6,370 @@
   <title>Services | Mineral Activation Labs</title>
   <meta
     name="description"
-    content="Mineral Activation Labs provides feedstock qualification, mineralogical interpretation, activation strategy development, and performance-focused technical advisory for mineral side-streams."
+    content="Mineral Activation Labs provides feedstock intelligence, reactivity assessment, and development pathway advisory for mineral side-streams and low-carbon material opportunities."
   />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="assets/site.css" />
+  <style>
+    :root {
+      --bg: #f6f8f7;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f3;
+      --text: #183028;
+      --muted: #5d7169;
+      --line: #dce7e1;
+      --accent: #1f6b57;
+      --accent-dark: #174f41;
+      --accent-soft: #e7f2ee;
+      --max: 1180px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 30px rgba(20, 48, 39, 0.08);
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246, 248, 247, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(220, 231, 225, 0.8);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      color: var(--text);
+    }
+
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-dark);
+    }
+
+    main {
+      padding: 42px 0 80px;
+    }
+
+    .section {
+      margin: 0 0 70px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .capability-card,
+    .scope-card,
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .scope-card {
+      background: var(--surface-soft);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: none;
+    }
+
+    .step-card {
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .capability-card h3,
+    .scope-card h3,
+    .step-card h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .scope-card h3,
+    .step-card h3 {
+      font-size: 1.15rem;
+    }
+
+    .capability-card p,
+    .scope-card p,
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .feature-list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .feature-list li + li {
+      margin-top: 8px;
+    }
+
+    .outcome {
+      margin-top: 14px !important;
+      color: var(--text) !important;
+      font-size: 0.96rem !important;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      width: auto;
+      height: auto;
+    }
+
+    .site-footer {
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1000px) {
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .header-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 12px 16px;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .capability-card,
+      .scope-card,
+      .step-card {
+        padding: 24px;
+      }
+
+      main {
+        padding-top: 26px;
+      }
+
+      .brand-logo {
+        height: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav">
-      <div class="logo">
-        <img src="assets/logo.png" alt="Mineral Activation Labs" class="logo-img" />
-      </div>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Mineral Activation Labs home">
+        <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="brand-logo" />
+      </a>
 
-      <nav class="nav-links">
-        <a href="index.html#why-now">Why now</a>
-        <a href="services.html" class="active">Services</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="science.html">Science</a>
         <a href="feedstocks.html">Feedstocks</a>
-        <a href="index.html#industries">Industries</a>
-        <a href="index.html#opportunities">Opportunities</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="applications.html">Applications</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
       </nav>
-
-      <a class="btn btn-primary" href="index.html#contact">Request feedstock review</a>
     </div>
   </header>
 
   <main>
-    
-
-    
-
-    <section id="services" class="section first-section">
+    <section id="services" class="section">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-heading">
           <h2>Core advisory capabilities</h2>
           <p>
-            Mineral Activation Labs supports organisations working with mineral resources and industrial side-streams that may have value in low-carbon construction materials. Our work is built around three practical development questions: is the material worth developing, what is technically driving its behaviour, and what pathway could make it viable?
+            Mineral Activation Labs helps organisations determine whether underused mineral streams can become viable feedstocks for low-carbon construction materials. Our work is built around three practical questions: is the material worth developing, what is technically controlling its behaviour, and what pathway could make it usable?
           </p>
         </div>
 
         <div class="grid-3">
-          <div class="card">
+          <div class="capability-card">
             <h3>Feedstock intelligence</h3>
             <p>
-              We assess whether a mineral stream represents a credible technical opportunity. This includes mineral resources and industrial side‑streams such as mine tailings, metallurgical slags, clay‑rich soils, quarry fines, excavation materials, and mineral processing residues.
+              We assess whether a mineral stream represents a credible technical opportunity. This includes mine tailings, metallurgical slags, clay-rich soils, quarry fines, excavation materials, and mineral processing residues.
             </p>
-            <ul>
+            <ul class="feature-list">
               <li>Mineralogical and chemical interpretation</li>
               <li>Identification of reactive and inert phases</li>
               <li>Assessment of contaminants, heterogeneity, and supply constraints</li>
-              <li>Early technical feasibility assessment</li>
+              <li>Early view on technical fit and likely development value</li>
             </ul>
-            <p style="margin-top:14px;"><strong>Outcome:</strong> a clear view of whether the material deserves further development.</p>
+            <p class="outcome"><strong>Outcome:</strong> a clear view of whether the material deserves further development.</p>
           </div>
 
-          <div class="card">
-            <h3>Reactivity & material potential</h3>
+          <div class="capability-card">
+            <h3>Reactivity assessment</h3>
             <p>
-              We determine whether a feedstock can function in cementitious or mineral binder systems by linking mineral structure and phase assemblage to realistic performance potential.
+              We assess whether a feedstock can function in cementitious or mineral binder systems by linking phase assemblage, mineral structure, and processing response to realistic performance potential.
             </p>
-            <ul>
+            <ul class="feature-list">
               <li>Pozzolanic reactivity</li>
               <li>Latent hydraulic behaviour</li>
-              <li>Alkali‑activation potential</li>
-              <li>Calcination pathways for clay‑rich materials</li>
-              <li>Relevance for concrete, stabilisation, and low‑carbon binders</li>
+              <li>Alkali-activation potential</li>
+              <li>Calcination pathways for clay-rich materials</li>
+              <li>Relevance for concrete, stabilisation, and low-carbon binders</li>
             </ul>
-            <p style="margin-top:14px;"><strong>Outcome:</strong> identification of viable binder pathways.</p>
+            <p class="outcome"><strong>Outcome:</strong> identification of viable binder pathways.</p>
           </div>
 
-          <div class="card">
+          <div class="capability-card">
             <h3>Development pathways</h3>
             <p>
-              For promising materials we define the most credible route to unlock value, matching processing intensity with achievable product value.
+              For promising materials, we define the most credible route to unlock value, balancing activation strategy, processing demand, and likely product fit.
             </p>
-            <ul>
-              <li>Thermal activation and calcined‑clay pathways</li>
+            <ul class="feature-list">
+              <li>Thermal activation and calcined-clay pathways</li>
               <li>Grinding, classification, or beneficiation strategies</li>
-              <li>Washing and impurity‑management options</li>
+              <li>Washing and impurity-management options</li>
               <li>Blending with cementitious materials</li>
-              <li>Stabilisation and ground‑improvement uses</li>
+              <li>Stabilisation and ground-improvement uses</li>
             </ul>
-            <p style="margin-top:14px;"><strong>Outcome:</strong> a technically realistic development direction.</p>
+            <p class="outcome"><strong>Outcome:</strong> a technically realistic development direction.</p>
           </div>
         </div>
       </div>
@@ -102,50 +377,50 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-intro">
-          <h2>What each engagement may include</h2>
+        <div class="section-heading">
+          <h2>Typical scope of work</h2>
           <p>
-            Projects are structured around a specific decision or development question rather than a fixed testing package. Depending on the material and stage of work, an engagement may combine several of the elements below.
+            Each engagement is structured around a specific development decision rather than a fixed testing package. Depending on the material and stage of work, the scope may combine screening, interpretation, pathway definition, and targeted technical guidance.
           </p>
         </div>
 
         <div class="grid-2">
-          <div class="card">
+          <div class="scope-card">
             <h3>Feedstock screening and qualification</h3>
-            <ul>
-              <li>Review of available chemistry, mineralogy, and process background</li>
+            <ul class="feature-list">
+              <li>Review of available chemistry, mineralogy, and process background to establish initial technical fit</li>
               <li>Assessment of likely reactive phases, inert fractions, and undesirable components</li>
-              <li>Identification of contaminants, heterogeneity, and practical development risks</li>
+              <li>Identification of contaminants, heterogeneity, and development risks</li>
               <li>Initial view on suitability for cementitious or related mineral applications</li>
               <li>Go / no-go or priority ranking across one or multiple materials</li>
             </ul>
           </div>
 
-          <div class="card">
+          <div class="scope-card">
             <h3>Reactivity and application relevance</h3>
-            <ul>
+            <ul class="feature-list">
               <li>Assessment of pozzolanic, latent hydraulic, or alkali-activation potential</li>
               <li>Interpretation of which phases are most likely to contribute to performance</li>
               <li>Consideration of thermal activation potential for clays and fine mineral streams</li>
               <li>Comparison of candidate pathways for SCM use, activated binders, or blended systems</li>
-              <li>Identification of the main technical unknowns that should be resolved next</li>
+              <li>Identification of the technical unknowns most critical to early development decisions</li>
             </ul>
           </div>
 
-          <div class="card">
+          <div class="scope-card">
             <h3>Mineralogical interpretation and technical insight</h3>
-            <ul>
+            <ul class="feature-list">
               <li>Translation of XRD, XRF, and thermal data into development-relevant conclusions</li>
               <li>Distinction between attractive bulk chemistry and useful reactive mineral content</li>
-              <li>Interpretation of how mineralogy may influence processing demand and variability</li>
+              <li>Interpretation of how mineralogy may influence processing demand, variability, and product fit</li>
               <li>Explanation of why apparently similar residues can behave very differently</li>
               <li>Framing of opportunity around realistic technical mechanisms rather than generic claims</li>
             </ul>
           </div>
 
-          <div class="card">
+          <div class="scope-card">
             <h3>Pathway definition and next-step strategy</h3>
-            <ul>
+            <ul class="feature-list">
               <li>Review of likely needs for grinding, classification, washing, drying, calcination, or blending</li>
               <li>Assessment of whether thermal or chemical activation is technically justified</li>
               <li>Matching of process intensity to the probable value of the end application</li>
@@ -159,7 +434,7 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-heading">
           <h2>How projects usually start</h2>
           <p>
             Most collaborations begin with a focused feedstock evaluation. The aim is to move quickly from raw material information to a clear development direction.
@@ -167,35 +442,35 @@
         </div>
 
         <div class="grid-4">
-          <div class="card">
+          <div class="step-card">
             <div class="number">1</div>
-            <h3>Review the material</h3>
+            <h3>Define the material</h3>
             <p>
               We start with the feedstock itself: what it is, where it comes from, what is already known, and what opportunity or constraint the client is trying to assess.
             </p>
           </div>
 
-          <div class="card">
+          <div class="step-card">
             <div class="number">2</div>
-            <h3>Screen the fundamentals</h3>
+            <h3>Assess the fundamentals</h3>
             <p>
               We review mineralogy, chemistry, likely reactivity, contaminants, variability, and probable processing demand to understand whether the material has credible technical potential.
             </p>
           </div>
 
-          <div class="card">
+          <div class="step-card">
             <div class="number">3</div>
-            <h3>Define the pathway</h3>
+            <h3>Identify the pathway</h3>
             <p>
-              We identify where the strongest technical case may sit, including likely activation routes, target applications, and the main issues that need to be resolved next.
+              We determine where the strongest technical case may sit, including likely activation routes, target applications, and the main issues that need to be resolved next.
             </p>
           </div>
 
-          <div class="card">
+          <div class="step-card">
             <div class="number">4</div>
-            <h3>Recommend next steps</h3>
+            <h3>Make the next decision</h3>
             <p>
-              The output is a practical next decision: targeted testing, deeper evaluation, pilot preparation, reprioritisation, or an early no-go where justified.
+              The output is a practical next step: targeted testing, deeper evaluation, pilot preparation, reprioritisation, or an early no-go where justified.
             </p>
           </div>
         </div>
@@ -204,7 +479,10 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">© Mineral Activation Labs</div>
+    <div class="container footer-inner">
+      <div>© 2026 Mineral Activation Labs</div>
+      <div>Science-led mineral feedstock assessment for low-carbon material pathways</div>
+    </div>
   </footer>
 </body>
 </html>
