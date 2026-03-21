@@ -6,254 +6,672 @@
   <title>Applications | Mineral Activation Labs</title>
   <meta
     name="description"
-    content="Application pathways for underused mineral feedstocks, including SCMs, activated binders, low-cement materials, stabilisation, fired products, and carbonation-related mineral products."
+    content="Application pathways for mineral feedstocks across SCMs, activated binders, low-cement materials, stabilisation, pavement materials, fired products, carbonation-cured products, fillers, and other mineral product routes."
   />
-  <link rel="stylesheet" href="assets/site.css" />
 
+  <style>
+    :root {
+      --bg: #f6f8f7;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f3;
+      --text: #183028;
+      --muted: #5d7169;
+      --line: #dce7e1;
+      --accent: #1f6b57;
+      --accent-dark: #174f41;
+      --accent-soft: #e7f2ee;
+      --max: 1180px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 30px rgba(20, 48, 39, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246, 248, 247, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(220, 231, 225, 0.8);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      color: var(--text);
+    }
+
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-dark);
+    }
+
+    main {
+      padding: 42px 0 80px;
+    }
+
+    .section {
+      margin: 0 0 70px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .application-card,
+    .fit-box,
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .application-card h3,
+    .fit-box h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .application-card p,
+    .fit-box p,
+    .cta-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .card-label,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .card-label {
+      margin-bottom: 14px;
+    }
+
+    .subhead {
+      margin: 16px 0 8px;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .feature-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .feature-list li + li {
+      margin-top: 8px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .cta-section {
+      margin-top: 70px;
+    }
+
+    .cta-box {
+      background: var(--text);
+      color: #fff;
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: 0 18px 40px rgba(24, 48, 40, 0.18);
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-box p {
+      max-width: 760px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.04rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .site-footer {
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1000px) {
+      .grid-2,
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .header-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 12px 16px;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .application-card,
+      .fit-box,
+      .cta-box {
+        padding: 24px;
+      }
+
+      main {
+        padding-top: 26px;
+      }
+
+      .brand-logo {
+        height: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Mineral Activation Labs home">
+      <a href="index.html" class="brand" aria-label="Mineral Activation Labs home">
         <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="brand-logo" />
-        <span class="brand-text">Mineral Activation Labs</span>
       </a>
 
-      <nav class="site-nav" aria-label="Main navigation">
+      <nav class="nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="science.html">Science</a>
         <a href="feedstocks.html">Feedstocks</a>
         <a href="services.html">Services</a>
-        <a href="applications.html" class="active" aria-current="page">Applications</a>
-        <a href="contact.html">Contact</a>
+        <a href="applications.html" class="active">Applications</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-section">
+    <section class="section">
       <div class="container">
-        <div class="section-heading narrow">
-          <p class="eyebrow">Applications</p>
-          <h1>Core application categories</h1>
-          <p class="section-lead">
-            Mineral side streams can support a range of construction and mineral-based
-            products. The most suitable pathway depends on mineralogy, chemistry,
-            reactivity, processing demand, and performance requirements.
+        <div class="section-heading">
+          <h2>Core application categories</h2>
+          <p>
+            Mineral side streams do not all belong in the same product pathway. Some are suited
+            to clinker reduction, some to activated binders, some to large-volume civil use, and
+            others to fired, carbonated, or specialty mineral products. The real challenge is
+            identifying the application where the feedstock has the strongest technical and
+            commercial fit.
           </p>
         </div>
 
-        <div class="card-grid two-col">
-          <article class="info-card">
-            <h2>Supplementary cementitious materials (SCMs)</h2>
+        <div class="grid-2">
+          <article class="application-card">
+            <div class="card-label">01</div>
+            <h3>Supplementary cementitious materials (SCMs)</h3>
             <p>
-              Selected mineral resources can partially replace Portland cement where
-              chemistry, amorphous content, and fineness support pozzolanic or latent
-              hydraulic behaviour.
+              SCM pathways are relevant where a mineral resource can deliver cement replacement
+              value without excessive processing or unacceptable performance trade-offs.
             </p>
-            <p class="card-label">Typical candidates</p>
+            <div class="subhead">What usually controls fit</div>
             <p>
-              Calcined clay-rich soils, certain metallurgical slags, reactive quarry fines,
-              and aluminosilicate residues.
+              Reactive phase content, fineness, impurity profile, and compatibility with cement systems.
             </p>
+            <div class="tag-row">
+              <span class="tag">Calcined clays</span>
+              <span class="tag">Selected slags</span>
+              <span class="tag">Reactive fines</span>
+              <span class="tag">Mineral residues</span>
+            </div>
           </article>
 
-          <article class="info-card">
-            <h2>Alkali-activated and alternative binders</h2>
+          <article class="application-card">
+            <div class="card-label">02</div>
+            <h3>Alkali-activated and alternative binders</h3>
             <p>
-              Some mineral streams are better suited to activated binder systems than to
-              direct cement replacement. Suitability depends on dissolution behaviour,
-              phase assemblage, and activator compatibility.
+              Activated binder systems become attractive when direct SCM use is weak, but the
+              feedstock shows stronger response under alkaline conditions.
             </p>
-            <p class="card-label">Typical candidates</p>
+            <div class="subhead">What usually controls fit</div>
             <p>
-              Slags, Fe-rich industrial byproducts, calcined clays, and blended mineral residues.
+              Dissolution behaviour, gel-forming potential, phase assemblage, activator compatibility,
+              and binder stability.
             </p>
+            <div class="tag-row">
+              <span class="tag">Slags</span>
+              <span class="tag">Fe-rich byproducts</span>
+              <span class="tag">Calcined clays</span>
+              <span class="tag">Blended residues</span>
+            </div>
           </article>
 
-          <article class="info-card">
-            <h2>Low-cement construction materials</h2>
+          <article class="application-card">
+            <div class="card-label">03</div>
+            <h3>Low-cement concrete and mortar systems</h3>
             <p>
-              Mineral resources can be incorporated into low-cement formulations where
-              the goal is to reduce clinker demand while maintaining practical performance.
+              Some feedstocks are best used in practical clinker-reduction strategies rather than
+              full binder replacement.
             </p>
-            <p class="card-label">Typical applications</p>
+            <div class="subhead">What usually controls fit</div>
             <p>
-              Concrete and mortar blends, flowable fill, controlled low-strength materials,
-              and stabilised construction products.
+              Blend performance, water demand, workability, strength retention, and ease of integration.
             </p>
+            <div class="tag-row">
+              <span class="tag">Concrete blends</span>
+              <span class="tag">Mortars</span>
+              <span class="tag">Dry mixes</span>
+              <span class="tag">Repair products</span>
+            </div>
           </article>
 
-          <article class="info-card">
-            <h2>Stabilisation and engineered fill</h2>
+          <article class="application-card">
+            <div class="card-label">04</div>
+            <h3>Soil stabilisation and ground improvement</h3>
             <p>
-              Some mineral streams are better suited to large-volume civil applications
-              than to high-reactivity binder systems, particularly where scale and logistics matter.
+              Some materials are better directed into stabilisation pathways than into higher-reactivity
+              binder systems.
             </p>
-            <p class="card-label">Typical applications</p>
+            <div class="subhead">What usually controls fit</div>
             <p>
-              Soil stabilisation, road base improvement, embankment materials, and engineered fill.
+              Geotechnical response, constructability, moisture sensitivity, and deployment at scale.
             </p>
+            <div class="tag-row">
+              <span class="tag">Treated soils</span>
+              <span class="tag">Ground improvement</span>
+              <span class="tag">Civil works</span>
+              <span class="tag">Bulk reuse</span>
+            </div>
           </article>
 
-          <article class="info-card">
-            <h2>Fired mineral products</h2>
+          <article class="application-card">
+            <div class="card-label">05</div>
+            <h3>Road base, subbase, and pavement materials</h3>
             <p>
-              Certain clay-rich or mineral-rich materials may be more suitable for thermally
-              processed products than for direct cementitious use.
+              Mineral side streams can support pavement-related applications where grading, durability,
+              and moisture response align with infrastructure needs.
             </p>
-            <p class="card-label">Typical applications</p>
+            <div class="subhead">What usually controls fit</div>
             <p>
-              Bricks, ceramic products, lightweight aggregates, and thermally stabilised materials.
+              Gradation, stabilisation response, durability, water sensitivity, and practical specification fit.
             </p>
+            <div class="tag-row">
+              <span class="tag">Road base</span>
+              <span class="tag">Subbase</span>
+              <span class="tag">Pavements</span>
+              <span class="tag">Transport projects</span>
+            </div>
           </article>
 
-          <article class="info-card">
-            <h2>Carbonation-related mineral products</h2>
+          <article class="application-card">
+            <div class="card-label">06</div>
+            <h3>Engineered fill and embankment materials</h3>
             <p>
-              Some calcium- or magnesium-bearing materials can participate in carbonation
-              pathways, enabling carbonated mineral products and CO₂-reactive construction materials.
+              Where a material does not justify a higher-value binder route, engineered fill and embankment
+              use may provide a more realistic outlet.
             </p>
-            <p class="card-label">Typical candidates</p>
+            <div class="subhead">What usually controls fit</div>
             <p>
-              Ca- or Mg-rich slags, alkaline residues, and reactive silicate-rich byproducts.
+              Handling behaviour, environmental suitability, moisture response, and logistics.
             </p>
+            <div class="tag-row">
+              <span class="tag">Engineered fill</span>
+              <span class="tag">Embankments</span>
+              <span class="tag">Site formation</span>
+              <span class="tag">Bulk placement</span>
+            </div>
+          </article>
+
+          <article class="application-card">
+            <div class="card-label">07</div>
+            <h3>Fired mineral products</h3>
+            <p>
+              Thermally processed products may make more sense where heating produces a useful mineral
+              transformation that is difficult to achieve through cementitious routes.
+            </p>
+            <div class="subhead">What usually controls fit</div>
+            <p>
+              Firing response, shrinkage behaviour, product stability, contaminant behaviour, and energy justification.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Bricks</span>
+              <span class="tag">Ceramics</span>
+              <span class="tag">Tiles</span>
+              <span class="tag">Fired products</span>
+            </div>
+          </article>
+
+          <article class="application-card">
+            <div class="card-label">08</div>
+            <h3>Lightweight aggregates and sintered products</h3>
+            <p>
+              Certain feedstocks may be suitable for expanded, sintered, or thermally transformed aggregate
+              products where density reduction or internal porosity adds value.
+            </p>
+            <div class="subhead">What usually controls fit</div>
+            <p>
+              Thermal expansion behaviour, porosity development, product integrity, and firing practicality.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Lightweight aggregate</span>
+              <span class="tag">Expanded products</span>
+              <span class="tag">Sintered granules</span>
+              <span class="tag">Thermal products</span>
+            </div>
+          </article>
+
+          <article class="application-card">
+            <div class="card-label">09</div>
+            <h3>Carbonation-cured mineral products</h3>
+            <p>
+              Carbonation routes are worth considering where a feedstock contains reactive phases that can
+              support useful CO₂ uptake and product formation.
+            </p>
+            <div class="subhead">What usually controls fit</div>
+            <p>
+              Carbonation kinetics, accessible reactive phases, curing conditions, and product integrity.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Blocks</span>
+              <span class="tag">Carbonated products</span>
+              <span class="tag">CO₂ curing</span>
+              <span class="tag">Reactive residues</span>
+            </div>
+          </article>
+
+          <article class="application-card">
+            <div class="card-label">10</div>
+            <h3>Immobilisation and containment matrices</h3>
+            <p>
+              Some mineral streams are better suited to encapsulation, immobilisation, or controlled
+              containment products than to structural material pathways.
+            </p>
+            <div class="subhead">What usually controls fit</div>
+            <p>
+              Chemical stability, contaminant behaviour, matrix performance, and environmental compliance.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Encapsulation</span>
+              <span class="tag">Containment</span>
+              <span class="tag">Stabilised matrices</span>
+              <span class="tag">Environmental fit</span>
+            </div>
+          </article>
+
+          <article class="application-card">
+            <div class="card-label">11</div>
+            <h3>Fillers, fines replacement, and blend components</h3>
+            <p>
+              Not every useful mineral stream needs to function as a reactive binder precursor. Some create
+              value as fillers, packing components, fines replacements, or blend modifiers.
+            </p>
+            <div class="subhead">What usually controls fit</div>
+            <p>
+              Particle size distribution, mineral compatibility, packing contribution, and formulation stability.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Fillers</span>
+              <span class="tag">Fines replacement</span>
+              <span class="tag">Blend modifiers</span>
+              <span class="tag">Packing components</span>
+            </div>
+          </article>
+
+          <article class="application-card">
+            <div class="card-label">12</div>
+            <h3>Niche mineral products</h3>
+            <p>
+              Some feedstocks are best directed into smaller but more technically targeted pathways where
+              chemistry, colour, texture, or environmental performance create a stronger use case.
+            </p>
+            <div class="subhead">What usually controls fit</div>
+            <p>
+              Distinct mineral properties, processing requirements, product differentiation, and market realism.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Decorative products</span>
+              <span class="tag">Specialty minerals</span>
+              <span class="tag">Targeted formulations</span>
+              <span class="tag">Premium niches</span>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="page-section section-soft">
+    <section class="section">
       <div class="container">
-        <div class="section-heading narrow">
-          <h2>How application pathways are identified</h2>
-          <p class="section-lead">
-            Selecting the right application pathway requires linking material properties
-            with realistic processing and performance targets.
-          </p>
-        </div>
-
-        <div class="feature-grid four-col">
-          <div class="feature-card">
-            <span class="feature-number">01</span>
-            <h3>Mineralogy</h3>
-            <p>
-              Phase assemblage controls reactivity, phase evolution, and compatibility
-              with binder or stabilisation systems.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <span class="feature-number">02</span>
-            <h3>Chemistry</h3>
-            <p>
-              Bulk and surface chemistry influence binder formation, impurity risks,
-              durability performance, and environmental fit.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <span class="feature-number">03</span>
-            <h3>Processing demand</h3>
-            <p>
-              Grinding, calcination, classification, washing, or activation steps often
-              determine whether a pathway is realistic.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <span class="feature-number">04</span>
-            <h3>Deployment context</h3>
-            <p>
-              Volume availability, supply consistency, location, and logistics strongly
-              influence whether a resource can support a practical product pathway.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <div class="container">
-        <div class="text-block narrow">
+        <div class="section-heading">
           <h2>Not every feedstock belongs in the same product</h2>
           <p>
-            Many mineral resources are assessed mainly through the lens of cement replacement.
-            In practice, this is often not the strongest pathway.
-          </p>
-          <p>
-            Some materials show limited pozzolanic performance but work well in activated
-            systems. Others may not justify complex processing but are well suited to
-            stabilisation or large-volume civil use.
-          </p>
-          <p>
-            Identifying the right pathway early helps avoid unnecessary testing and keeps
-            development focused on technically realistic opportunities.
+            Many mineral resources are tested against the wrong target from the outset. A weak SCM
+            candidate may still be highly suitable for stabilisation, pavement applications, fired
+            products, carbonation-cured systems, or specialty mineral uses.
           </p>
         </div>
-      </div>
-    </section>
 
-    <section class="page-section section-soft">
-      <div class="container">
-        <div class="section-heading narrow">
-          <h2>Example development pathways</h2>
-        </div>
-
-        <div class="pathway-list">
-          <div class="pathway-item">
-            <h3>Clay-rich soils</h3>
-            <p>Calcination screening → SCM or low-cement blend potential</p>
-          </div>
-
-          <div class="pathway-item">
-            <h3>Fe-rich slags</h3>
-            <p>Activation assessment → Alternative binder systems</p>
-          </div>
-
-          <div class="pathway-item">
-            <h3>Mixed mineral fines</h3>
-            <p>Processing evaluation → Stabilised fill or civil materials</p>
-          </div>
-
-          <div class="pathway-item">
-            <h3>Calcium-rich residues</h3>
-            <p>Carbonation testing → Carbonated mineral products</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <div class="container">
-        <div class="section-heading narrow">
-          <h2>Relevant to</h2>
-        </div>
-
-        <div class="tag-list">
-          <span class="tag">Cement and concrete producers</span>
-          <span class="tag">Quarry and mining operators</span>
-          <span class="tag">Waste and resource recovery companies</span>
-          <span class="tag">Infrastructure and transport stakeholders</span>
-          <span class="tag">Low-carbon construction product developers</span>
-          <span class="tag">Industrial sites managing mineral residues</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <div class="container">
-        <div class="cta-box">
-          <div>
-            <p class="eyebrow">Next step</p>
-            <h2>Looking for the right use pathway for a mineral resource?</h2>
+        <div class="grid-2">
+          <div class="fit-box">
+            <h3>The stronger question</h3>
             <p>
-              We help determine which application pathways are technically credible and worth developing further.
+              The key question is not whether the feedstock looks interesting in isolation, but where
+              it has the strongest development logic.
             </p>
           </div>
 
+          <div class="fit-box">
+            <h3>Why that matters</h3>
+            <p>
+              Getting that decision right early helps avoid wasted testing, weak product positioning,
+              and unnecessary processing effort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Most relevant where</h2>
+          <p>
+            This page is most relevant when the material has potential, but the right product route
+            is still unclear.
+          </p>
+        </div>
+
+        <div class="fit-box">
+          <ul class="feature-list">
+            <li>clinker reduction is being explored but the right material route is unclear</li>
+            <li>a mineral residue needs a credible use pathway rather than a generic reuse claim</li>
+            <li>a feedstock shows promise but does not fit conventional cement replacement well</li>
+            <li>large-volume civil use may be more realistic than high-reactivity binder use</li>
+            <li>thermally processed or carbonation-based routes are being considered</li>
+            <li>technical justification is needed before broader testing or pilot work</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Looking for the right use pathway for a mineral resource?</h2>
+          <p>
+            We help identify which product pathways are technically credible, commercially sensible,
+            and worth advancing.
+          </p>
+
           <div class="cta-actions">
-            <a class="button button-primary" href="contact.html">Discuss a project</a>
-            <a class="button button-secondary" href="services.html">Explore services</a>
+            <a href="contact.html" class="btn btn-primary">Discuss a project</a>
+            <a href="services.html" class="btn btn-secondary">Explore services</a>
           </div>
         </div>
       </div>
@@ -262,19 +680,8 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>
-        <p class="footer-brand">Mineral Activation Labs</p>
-        <p class="footer-text">
-          Science-led evaluation of mineral feedstocks for low-carbon construction and related mineral products.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <a href="feedstocks.html">Feedstocks</a>
-        <a href="services.html">Services</a>
-        <a href="applications.html">Applications</a>
-        <a href="contact.html">Contact</a>
-      </div>
+      <div>© 2026 Mineral Activation Labs</div>
+      <div>Science-led mineral feedstock assessment for low-carbon material pathways</div>
     </div>
   </footer>
 </body>
