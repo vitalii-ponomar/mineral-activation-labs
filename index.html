@@ -4,137 +4,431 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mineral Activation Labs</title>
-  <meta name="description" content="Science-led assessment of mineral feedstocks, industrial residues, and clay-rich materials for low-carbon construction and related material pathways." />
-  <link rel="stylesheet" href="assets/site.css" />
+  <meta name="description" content="Mineral Activation Labs helps Australian industry assess tailings, slags, soils, quarry fines, and mineral residues and define realistic low-carbon material pathways." />
+  <style>
+    :root {
+      --bg: #f6f8f7;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f3;
+      --text: #183028;
+      --muted: #5d7169;
+      --line: #dce7e1;
+      --accent: #1f6b57;
+      --accent-dark: #174f41;
+      --accent-soft: #e7f2ee;
+      --max: 1180px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 30px rgba(20, 48, 39, 0.08);
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246, 248, 247, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(220, 231, 225, 0.8);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      color: var(--text);
+    }
+
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active { color: var(--text); }
+
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover { background: var(--accent-dark); }
+
+    main { padding: 42px 0 80px; }
+    .section { margin: 0 0 70px; }
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy { padding: 42px; }
+    .hero-copy h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.55rem, 5vw, 4.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 760px;
+    }
+    .hero-copy p {
+      margin: 0;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .hero-actions,
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-secondary { border: 1px solid var(--line); background: #fff; color: var(--text); }
+    .btn-secondary:hover { background: var(--surface-soft); }
+
+    .hero-panel {
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7f5 100%);
+    }
+    .hero-panel h3 {
+      margin: 0 0 16px;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+    .hero-list { display: grid; gap: 14px; }
+    .hero-list-item {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+    .hero-list-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+    .hero-list-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .grid-4,
+    .grid-3,
+    .grid-2 { display: grid; gap: 18px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .card,
+    .feature-card,
+    .panel,
+    .preview-card,
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3,
+    .panel h3,
+    .preview-card h3,
+    .step-card h3,
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.22rem;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+    }
+
+    .feature-card p,
+    .panel p,
+    .preview-card p,
+    .step-card p,
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .feature-number,
+    .number {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 7px 10px;
+    }
+
+    .feature-link {
+      display: inline-block;
+      margin-top: 18px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.87rem;
+      font-weight: 600;
+    }
+
+    .cta-box {
+      background: var(--text);
+      color: #fff;
+      border-radius: 30px;
+      padding: 42px;
+      box-shadow: 0 18px 40px rgba(24, 48, 40, 0.18);
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.9rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-box p {
+      margin: 0;
+      max-width: 760px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.04rem;
+    }
+
+    .cta-box .btn-primary { background: #fff; color: var(--text); }
+    .cta-box .btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.06);
+    }
+    .cta-box .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+    .site-footer {
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1000px) {
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .section-heading,
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 860px) {
+      .header-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .nav { gap: 12px 16px; justify-content: flex-start; }
+    }
+
+    @media (max-width: 760px) {
+      .hero-copy,
+      .hero-panel,
+      .feature-card,
+      .panel,
+      .preview-card,
+      .step-card,
+      .cta-box { padding: 24px; }
+      main { padding-top: 26px; }
+      .brand-logo { height: 36px; }
+      .hero-copy h1 { font-size: clamp(2.2rem, 11vw, 3.2rem); }
+      .hero-actions,
+      .cta-actions { flex-direction: column; align-items: stretch; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="Mineral Activation Labs home">
         <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="brand-logo" />
-        <div class="brand-text">Mineral Activation Labs</div>
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
         <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="science.html">Science</a>
         <a href="feedstocks.html">Feedstocks</a>
         <a href="services.html">Services</a>
         <a href="applications.html">Applications</a>
         <a href="projects.html">Projects</a>
-        <a href="contact.html" class="nav-cta">Discuss a project</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="section">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">Science-led mineral feedstock assessment</div>
-          <h1>Turning underused mineral streams into development-ready pathways</h1>
+          <div class="eyebrow">Australian mineral side-stream assessment</div>
+          <h1>Clarify whether a mineral feedstock is actually worth developing</h1>
           <p>
-            Mineral Activation Labs helps industry assess natural and industrial mineral side streams — including tailings, slags, clay-rich soils, quarry fines, and mineral residues — and determine whether they are worth developing for low-carbon construction materials and related mineral products.
+            Mineral Activation Labs helps Australian industry assess tailings, slags, clay-rich soils, quarry fines, and mineral residues and identify the most realistic pathway into low-carbon construction materials or related mineral products.
           </p>
           <div class="hero-actions">
-            <a href="services.html" class="btn btn-primary">Explore services</a>
-            <a href="contact.html" class="btn btn-secondary">Discuss a project</a>
+            <a href="contact.html" class="btn btn-primary">Discuss a project</a>
+            <a href="services.html" class="btn btn-secondary">Explore services</a>
           </div>
         </div>
 
         <div class="hero-panel">
           <div>
-            <h3>What we help clarify</h3>
+            <h3>What the homepage should make clear</h3>
             <div class="hero-list">
               <div class="hero-list-item">
-                <strong>Is this feedstock worth developing?</strong>
-                <span>Assess mineralogy, chemistry, reactivity, and variability before larger commitments are made.</span>
+                <strong>Is there a real opportunity?</strong>
+                <span>Separate genuinely useful feedstocks from materials that are unlikely to justify further work.</span>
               </div>
               <div class="hero-list-item">
-                <strong>What is the most realistic pathway?</strong>
-                <span>Define whether the route is calcination, blending, activation, carbonation, ceramics, or no-go.</span>
+                <strong>What is the strongest pathway?</strong>
+                <span>Define whether the route is blending, activation, stabilisation, firing, or early no-go.</span>
               </div>
               <div class="hero-list-item">
-                <strong>What are the main technical constraints?</strong>
-                <span>Identify impurity risks, processing demand, performance limits, and scale-up barriers early.</span>
+                <strong>What should happen next?</strong>
+                <span>Turn material uncertainty into a clearer technical and commercial decision.</span>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Core pages</h2>
-          <p>
-            The site is structured around the core questions that matter when assessing mineral feedstocks and translating them into practical development options.
-          </p>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-number">01</span>
-            <h3>Feedstocks</h3>
-            <p>
-              Explore the main mineral feedstock categories that matter in Australia, including slags, soils, clays, tailings, and other underused mineral side streams.
-            </p>
-            <a href="feedstocks.html" class="feature-link">View feedstocks</a>
-          </article>
-
-          <article class="feature-card">
-            <span class="feature-number">02</span>
-            <h3>Services</h3>
-            <p>
-              Technical services focused on feedstock screening, mineralogical assessment, reactivity evaluation, pathway definition, and decision-ready project direction.
-            </p>
-            <a href="services.html" class="feature-link">View services</a>
-          </article>
-
-          <article class="feature-card">
-            <span class="feature-number">03</span>
-            <h3>Applications</h3>
-            <p>
-              Material application areas where these feedstocks may create value, from SCMs and binders to ceramics, stabilisation systems, and related products.
-            </p>
-            <a href="applications.html" class="feature-link">View applications</a>
-          </article>
-
-          <article class="feature-card">
-            <span class="feature-number">04</span>
-            <h3>Projects</h3>
-            <p>
-              Real project examples showing how mineral feedstocks, residues, and clay-rich materials are screened, de-risked, and translated into practical development pathways.
-            </p>
-            <a href="projects.html" class="feature-link">View projects</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Why this matters now</h2>
-          <p>
-            Australia has growing pressure to reduce landfill, recover value from mineral-rich waste streams, and secure lower-carbon material pathways using locally available resources.
-          </p>
-        </div>
-
-        <div class="split-panel">
-          <div class="panel">
-            <h3>More mineral streams need better technical decisions</h3>
-            <p>
-              Many materials are discussed as opportunities long before their mineralogical fit, reactivity, and processing demand are understood. Better early-stage assessment reduces wasted effort and helps focus development on feedstocks with a credible pathway.
-            </p>
-          </div>
-
-          <div class="panel">
-            <h3>Low-carbon material development depends on feedstock realism</h3>
-            <p>
-              Not every slag, clay, or soil stream can become a useful product. The value lies in identifying where the opportunity is real, what constraints matter most, and what next step makes technical and commercial sense.
-            </p>
+          <div class="tag-row">
+            <span class="tag">Tailings</span>
+            <span class="tag">Slags</span>
+            <span class="tag">Clay-rich soils</span>
+            <span class="tag">Quarry fines</span>
+            <span class="tag">Mineral residues</span>
           </div>
         </div>
       </div>
@@ -143,37 +437,106 @@
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <h2>From feedstock uncertainty to project direction</h2>
+          <h2>What matters most</h2>
           <p>
-            Selected projects show how mineral streams can be assessed for suitability, processing demand, and realistic product pathways before larger development commitments are made.
+            Most mineral side-streams are underused not because they have no value, but because the pathway to using them is unclear. The real task is to identify where the opportunity is credible, where the risk sits, and what the right next step should be.
           </p>
         </div>
 
-        <div class="projects-preview-grid">
-          <article class="preview-card">
-            <h3>Treated soils</h3>
+        <div class="grid-3">
+          <article class="panel">
+            <h3>Large underused mineral streams</h3>
             <p>
-              Assessing whether treated and excavated soils can become useful low-carbon construction inputs rather than disposal liabilities.
+              Australia produces large volumes of tailings, slags, soils, fines, and residues that are still stockpiled or landfilled despite containing usable material.
             </p>
           </article>
 
-          <article class="preview-card">
-            <h3>Fe-rich slags</h3>
+          <article class="panel">
+            <h3>Pressure to reduce waste and emissions</h3>
             <p>
-              Evaluating whether difficult industrial residues can support reliable binder performance and viable product development.
+              Industry is under growing pressure to cut landfill, lower emissions, and make better use of materials that are already available.
             </p>
           </article>
 
-          <article class="preview-card">
-            <h3>Calcined clays</h3>
+          <article class="panel">
+            <h3>Not all materials are equal</h3>
             <p>
-              Defining which clay-rich feedstocks are actually worth developing for SCM and activated binder pathways.
+              Two materials that look similar on paper can behave very differently in practice. What matters is how the material actually performs.
+            </p>
+          </article>
+
+          <article class="panel">
+            <h3>The real challenge is decision-making</h3>
+            <p>
+              Many projects stall because it is unclear whether a feedstock is worth developing and what the next step should be.
+            </p>
+          </article>
+
+          <article class="panel">
+            <h3>Processing changes everything</h3>
+            <p>
+              A material may only become useful after the right treatment, blending, or handling approach is applied.
+            </p>
+          </article>
+
+          <article class="panel">
+            <h3>Value depends on the right use</h3>
+            <p>
+              The same material can fail in one application and succeed in another. The key is finding the right fit.
             </p>
           </article>
         </div>
+      </div>
+    </section>
 
-        <div class="section-actions">
-          <a href="projects.html" class="btn btn-primary">Explore projects</a>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>What we do</h2>
+          <p>
+            The aim is not to make every material look promising. It is to define where the real opportunity sits and what development path makes sense.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature-card">
+            <h3>Screen the feedstock</h3>
+            <p>
+              Assess whether the material is worth pursuing and what the main constraints are likely to be.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Define the pathway</h3>
+            <p>
+              Identify the most realistic route into construction materials or related mineral-based products.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Clarify the next step</h3>
+            <p>
+              Turn scattered material information into a practical decision: deeper testing, pilot preparation, reprioritisation, or no-go.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Why Mineral Activation Labs</h2>
+          <p>
+            Mineral Activation Labs brings together mineral feedstock assessment, construction materials understanding, and practical development thinking.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Technical depth with practical direction</h3>
+          <p>
+            The focus is on helping partners make better early decisions about tailings, slags, soils, fines, and mineral residues — especially where the opportunity is real but the pathway is still uncertain.
+          </p>
         </div>
       </div>
     </section>
@@ -183,11 +546,11 @@
         <div class="cta-box">
           <h2>Discuss a mineral feedstock or project</h2>
           <p>
-            If you are evaluating a mineral side stream, residue, clay-rich material, or underused feedstock, we can help clarify whether it has a credible pathway into a usable product and what the next technical step should be.
+            If you are evaluating a tailings stream, slag, clay-rich material, quarry fine, or other mineral residue, the aim is to determine whether it is worth developing and what the most realistic next step looks like.
           </p>
           <div class="cta-actions">
-            <a href="contact.html" class="btn btn-primary">Discuss a project</a>
-            <a href="projects.html" class="btn btn-secondary">View projects</a>
+            <a href="contact.html" class="btn btn-primary">Contact us</a>
+            <a href="services.html" class="btn btn-secondary">Explore services</a>
           </div>
         </div>
       </div>
@@ -197,13 +560,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>© 2026 Mineral Activation Labs</div>
-      <div class="footer-nav">
-        <a href="feedstocks.html">Feedstocks</a>
-        <a href="services.html">Services</a>
-        <a href="applications.html">Applications</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </div>
+      <div>Science-led mineral feedstock assessment for low-carbon material pathways</div>
     </div>
   </footer>
 </body>
