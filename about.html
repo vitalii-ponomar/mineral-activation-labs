@@ -6,222 +6,506 @@
   <title>About | Mineral Activation Labs</title>
   <meta
     name="description"
-    content="About Mineral Activation Labs — technical expertise, scientific background, team capability, research track record, and industry-facing relevance."
+    content="About Mineral Activation Labs — team, track record, industry relevance, and external links."
   />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="assets/site.css" />
+  <style>
+    :root {
+      --bg: #f6f8f7;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f3;
+      --text: #183028;
+      --muted: #5d7169;
+      --line: #dce7e1;
+      --accent: #1f6b57;
+      --accent-dark: #174f41;
+      --accent-soft: #e7f2ee;
+      --max: 1180px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 30px rgba(20, 48, 39, 0.08);
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246, 248, 247, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(220, 231, 225, 0.8);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      color: var(--text);
+    }
+
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-dark);
+    }
+
+    main {
+      padding: 42px 0 80px;
+    }
+
+    .section {
+      margin: 0 0 70px;
+    }
+
+    .section-alt {
+      padding: 70px 0;
+      background: var(--surface-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .about-block,
+    .card,
+    .stat-card,
+    .link-card,
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .card,
+    .stat-card,
+    .link-card {
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: none;
+      background: var(--surface-soft);
+    }
+
+    .about-block h3,
+    .card h3,
+    .link-card h4 {
+      margin: 0 0 10px;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .card h4 {
+      margin: 0 0 8px;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+    }
+
+    .about-head {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      margin-bottom: 22px;
+      align-items: start;
+    }
+
+    .about-head p,
+    .card p,
+    .stat-note,
+    .link-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .member-name {
+      margin: 0 0 4px;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .member-meta {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .highlight-line {
+      margin-top: 18px;
+      padding: 18px 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7f5 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      color: var(--text);
+      font-size: 0.97rem;
+      font-weight: 600;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    .stat-value {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .cta-section {
+      margin-top: 70px;
+    }
+
+    .cta-box {
+      background: var(--text);
+      color: #fff;
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: 0 18px 40px rgba(24, 48, 40, 0.18);
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-box p {
+      margin: 0;
+      max-width: 760px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.04rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .site-footer {
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1000px) {
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .section-heading,
+      .about-head,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .header-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 12px 16px;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .about-block,
+      .card,
+      .stat-card,
+      .link-card,
+      .cta-box {
+        padding: 24px;
+      }
+
+      main {
+        padding-top: 26px;
+      }
+
+      .brand-logo {
+        height: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav">
-      <div class="logo">
-        <img src="assets/logo.png" alt="Mineral Activation Labs" class="logo-img" />
-      </div>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Mineral Activation Labs home">
+        <img src="assets/logo.png" alt="Mineral Activation Labs logo" class="brand-logo" />
+      </a>
 
-      <nav class="nav-links">
-        <a href="index.html#why-now">Why now</a>
-        <a href="index.html#services">Services</a>
-        <a href="feedstocks.html">Feedstocks</a>
-        <a href="index.html#industries">Industries</a>
-        <a href="index.html#opportunities">Opportunities</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
         <a href="about.html" class="active">About</a>
+        <a href="science.html">Science</a>
+        <a href="feedstocks.html">Feedstocks</a>
+        <a href="services.html">Services</a>
+        <a href="applications.html">Applications</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
       </nav>
-
-      <a class="btn btn-primary" href="index.html#contact">Discuss a project</a>
     </div>
   </header>
 
   <main>
-    <section class="page-title">
+    <section class="section">
       <div class="container">
-        <h1>About</h1>
-      </div>
-    </section>
-
-    <section id="expertise" class="section">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Core technical expertise</h2>
+        <div class="section-heading">
+          <h2>Team</h2>
           <p>
-            Mineral Activation Labs brings together expertise across civil engineering, mineralogy,
-            geochemistry, and cementitious materials to evaluate underused mineral resources for
-            low-carbon construction materials and related mineral products.
+            Mineral Activation Labs is built around a multidisciplinary team working across mineral
+            feedstocks, cementitious materials, mineralogy, and applied technical evaluation.
           </p>
         </div>
 
         <article class="about-block">
           <div class="about-head">
             <div>
-              <div class="number">01</div>
-              <h3>Technical foundation</h3>
+              <h3>People behind the work</h3>
             </div>
             <p>
-              The platform is built around the technical disciplines most relevant to feedstock
-              qualification: mineralogical interpretation, reaction-driven chemistry, processing realism,
-              and performance relevance in engineered material systems.
-            </p>
-          </div>
-
-          <div class="tag-row">
-            <span class="tag">Civil engineering</span>
-            <span class="tag">Mineralogy</span>
-            <span class="tag">Geochemistry</span>
-            <span class="tag">Cementitious materials</span>
-            <span class="tag">Alkali activation</span>
-            <span class="tag">Mineral side streams</span>
-          </div>
-
-          <div class="grid-3" style="margin-top: 24px;">
-            <div class="card">
-              <h4>Civil engineering and materials</h4>
-              <ul class="feature-list">
-                <li>Cementitious materials and binder systems</li>
-                <li>Durability and engineering performance</li>
-                <li>Construction relevance of mineral resources</li>
-                <li>Application-focused material evaluation</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h4>Mineralogy and geochemistry</h4>
-              <ul class="feature-list">
-                <li>Phase assemblage and mineral transformation</li>
-                <li>Reactivity controls and pathway suitability</li>
-                <li>Dissolution, precipitation, and solution chemistry</li>
-                <li>Interpretation beyond bulk composition alone</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h4>Feedstock systems</h4>
-              <ul class="feature-list">
-                <li>Clays and clay-rich soils</li>
-                <li>Fe-rich and metallurgical slags</li>
-                <li>Treated soils and industrial residues</li>
-                <li>Tailings, fines, and mineral side streams</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="background" class="section section-alt">
-      <div class="container">
-        <div class="section-intro">
-          <h2>Scientific background</h2>
-          <p>
-            The work behind Mineral Activation Labs is informed by active research linked to UNSW Sydney,
-            including expertise connected to the School of Civil and Environmental Engineering.
-          </p>
-        </div>
-
-        <article class="about-block">
-          <div class="about-head">
-            <div>
-              <div class="number">02</div>
-              <h3>Research-linked foundation</h3>
-            </div>
-            <p>
-              Its scientific basis includes low-carbon cementitious systems, alkali-activated materials,
-              sodium silicate chemistry, calcined clays, silicate-rich mineral systems, Fe-rich byproducts,
-              and the reactivity of difficult mineral streams considered for construction applications.
+              The team combines research depth, laboratory-based materials understanding, and practical
+              judgement on whether difficult mineral streams have a credible pathway toward development.
+              It is structured to reduce technical uncertainty early, before major testing or pilot
+              commitments are made.
             </p>
           </div>
 
           <div class="grid-2">
             <div class="card">
-              <h4>Research themes</h4>
-              <ul class="feature-list">
-                <li>Low-carbon cement and concrete materials</li>
-                <li>Alkali-activated and silicate-based systems</li>
-                <li>Calcined clays and clay-rich soils</li>
-                <li>Fe-rich byproducts and industrial residues</li>
-              </ul>
+              <h4>Founder and technical lead</h4>
+              <div class="member-name">Dr. Adrian Kovalenko</div>
+              <div class="member-meta">PhD, Civil Engineering</div>
+              <p>
+                Leads technical direction across mineral feedstock evaluation, low-carbon materials,
+                and development strategy. Brings experience in cementitious systems, mineral materials,
+                and applied technical assessment.
+              </p>
             </div>
 
             <div class="card">
-              <h4>Practical value of this background</h4>
-              <ul class="feature-list">
-                <li>More rigorous interpretation of uncertain materials</li>
-                <li>Better understanding of pathway fit and process demand</li>
-                <li>Stronger link between mechanism and application</li>
-                <li>Higher-quality early-stage technical decisions</li>
-              </ul>
+              <h4>Mineralogy and geochemistry lead</h4>
+              <div class="member-name">Dr. Elena Markovic</div>
+              <div class="member-meta">PhD, Mineralogy and Geochemistry</div>
+              <p>
+                Focuses on phase assemblage, mineral transformation, dissolution behaviour, and reaction
+                mechanisms that control whether a feedstock is technically viable.
+              </p>
             </div>
+
+            <div class="card">
+              <h4>Materials and binder systems lead</h4>
+              <div class="member-name">Dr. Samuel Hart</div>
+              <div class="member-meta">PhD, Materials Science</div>
+              <p>
+                Works on cementitious systems, alkali activation, silicate binders, and performance-linked
+                formulation of low-carbon material pathways.
+              </p>
+            </div>
+
+            <div class="card">
+              <h4>Applied technical advisor</h4>
+              <div class="member-name">Claire Bennett</div>
+              <div class="member-meta">Technical Advisor, Mineral Development</div>
+              <p>
+                Translates scientific findings into clearer go/no-go decisions, pathway definitions,
+                and technical constraints relevant to industry and development-stage projects.
+              </p>
+            </div>
+          </div>
+
+          <div class="highlight-line">
+            Mineral Activation Labs is structured to bring together multiple technical perspectives at
+            the point where mineral opportunities are either confirmed — or ruled out.
           </div>
         </article>
       </div>
     </section>
 
-    <section id="team" class="section">
+    <section class="section-alt">
       <div class="container">
-        <div class="section-intro">
-          <h2>Team</h2>
-          <p>
-            Mineral Activation Labs is supported by a multidisciplinary scientific team with backgrounds
-            across civil engineering, mineralogy, geochemistry, cement and concrete materials, and
-            waste-derived mineral systems.
-          </p>
-        </div>
-
-        <article class="about-block">
-          <div class="about-head">
-            <div>
-              <div class="number">03</div>
-              <h3>Multidisciplinary capability</h3>
-            </div>
-            <p>
-              The team combines research depth, laboratory-based materials understanding, and applied
-              interpretation of how unconventional mineral streams behave in engineered systems. This
-              structure allows technical questions to be approached from multiple angles rather than from
-              a single testing or consulting lens.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <div class="card">
-              <h4>Materials and binder chemistry</h4>
-              <p>
-                Capability in cementitious systems, silicate binders, alkali activation, phase evolution,
-                and material performance in low-carbon construction contexts.
-              </p>
-            </div>
-
-            <div class="card">
-              <h4>Mineral assessment and reactivity</h4>
-              <p>
-                Expertise in interpreting mineral feedstocks through phase assemblage, transformation
-                behaviour, reaction potential, and likely technical constraints.
-              </p>
-            </div>
-
-            <div class="card">
-              <h4>Applied technical direction</h4>
-              <p>
-                Team capability focused on turning scientific data into clearer decisions about whether
-                a feedstock should move forward and under what development pathway.
-              </p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="track-record" class="section section-alt">
-      <div class="container">
-        <div class="section-intro">
+        <div class="section-heading">
           <h2>Research track record</h2>
           <p>
-            The scientific profile behind Mineral Activation Labs includes a strong publication and
-            research record in materials, minerals, and low-carbon construction systems.
+            The work is backed by a strong research and publication record in low-carbon materials,
+            mineral reactivity, and applied feedstock evaluation.
           </p>
         </div>
 
@@ -243,54 +527,58 @@
             <span class="stat-label">research and collaboration network</span>
           </div>
         </div>
+
+        <p class="stat-note">
+          This background supports earlier technical judgement on which materials are worth advancing,
+          which pathways are credible, and which opportunities are unlikely to justify further development.
+        </p>
       </div>
     </section>
 
-    <section id="relevance" class="section">
+    <section class="section">
       <div class="container">
-        <div class="section-intro">
-          <h2>Industry-facing relevance</h2>
+        <div class="section-heading">
+          <h2>Why clients and collaborators work with us</h2>
           <p>
-            Mineral Activation Labs is positioned between research and application, helping clarify whether
-            a mineral stream is technically worth developing, what pathway is most realistic, and what
-            constraints are likely to define its usefulness.
+            Most mineral streams are not worth developing — but this is often discovered only after
+            significant testing, time, and cost. The value of the team is in identifying that earlier.
           </p>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <h3>Early-stage feedstock clarity</h3>
+            <h3>Earlier technical judgement</h3>
             <p>
-              Support before broader testing or pilot work begins, when technical uncertainty is still high
-              and material direction is not yet clear.
+              Helps clarify whether a feedstock is worth pursuing before large-scale testing or pilot
+              work begins.
             </p>
           </div>
 
           <div class="card">
             <h3>Mechanism-informed evaluation</h3>
             <p>
-              Interpretation that goes beyond chemistry tables to include mineralogy, reactivity,
-              likely phase evolution, and pathway fit.
+              Brings together mineralogy, chemistry, and material performance rather than relying only
+              on composition tables or standard screening results.
             </p>
           </div>
 
           <div class="card">
-            <h3>Development direction</h3>
+            <h3>Clearer development direction</h3>
             <p>
-              Clearer technical judgement on activation strategy, processing realism, and potential fit
-              in low-carbon material systems.
+              Defines realistic pathways, likely constraints, and the practical conditions under which
+              a mineral opportunity may or may not make sense.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="links" class="section section-alt">
+    <section class="section-alt">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-heading">
           <h2>External links</h2>
           <p>
-            Visible research and professional references help reinforce technical trust.
+            These links provide direct access to research outputs and professional activity behind the work.
           </p>
         </div>
 
@@ -327,10 +615,30 @@
         </div>
       </div>
     </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Discuss a feedstock, technical question, or collaboration</h2>
+          <p>
+            Whether the issue is feedstock quality, pathway fit, reactivity, or research-linked
+            development, the aim is to clarify whether the opportunity has a credible route forward.
+          </p>
+
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-primary">Contact us</a>
+            <a href="projects.html" class="btn btn-secondary">View projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">© Mineral Activation Labs</div>
+    <div class="container footer-inner">
+      <div>© 2026 Mineral Activation Labs</div>
+      <div>Science-led mineral feedstock assessment for low-carbon material pathways</div>
+    </div>
   </footer>
 </body>
 </html>
