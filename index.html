@@ -152,21 +152,32 @@
     }
 
     .hero-visual {
-      position: relative;
-      min-height: 72vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      margin-bottom: 32px;
-    }
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 32px;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(12, 24, 20, 0.84) 0%,
+      rgba(12, 24, 20, 0.70) 30%,
+      rgba(12, 24, 20, 0.36) 60%,
+      rgba(12, 24, 20, 0.10) 100%
+    ),
+    url("assets/hero1.webp");
+  background-size: cover;
+  background-position: center;
+}
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
 
-    .hero-bg img {
+.hero-bg img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -174,65 +185,38 @@
   object-fit: cover;
   opacity: 0;
   transform: scale(1.05);
+  animation: heroFade 20s infinite;
   animation-timing-function: linear;
   animation-fill-mode: both;
   will-change: opacity, transform;
 }
 
-.hero-bg img:nth-child(1) {
-  animation: heroFade 25s infinite;
-  animation-delay: 0s;
-}
-
-.hero-bg img:nth-child(2) {
-  animation: heroFade 25s infinite;
-  animation-delay: 5s;
-}
-
-.hero-bg img:nth-child(3) {
-  animation: heroFade 25s infinite;
-  animation-delay: 10s;
-}
-
-.hero-bg img:nth-child(4) {
-  animation: heroFade 25s infinite;
-  animation-delay: 15s;
-}
-
-.hero-bg img:nth-child(5) {
-  animation: heroFade 25s infinite;
-  animation-delay: 20s;
-}
+.hero-bg img:nth-child(1) { animation-delay: 0s; }
+.hero-bg img:nth-child(2) { animation-delay: 5s; }
+.hero-bg img:nth-child(3) { animation-delay: 10s; }
+.hero-bg img:nth-child(4) { animation-delay: 15s; }
 
 @keyframes heroFade {
   0%   { opacity: 0; transform: scale(1.05); }
-  4%   { opacity: 1; transform: scale(1.06); }
-  20%  { opacity: 1; transform: scale(1.09); }
-  24%  { opacity: 0; transform: scale(1.11); }
+  8%   { opacity: 1; transform: scale(1.06); }
+  42%  { opacity: 1; transform: scale(1.09); }
+  50%  { opacity: 0; transform: scale(1.11); }
   100% { opacity: 0; transform: scale(1.11); }
 }
 
-@keyframes heroFadeFirst {
-  0%   { opacity: 1; transform: scale(1.05); }
-  20%  { opacity: 1; transform: scale(1.09); }
-  24%  { opacity: 0; transform: scale(1.11); }
-  96%  { opacity: 0; transform: scale(1.05); }
-  100% { opacity: 1; transform: scale(1.05); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 24, 20, 0.84) 0%,
+      rgba(12, 24, 20, 0.70) 30%,
+      rgba(12, 24, 20, 0.36) 60%,
+      rgba(12, 24, 20, 0.10) 100%
+    );
 }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(12, 24, 20, 0.84) 0%,
-          rgba(12, 24, 20, 0.70) 30%,
-          rgba(12, 24, 20, 0.36) 60%,
-          rgba(12, 24, 20, 0.10) 100%
-        );
-    }
 
     .hero-content {
       position: relative;
