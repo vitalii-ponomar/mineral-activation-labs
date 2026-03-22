@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mineral Activation Labs</title>
-  <meta name="description" content="Mineral Activation Labs helps Australian industry assess tailings, slags, soils, quarry fines, and mineral residues and define realistic low-carbon material pathways." />
+  <meta
+    name="description"
+    content="Mineral Activation Labs helps Australian industry assess tailings, slags, soils, quarry fines, and mineral residues and identify realistic pathways into low-carbon construction materials."
+  />
   <style>
     :root {
       --bg: #f6f8f7;
@@ -25,6 +28,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
@@ -32,8 +36,10 @@
       color: var(--text);
       line-height: 1.6;
     }
+
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
+
     .container {
       width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
@@ -59,7 +65,6 @@
     .brand {
       display: flex;
       align-items: center;
-      color: var(--text);
     }
 
     .brand-logo {
@@ -83,7 +88,9 @@
     }
 
     .nav a:hover,
-    .nav a.active { color: var(--text); }
+    .nav a.active {
+      color: var(--text);
+    }
 
     .nav-cta {
       padding: 11px 16px;
@@ -93,69 +100,117 @@
       font-weight: 600;
     }
 
-    .nav-cta:hover { background: var(--accent-dark); }
-
-    main { padding: 42px 0 80px; }
-    .section { margin: 0 0 70px; }
-    .section-heading {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: end;
-      margin-bottom: 28px;
+    .nav-cta:hover {
+      background: var(--accent-dark);
     }
-    .section-heading h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      line-height: 1.08;
+
+    main {
+      padding: 0 0 80px;
+    }
+
+    .section {
+      margin: 0 0 72px;
+    }
+
+    .section-soft {
+      background: var(--surface-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 56px 0;
+      margin-bottom: 72px;
+    }
+
+    .section-title {
+      margin: 0 0 22px;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 1.06;
       letter-spacing: -0.03em;
     }
-    .section-heading p {
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-intro p {
       margin: 0;
       color: var(--muted);
       font-size: 1rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(12, 24, 20, 0.84) 0%,
+          rgba(12, 24, 20, 0.70) 30%,
+          rgba(12, 24, 20, 0.36) 60%,
+          rgba(12, 24, 20, 0.10) 100%
+        ),
+        url("assets/hero.png");
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 78px 0 74px;
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      color: #fff;
     }
 
     .eyebrow {
       display: inline-block;
       padding: 8px 12px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-dark);
+      background: rgba(255,255,255,0.12);
+      color: #ffffff;
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.02em;
       margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(4px);
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-copy,
-    .hero-panel {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-copy { padding: 42px; }
     .hero-copy h1 {
       margin: 0 0 18px;
-      font-size: clamp(2.55rem, 5vw, 4.7rem);
-      line-height: 0.98;
+      font-size: clamp(2.8rem, 5.8vw, 5.2rem);
+      line-height: 0.95;
       letter-spacing: -0.05em;
       max-width: 760px;
+      color: #fff;
     }
+
     .hero-copy p {
       margin: 0;
+      max-width: 650px;
       font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 700px;
+      color: rgba(255,255,255,0.86);
     }
 
     .hero-actions,
@@ -163,7 +218,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 26px;
+      margin-top: 28px;
     }
 
     .btn {
@@ -176,119 +231,148 @@
       font-weight: 700;
       transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent-dark); }
-    .btn-secondary { border: 1px solid var(--line); background: #fff; color: var(--text); }
-    .btn-secondary:hover { background: var(--surface-soft); }
 
-    .hero-panel {
-      padding: 34px;
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    .btn-primary:hover {
+      background: #f3f6f4;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.06);
+      color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .trust-strip {
+      margin-bottom: 72px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .trust-item {
+      min-height: 52px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: linear-gradient(180deg, #ffffff 0%, #f3f7f5 100%);
-    }
-    .hero-panel h3 {
-      margin: 0 0 16px;
-      font-size: 1.35rem;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-    }
-    .hero-list { display: grid; gap: 14px; }
-    .hero-list-item {
-      background: rgba(255,255,255,0.88);
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 16px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: var(--shadow);
     }
-    .hero-list-item strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1rem;
+
+    .grid-4,
+    .grid-3 {
+      display: grid;
+      gap: 18px;
     }
-    .hero-list-item span {
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .panel,
+    .feature-card,
+    .proof-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .panel h3,
+    .feature-card h3,
+    .proof-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+
+    .panel p,
+    .feature-card p,
+    .proof-card p {
+      margin: 0;
       color: var(--muted);
       font-size: 0.95rem;
     }
 
-    .grid-4,
-    .grid-3,
-    .grid-2 { display: grid; gap: 18px; }
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-
-    .card,
-    .feature-card,
-    .panel,
-    .preview-card,
-    .step-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .feature-card h3,
-    .panel h3,
-    .preview-card h3,
-    .step-card h3,
-    .card h3 {
-      margin: 0 0 12px;
-      font-size: 1.22rem;
-      letter-spacing: -0.03em;
-      line-height: 1.12;
-    }
-
-    .feature-card p,
-    .panel p,
-    .preview-card p,
-    .step-card p,
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.97rem;
-    }
-
-    .feature-number,
-    .number {
-      display: inline-block;
-      margin-bottom: 16px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--accent-dark);
-      background: var(--accent-soft);
-      border-radius: 999px;
-      padding: 7px 10px;
-    }
-
-    .feature-link {
-      display: inline-block;
-      margin-top: 18px;
-      font-weight: 700;
-      color: var(--accent-dark);
-    }
-
-    .tag-row {
+    .feature-card {
+      padding: 24px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
+      flex-direction: column;
+      gap: 14px;
     }
 
-    .tag {
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
       display: inline-flex;
       align-items: center;
-      min-height: 34px;
-      padding: 0 12px;
-      border-radius: 999px;
-      background: var(--surface-soft);
-      border: 1px solid var(--line);
+      justify-content: center;
+    }
+
+    .service-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .proof-lead {
+      max-width: 760px;
+      margin: 0 0 24px;
       color: var(--muted);
-      font-size: 0.87rem;
-      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .proof-card {
+      padding: 22px;
+    }
+
+    .proof-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
     .cta-box {
@@ -301,7 +385,7 @@
 
     .cta-box h2 {
       margin: 0 0 12px;
-      font-size: clamp(1.8rem, 3vw, 2.9rem);
+      font-size: clamp(1.9rem, 3vw, 2.9rem);
       line-height: 1.08;
       letter-spacing: -0.03em;
     }
@@ -309,17 +393,24 @@
     .cta-box p {
       margin: 0;
       max-width: 760px;
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.84);
       font-size: 1.04rem;
     }
 
-    .cta-box .btn-primary { background: #fff; color: var(--text); }
+    .cta-box .btn-primary {
+      background: #fff;
+      color: var(--text);
+    }
+
     .cta-box .btn-secondary {
       color: #fff;
       border: 1px solid rgba(255,255,255,0.22);
       background: rgba(255,255,255,0.06);
     }
-    .cta-box .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+    .cta-box .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
 
     .site-footer {
       padding: 28px 0 36px;
@@ -334,14 +425,41 @@
       justify-content: space-between;
       gap: 20px;
       flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .footer-brand strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 1100px) {
+      .trust-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     @media (max-width: 1000px) {
       .grid-4,
-      .grid-3,
-      .grid-2,
-      .section-heading,
-      .hero-grid { grid-template-columns: 1fr; }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
     }
 
     @media (max-width: 860px) {
@@ -351,22 +469,42 @@
         align-items: flex-start;
         flex-direction: column;
       }
-      .nav { gap: 12px 16px; justify-content: flex-start; }
+
+      .nav {
+        gap: 12px 16px;
+        justify-content: flex-start;
+      }
     }
 
     @media (max-width: 760px) {
-      .hero-copy,
-      .hero-panel,
       .feature-card,
+      .proof-card,
       .panel,
-      .preview-card,
-      .step-card,
-      .cta-box { padding: 24px; }
-      main { padding-top: 26px; }
-      .brand-logo { height: 36px; }
-      .hero-copy h1 { font-size: clamp(2.2rem, 11vw, 3.2rem); }
+      .cta-box {
+        padding: 24px;
+      }
+
+      .brand-logo {
+        height: 36px;
+      }
+
+      .hero-content {
+        padding: 62px 0 58px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.2rem, 11vw, 3.5rem);
+      }
+
       .hero-actions,
-      .cta-actions { flex-direction: column; align-items: stretch; }
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
@@ -391,133 +529,124 @@
   </header>
 
   <main>
-    <section class="section">
-      <div class="container hero-grid">
+    <section class="hero-visual">
+      <div class="container hero-content">
         <div class="hero-copy">
           <div class="eyebrow">Australian mineral side-stream assessment</div>
-          <h1>Clarify whether a mineral feedstock is actually worth developing</h1>
+
+          <h1>Identify which mineral side-streams are worth developing</h1>
+
           <p>
-            Mineral Activation Labs helps Australian industry assess tailings, slags, clay-rich soils, quarry fines, and mineral residues and identify the most realistic pathway into low-carbon construction materials or related mineral products.
+            Mineral Activation Labs helps Australian industry assess tailings, slags, clay-rich soils,
+            quarry fines, and mineral residues and identify realistic pathways into construction materials.
           </p>
+
           <div class="hero-actions">
-            <a href="contact.html" class="btn btn-primary">Discuss a project</a>
-            <a href="services.html" class="btn btn-secondary">Explore services</a>
+            <a href="contact.html" class="btn btn-primary">Discuss a feedstock</a>
+            <a href="services.html" class="btn btn-secondary">See services</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-panel">
-          <div>
-            <h3>What the homepage should make clear</h3>
-            <div class="hero-list">
-              <div class="hero-list-item">
-                <strong>Is there a real opportunity?</strong>
-                <span>Separate genuinely useful feedstocks from materials that are unlikely to justify further work.</span>
-              </div>
-              <div class="hero-list-item">
-                <strong>What is the strongest pathway?</strong>
-                <span>Define whether the route is blending, activation, stabilisation, firing, or early no-go.</span>
-              </div>
-              <div class="hero-list-item">
-                <strong>What should happen next?</strong>
-                <span>Turn material uncertainty into a clearer technical and commercial decision.</span>
-              </div>
+    <section class="trust-strip">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">Tailings</div>
+          <div class="trust-item">Slags</div>
+          <div class="trust-item">Clay-rich soils</div>
+          <div class="trust-item">Quarry fines</div>
+          <div class="trust-item">Mineral residues</div>
+          <div class="trust-item">Low-carbon materials</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-intro">
+          <div class="section-kicker">What matters most</div>
+          <h2 class="section-title">The real issue is not availability. It is fit, value, and pathway.</h2>
+        </div>
+
+        <div class="grid-4">
+          <article class="panel">
+            <h3>Large underused streams</h3>
+            <p>Tailings, slags, soils, and fines are available at scale.</p>
+          </article>
+
+          <article class="panel">
+            <h3>Pressure to do more with less</h3>
+            <p>Waste, emissions, and landfill costs are rising.</p>
+          </article>
+
+          <article class="panel">
+            <h3>Early decisions matter</h3>
+            <p>Projects often stall when the pathway is still unclear.</p>
+          </article>
+
+          <article class="panel">
+            <h3>The right fit matters most</h3>
+            <p>A material succeeds when matched to the right use.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-soft">
+      <div class="container">
+        <div class="section-intro">
+          <div class="section-kicker">What we do</div>
+          <h2 class="section-title">Practical technical direction before bigger time and budget are committed</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 18l5-5 4 4 7-7"/><path d="M14 10h6v6"/></svg>
             </div>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Tailings</span>
-            <span class="tag">Slags</span>
-            <span class="tag">Clay-rich soils</span>
-            <span class="tag">Quarry fines</span>
-            <span class="tag">Mineral residues</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>What matters most</h2>
-          <p>
-            Most mineral side-streams are underused not because they have no value, but because the pathway to using them is unclear. The real task is to identify where the opportunity is credible, where the risk sits, and what the right next step should be.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <article class="panel">
-            <h3>Large underused mineral streams</h3>
-            <p>
-              Australia produces large volumes of tailings, slags, soils, fines, and residues that are still stockpiled or landfilled despite containing usable material.
-            </p>
-          </article>
-
-          <article class="panel">
-            <h3>Pressure to reduce waste and emissions</h3>
-            <p>
-              Industry is under growing pressure to cut landfill, lower emissions, and make better use of materials that are already available.
-            </p>
-          </article>
-
-          <article class="panel">
-            <h3>Not all materials are equal</h3>
-            <p>
-              Two materials that look similar on paper can behave very differently in practice. What matters is how the material actually performs.
-            </p>
-          </article>
-
-          <article class="panel">
-            <h3>The real challenge is decision-making</h3>
-            <p>
-              Many projects stall because it is unclear whether a feedstock is worth developing and what the next step should be.
-            </p>
-          </article>
-
-          <article class="panel">
-            <h3>Processing changes everything</h3>
-            <p>
-              A material may only become useful after the right treatment, blending, or handling approach is applied.
-            </p>
-          </article>
-
-          <article class="panel">
-            <h3>Value depends on the right use</h3>
-            <p>
-              The same material can fail in one application and succeed in another. The key is finding the right fit.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>What we do</h2>
-          <p>
-            The aim is not to make every material look promising. It is to define where the real opportunity sits and what development path makes sense.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <article class="feature-card">
             <h3>Screen the feedstock</h3>
-            <p>
-              Assess whether the material is worth pursuing and what the main constraints are likely to be.
-            </p>
+            <p>Assess whether the material is worth pursuing and where the main constraints are likely to sit.</p>
           </article>
 
           <article class="feature-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 12h7"/><path d="M14 6h7"/><path d="M14 18h7"/><circle cx="10" cy="12" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="12" cy="18" r="2"/></svg>
+            </div>
             <h3>Define the pathway</h3>
-            <p>
-              Identify the most realistic route into construction materials or related mineral-based products.
-            </p>
+            <p>Identify the most realistic route into construction materials or related mineral-based products.</p>
           </article>
 
           <article class="feature-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M8 14l4-4 4 4"/><path d="M5 4h14"/></svg>
+            </div>
             <h3>Clarify the next step</h3>
-            <p>
-              Turn scattered material information into a practical decision: deeper testing, pilot preparation, reprioritisation, or no-go.
-            </p>
+            <p>Turn scattered information into a practical decision: deeper testing, pilot preparation, or no-go.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M6 16V8"/><path d="M12 16V5"/><path d="M18 16v-6"/></svg>
+            </div>
+            <h3>Compare opportunity areas</h3>
+            <p>Identify where the strongest value may sit across different material and product pathways.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
+            </div>
+            <h3>Flag risk early</h3>
+            <p>Highlight where technical, processing, or market risks may limit the pathway before more work is committed.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 16l3-3 2 2 5-5"/></svg>
+            </div>
+            <h3>Support pilot direction</h3>
+            <p>Help shape the most useful next tests and decisions before broader development begins.</p>
           </article>
         </div>
       </div>
@@ -525,18 +654,38 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-heading">
-          <h2>Why Mineral Activation Labs</h2>
-          <p>
-            Mineral Activation Labs brings together mineral feedstock assessment, construction materials understanding, and practical development thinking.
+        <div class="section-intro">
+          <div class="section-kicker">Why Mineral Activation Labs</div>
+          <h2 class="section-title">Early clarity for mineral side-stream opportunities</h2>
+          <p class="proof-lead">
+            We help clients make earlier, better decisions on mineral side-stream opportunities — before time and budget are wasted on the wrong pathway.
           </p>
         </div>
 
-        <div class="panel">
-          <h3>Technical depth with practical direction</h3>
-          <p>
-            The focus is on helping partners make better early decisions about tailings, slags, soils, fines, and mineral residues — especially where the opportunity is real but the pathway is still uncertain.
-          </p>
+        <div class="grid-4">
+          <article class="proof-card">
+            <div class="proof-kicker">01</div>
+            <h3>Australia-focused</h3>
+            <p>Built around the feedstocks, industries, and practical constraints that matter in the Australian market.</p>
+          </article>
+
+          <article class="proof-card">
+            <div class="proof-kicker">02</div>
+            <h3>Commercially grounded</h3>
+            <p>Focused on whether a pathway is worth developing, not just whether it is technically interesting.</p>
+          </article>
+
+          <article class="proof-card">
+            <div class="proof-kicker">03</div>
+            <h3>Materials depth</h3>
+            <p>Strong understanding of mineral feedstocks, construction materials, and low-carbon material pathways.</p>
+          </article>
+
+          <article class="proof-card">
+            <div class="proof-kicker">04</div>
+            <h3>Clear early direction</h3>
+            <p>Helps turn uncertainty into sharper decisions on next steps, priorities, and realistic opportunities.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -546,11 +695,12 @@
         <div class="cta-box">
           <h2>Discuss a mineral feedstock or project</h2>
           <p>
-            If you are evaluating a tailings stream, slag, clay-rich material, quarry fine, or other mineral residue, the aim is to determine whether it is worth developing and what the most realistic next step looks like.
+            If you are evaluating tailings, slag, clay-rich material, quarry fines, or other mineral residues,
+            the goal is to determine whether the opportunity is worth developing and what the most realistic next step looks like.
           </p>
           <div class="cta-actions">
-            <a href="contact.html" class="btn btn-primary">Contact us</a>
-            <a href="services.html" class="btn btn-secondary">Explore services</a>
+            <a href="contact.html" class="btn btn-primary">Discuss a feedstock</a>
+            <a href="services.html" class="btn btn-secondary">See services</a>
           </div>
         </div>
       </div>
@@ -559,8 +709,17 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© 2026 Mineral Activation Labs</div>
-      <div>Science-led mineral feedstock assessment for low-carbon material pathways</div>
+      <div class="footer-brand">
+        <strong>Mineral Activation Labs</strong>
+        Mineral side-stream assessment for low-carbon material pathways in Australia.
+      </div>
+
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
   </footer>
 </body>
