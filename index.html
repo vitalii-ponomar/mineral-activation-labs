@@ -167,34 +167,54 @@
     }
 
     .hero-bg img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transform: scale(1.05);
-      animation: heroFade 25s infinite, heroZoom 25s infinite;
-    }
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+}
 
-    .hero-bg img:nth-child(1) { animation-delay: 0s, 0s; }
-    .hero-bg img:nth-child(2) { animation-delay: 5s, 5s; }
-    .hero-bg img:nth-child(3) { animation-delay: 10s, 10s; }
-    .hero-bg img:nth-child(4) { animation-delay: 15s, 15s; }
-    .hero-bg img:nth-child(5) { animation-delay: 20s, 20s; }
+.hero-bg img:nth-child(1) {
+  animation: heroFadeFirst 25s infinite;
+}
 
-    @keyframes heroFade {
-      0%   { opacity: 0; }
-      5%   { opacity: 1; }
-      20%  { opacity: 1; }
-      25%  { opacity: 0; }
-      100% { opacity: 0; }
-    }
+.hero-bg img:nth-child(2) {
+  animation: heroFade 25s infinite;
+  animation-delay: 5s;
+}
 
-    @keyframes heroZoom {
-      0%   { transform: scale(1.05); }
-      100% { transform: scale(1.12); }
-    }
+.hero-bg img:nth-child(3) {
+  animation: heroFade 25s infinite;
+  animation-delay: 10s;
+}
+
+.hero-bg img:nth-child(4) {
+  animation: heroFade 25s infinite;
+  animation-delay: 15s;
+}
+
+.hero-bg img:nth-child(5) {
+  animation: heroFade 25s infinite;
+  animation-delay: 20s;
+}
+
+@keyframes heroFade {
+  0%   { opacity: 0; transform: scale(1.05); }
+  6%   { opacity: 1; transform: scale(1.06); }
+  22%  { opacity: 1; transform: scale(1.09); }
+  28%  { opacity: 0; transform: scale(1.11); }
+  100% { opacity: 0; transform: scale(1.11); }
+}
+
+@keyframes heroFadeFirst {
+  0%   { opacity: 1; transform: scale(1.05); }
+  22%  { opacity: 1; transform: scale(1.09); }
+  28%  { opacity: 0; transform: scale(1.11); }
+  94%  { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
 
     .hero-overlay {
       position: absolute;
