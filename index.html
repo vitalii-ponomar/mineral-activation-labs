@@ -174,6 +174,9 @@
   object-fit: cover;
   opacity: 0;
   transform: scale(1.05);
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  will-change: opacity, transform;
 }
 
 .hero-bg img:nth-child(1) {
@@ -202,17 +205,17 @@
 
 @keyframes heroFade {
   0%   { opacity: 0; transform: scale(1.05); }
-  6%   { opacity: 1; transform: scale(1.06); }
-  22%  { opacity: 1; transform: scale(1.09); }
-  28%  { opacity: 0; transform: scale(1.11); }
+  4%   { opacity: 1; transform: scale(1.06); }
+  20%  { opacity: 1; transform: scale(1.09); }
+  24%  { opacity: 0; transform: scale(1.11); }
   100% { opacity: 0; transform: scale(1.11); }
 }
 
 @keyframes heroFadeFirst {
   0%   { opacity: 1; transform: scale(1.05); }
-  22%  { opacity: 1; transform: scale(1.09); }
-  28%  { opacity: 0; transform: scale(1.11); }
-  94%  { opacity: 0; transform: scale(1.05); }
+  20%  { opacity: 1; transform: scale(1.09); }
+  24%  { opacity: 0; transform: scale(1.11); }
+  96%  { opacity: 0; transform: scale(1.05); }
   100% { opacity: 1; transform: scale(1.05); }
 }
 
