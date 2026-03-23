@@ -27,14 +27,8 @@
       --shadow: 0 10px 30px rgba(20, 48, 39, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
@@ -42,404 +36,286 @@
       color: var(--text);
       line-height: 1.6;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       background: rgba(246, 248, 247, 0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(220, 231, 225, 0.8);
     }
-
     .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      min-height: 84px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; min-height: 84px;
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      color: var(--text);
-    }
-
-    .brand-logo {
-      height: 42px;
-      width: auto;
-      flex: 0 0 auto;
-    }
-
+    .brand { display: flex; align-items: center; color: var(--text); }
+    .brand-logo { height: 42px; width: auto; flex: 0 0 auto; }
     .nav {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      display: flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: flex-end;
     }
-
-    .nav a {
-      font-size: 0.95rem;
-      color: var(--muted);
-      transition: color 0.2s ease;
-    }
-
-    .nav a:hover,
-    .nav a.active {
-      color: var(--text);
-    }
-
+    .nav a { font-size: 0.95rem; color: var(--muted); transition: color 0.2s ease; }
+    .nav a:hover, .nav a.active { color: var(--text); }
     .nav-cta {
-      padding: 11px 16px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #fff !important;
-      font-weight: 600;
+      padding: 11px 16px; border-radius: 999px; background: var(--accent);
+      color: #fff !important; font-weight: 600;
     }
+    .nav-cta:hover { background: var(--accent-dark); }
 
-    .nav-cta:hover {
-      background: var(--accent-dark);
-    }
-
-    main {
-      padding: 42px 0 80px;
-    }
-
-    .section {
-      margin: 0 0 70px;
-    }
-
+    main { padding: 42px 0 80px; }
+    .section { margin: 0 0 70px; }
     .section-heading {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 26px;
-      align-items: end;
-      margin-bottom: 26px;
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 26px; align-items: end; margin-bottom: 26px;
     }
-
     .section-heading h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 3vw, 2.7rem);
-      letter-spacing: -0.03em;
-      line-height: 1.08;
+      margin: 0; font-size: clamp(1.8rem, 3vw, 2.7rem); letter-spacing: -0.03em; line-height: 1.08;
+    }
+    .section-heading p, .section-subtext {
+      margin: 0; color: var(--muted); font-size: 1rem;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; color: var(--accent-dark);
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: ""; width: 10px; height: 10px; border-radius: 999px; background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(31,107,87,0.12);
     }
 
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
+    .feedstock-showcase {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .feedstock-topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 18px 22px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #ffffff 0%, #f7faf8 100%);
+    }
+    .feedstock-controls {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .control-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 999px; border: 1px solid var(--line);
+      background: var(--surface); color: var(--text); cursor: pointer; transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+    .control-btn:hover { transform: translateY(-1px); border-color: #c7d8d1; background: #fbfdfc; }
+    .control-btn:focus-visible, .feedstock-tab:focus-visible, .btn:focus-visible {
+      outline: 2px solid rgba(31,107,87,0.35); outline-offset: 2px;
+    }
+    .play-toggle.is-paused svg .pause-bars { display: none; }
+    .play-toggle.is-paused svg .play-triangle { display: block; }
+    .play-toggle svg .play-triangle { display: none; }
+
+    .feedstock-tabs {
+      display: flex; flex-wrap: wrap; gap: 10px; padding: 18px 22px 0;
+    }
+    .feedstock-tab {
+      display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--line); background: var(--surface);
+      color: var(--muted); border-radius: 999px; padding: 11px 15px; cursor: pointer; font-weight: 600; transition: all 0.18s ease;
+    }
+    .feedstock-tab:hover { border-color: #c6d7d0; color: var(--text); }
+    .feedstock-tab.active {
+      background: var(--accent-soft); color: var(--accent-dark); border-color: rgba(31,107,87,0.12);
+      box-shadow: inset 0 0 0 1px rgba(31,107,87,0.04);
+    }
+    .feedstock-tab svg { width: 17px; height: 17px; flex: 0 0 auto; }
+
+    .feedstock-stage { position: relative; min-height: min(760px, calc(100vh - 210px)); }
+    .feedstock-panel {
+      display: none; padding: 20px; animation: fadePanel 0.45s ease;
+    }
+    .feedstock-panel.active { display: block; }
+    @keyframes fadePanel {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+    .feedstock-layout {
+      display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); gap: 18px; align-items: stretch; min-height: min(700px, calc(100vh - 250px));
     }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .feedstock-block,
-    .card,
+    .visual-card,
+    .feedstock-body,
     .decision-panel,
     .cta-box,
-    .faq-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 30px;
-      box-shadow: var(--shadow);
-    }
-
-    .card,
-    .faq-card {
-      border-radius: var(--radius-md);
-      padding: 22px;
-      box-shadow: none;
-      background: var(--surface-soft);
-    }
-
-    .feedstock-head {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 28px;
-      margin-bottom: 20px;
-      align-items: start;
-    }
-
-    .feedstock-head p,
-    .card p,
-    .decision-panel p,
-    .faq-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.97rem;
-    }
-
-    .feedstock-block h3,
-    .card h3,
-    .faq-card h3 {
-      margin: 0 0 10px;
-      font-size: clamp(1.2rem, 2vw, 1.7rem);
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      color: var(--text);
-    }
-
-    .card h4 {
-      margin: 0 0 8px;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: var(--accent-dark);
-    }
-
-    .number {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-dark);
-      font-size: 0.79rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      margin-bottom: 16px;
-      width: auto;
-      height: auto;
-    }
-
-    .feature-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 0.97rem;
-    }
-
-    .feature-list li + li {
-      margin-top: 8px;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-dark);
-      font-size: 0.79rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .decision-panel {
-      background: linear-gradient(180deg, #ffffff 0%, #f3f7f5 100%);
-    }
-
-    .matrix-wrap {
-      overflow-x: auto;
+    .card {
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
     }
+    .visual-card {
+      position: relative; overflow: hidden; min-height: 100%; display: flex; flex-direction: column;
+      background: linear-gradient(180deg, #ffffff 0%, #f2f7f4 100%);
+    }
+    .visual-hero {
+      position: relative; flex: 1 1 auto; min-height: 100%;
+    }
+    .visual-placeholder {
+      position: relative; min-height: 280px; padding: 20px; display: flex; align-items: stretch;
+    }
+    .visual-frame {
+      position: relative; width: 100%; border-radius: 20px; overflow: hidden; border: 1px dashed #b6c8c0;
+      background:
+        linear-gradient(135deg, rgba(31,107,87,0.1), rgba(31,107,87,0.03)),
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.42) 0 18px, rgba(231,242,238,0.72) 18px 36px);
+      display: grid; place-items: center;
+      min-height: 240px;
+    }
+    .visual-frame::after {
+      content: "Image placeholder";
+      position: absolute; left: 18px; bottom: 16px; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--accent-dark); opacity: 0.85; font-weight: 700;
+    }
+    .visual-inner {
+      text-align: center; color: var(--accent-dark); padding: 24px;
+    }
+    .visual-inner svg { width: 72px; height: 72px; margin: 0 auto 12px; opacity: 0.92; }
+    .visual-inner strong { display: block; font-size: 1.02rem; letter-spacing: -0.02em; }
+    .visual-inner span { display: block; margin-top: 6px; font-size: 0.93rem; color: var(--muted); }
 
-    table {
+    .visual-image {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      background: #e7ece8;
+    }
+    .visual-image picture,
+    .visual-image img {
       width: 100%;
-      min-width: 860px;
-      border-collapse: collapse;
+      height: 100%;
+      display: block;
+    }
+    .visual-image img {
+      object-fit: cover;
+    }
+    .visual-image::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,24,18,0.18) 0%, rgba(11,24,18,0.34) 48%, rgba(11,24,18,0.74) 100%);
+    }
+    .visual-copy {
+      position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end;
+      min-height: 100%; padding: 30px; color: #fff;
+    }
+    .visual-copy h3 {
+      margin: 0 0 10px; font-size: clamp(1.5rem, 2.4vw, 2.25rem); line-height: 1.05; letter-spacing: -0.03em;
+      max-width: 14ch;
+    }
+    .visual-copy p {
+      margin: 0; max-width: 58ch; color: rgba(255,255,255,0.88);
+    }
+    .visual-meta {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px;
     }
 
-    th,
-    td {
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--line);
-      text-align: left;
-      vertical-align: top;
-      font-size: 0.95rem;
+    .feedstock-body { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+    .feedstock-kicker {
+      display: inline-flex; align-items: center; gap: 10px; padding: 7px 11px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent-dark); font-size: 0.79rem; font-weight: 700; letter-spacing: 0.02em;
+      margin-bottom: 14px;
     }
-
-    th {
-      background: #fcfdff;
-      color: var(--muted);
-      font-size: 0.79rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+    .feedstock-body h3 {
+      margin: 0 0 10px; font-size: clamp(1.55rem, 2.5vw, 2.3rem); line-height: 1.08; letter-spacing: -0.03em;
     }
-
-    tr:last-child td {
-      border-bottom: none;
+    .feedstock-body > p {
+      margin: 0 0 18px; color: var(--muted); font-size: 1rem;
     }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-dark);
-      font-size: 0.79rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
+    .feedstock-summary {
+      margin: 0 0 16px; color: var(--muted); font-size: 0.98rem;
+    }
+    .tag-row {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;
+    }
+    .tag, .pill {
+      display: inline-flex; align-items: center; padding: 7px 11px; border-radius: 999px; background: var(--accent-soft);
+      color: var(--accent-dark); font-size: 0.79rem; font-weight: 700; letter-spacing: 0.02em;
       white-space: nowrap;
     }
+    .grid-3, .grid-4, .grid-2 {
+      display: grid; gap: 18px;
+    }
+    .grid-3 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-    .faq-grid {
-      display: grid;
-      gap: 18px;
+    .card {
+      border-radius: var(--radius-md); padding: 18px; box-shadow: none; background: var(--surface-soft);
+    }
+    .card h4 {
+      margin: 0 0 8px; font-size: 0.9rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--accent-dark);
+    }
+    .card p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+    .feature-list {
+      margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.97rem;
+    }
+    .feature-list li + li { margin-top: 8px; }
+
+    .decision-panel {
+      padding: 32px; background: linear-gradient(180deg, #ffffff 0%, #f3f7f5 100%);
     }
 
-    .cta-section {
-      margin-top: 70px;
+    .icon-wrap {
+      width: 40px; height: 40px; border-radius: 12px; display: inline-grid; place-items: center;
+      background: rgba(31,107,87,0.1); color: var(--accent-dark); margin-bottom: 12px;
     }
+    .icon-wrap svg { width: 20px; height: 20px; }
 
+    .cta-section { margin-top: 70px; }
     .cta-box {
-      background: var(--text);
-      color: #fff;
-      border-radius: 28px;
-      padding: 42px;
+      background: var(--text); color: #fff; border-radius: 28px; padding: 42px;
       box-shadow: 0 18px 40px rgba(24, 48, 40, 0.18);
     }
-
     .cta-box h2 {
-      margin: 0 0 12px;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
+      margin: 0 0 12px; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.08; letter-spacing: -0.03em;
     }
-
     .cta-box p {
-      margin: 0;
-      max-width: 760px;
-      color: rgba(255,255,255,0.82);
-      font-size: 1.04rem;
+      margin: 0; max-width: 760px; color: rgba(255,255,255,0.82); font-size: 1.04rem;
     }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+      display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 999px;
+      font-weight: 700; transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
     }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: #fff;
-      color: var(--text);
-    }
-
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: #fff; color: var(--text); }
     .btn-secondary {
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.06);
+      color: #fff; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.06);
     }
+    .btn-secondary:hover { background: rgba(255,255,255,0.12); }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.12);
-    }
-
-    .site-footer {
-      padding: 28px 0 36px;
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
+    .site-footer { padding: 28px 0 36px; color: var(--muted); font-size: 0.93rem; }
     .footer-inner {
-      border-top: 1px solid var(--line);
-      padding-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
+      border-top: 1px solid var(--line); padding-top: 20px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
     }
 
-    @media (max-width: 1000px) {
-      .grid-4,
-      .grid-3,
-      .grid-2,
-      .section-heading,
-      .feedstock-head {
-        grid-template-columns: 1fr;
-      }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
     }
 
+    @media (max-width: 1080px) {
+      .feedstock-layout, .section-heading, .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .feedstock-stage, .feedstock-layout { min-height: 0; }
+      .visual-hero { min-height: 420px; }
+    }
     @media (max-width: 860px) {
       .header-inner {
-        min-height: auto;
-        padding: 14px 0;
-        align-items: flex-start;
-        flex-direction: column;
+        min-height: auto; padding: 14px 0; align-items: flex-start; flex-direction: column;
       }
-
-      .nav {
-        gap: 12px 16px;
-        justify-content: flex-start;
-      }
+      .nav { gap: 12px 16px; justify-content: flex-start; }
+      .feedstock-topbar { align-items: flex-start; flex-direction: column; }
     }
-
     @media (max-width: 760px) {
-      .feedstock-block,
-      .card,
-      .decision-panel,
-      .cta-box,
-      .faq-card {
-        padding: 24px;
-      }
-
-      main {
-        padding-top: 26px;
-      }
-
-      .brand-logo {
-        height: 36px;
-      }
+      main { padding-top: 26px; }
+      .brand-logo { height: 36px; }
+      .feedstock-body, .visual-placeholder, .decision-panel, .cta-box { padding: 24px; }
+      .feedstock-tabs { padding: 16px 16px 0; }
+      .feedstock-panel { padding: 16px; }
+      .visual-copy { padding: 22px; }
+      .visual-copy h3 { max-width: none; }
+      .visual-frame { min-height: 220px; }
     }
   </style>
 </head>
@@ -467,212 +343,325 @@
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <h2>Feedstocks that matter</h2>
+          <div>
+            <div class="eyebrow">Feedstock categories</div>
+            <h2>Different mineral feedstocks create different product pathways</h2>
+          </div>
           <p>
-            The feedstocks that matter most in low-carbon mineral development are not always the most obvious ones. What matters is the balance between reactivity, scale, processing demand, and realistic end use.
+            The important question is not whether a feedstock is inherently good or bad. It is whether its mineralogy, chemistry, scale, processing route, and site context align with a useful application.
           </p>
         </div>
 
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">01</div>
-              <h3>Clays</h3>
-            </div>
-            <p>
-              Clays represent one of the strongest long-term opportunities for low-carbon binders, particularly where calcination can convert locally available materials into useful cementitious components.
-            </p>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Kaolinitic clays</span>
-            <span class="tag">Illitic clays</span>
-            <span class="tag">Smectitic clays</span>
-            <span class="tag">Mixed clay soils</span>
-          </div>
-          <div class="grid-3">
-            <div class="card">
-              <h4>Strong when</h4>
-              <ul class="feature-list">
-                <li>Clay mineralogy is favourable</li>
-                <li>Activation or calcination is feasible at scale</li>
-                <li>Local substitution is economically relevant</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Often overestimated when</h4>
-              <ul class="feature-list">
-                <li>Mineralogy is poorly defined</li>
-                <li>Quartz dilution is high</li>
-                <li>Processing costs are ignored</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Commercial role</h4>
-              <p>Primary candidate for scalable SCM and regional binder strategies.</p>
+        <div class="feedstock-showcase" aria-label="Feedstock categories carousel">
+          <div class="feedstock-topbar">
+            
+            <div class="feedstock-controls">
+              <button class="control-btn" type="button" data-action="prev" aria-label="Previous feedstock">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="control-btn play-toggle" type="button" data-action="toggle" aria-label="Pause automatic feedstock rotation">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <g class="pause-bars"><rect x="7" y="6" width="3.2" height="12" rx="1.2"></rect><rect x="13.8" y="6" width="3.2" height="12" rx="1.2"></rect></g>
+                  <path class="play-triangle" d="M9 7.2v9.6c0 .5.54.82 1 .58l7.9-4.8a.66.66 0 0 0 0-1.12L10 6.62A.66.66 0 0 0 9 7.2z"></path>
+                </svg>
+              </button>
+              <button class="control-btn" type="button" data-action="next" aria-label="Next feedstock">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
             </div>
           </div>
-        </article>
 
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">02</div>
-              <h3>Soils</h3>
-            </div>
-            <p>
-              Soil-derived materials are rarely ideal from a pure chemistry perspective, but become highly relevant where disposal pressure, reuse, and local circularity drive value.
-            </p>
+          <div class="feedstock-tabs" role="tablist" aria-label="Feedstock categories">
+            <button class="feedstock-tab active" type="button" role="tab" aria-selected="true" aria-controls="feedstock-clays" id="tab-clays" data-panel="feedstock-clays">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16c1.5-3.5 4.1-6.4 7-8 2.9 1.6 5.5 4.5 7 8"/><path d="M4 18h16"/><path d="M8 13c.7 1 2.1 1.7 4 1.7s3.3-.7 4-1.7"/></svg>
+              <span>Clays</span>
+            </button>
+            <button class="feedstock-tab" type="button" role="tab" aria-selected="false" aria-controls="feedstock-soils" id="tab-soils" data-panel="feedstock-soils">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16"/><path d="M5 14h14"/><path d="M7 10h10"/><path d="M10 6h4"/></svg>
+              <span>Soils</span>
+            </button>
+            <button class="feedstock-tab" type="button" role="tab" aria-selected="false" aria-controls="feedstock-slags" id="tab-slags" data-panel="feedstock-slags">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18h12"/><path d="M8 18l1.2-7h5.6l1.2 7"/><path d="M10 11V8a2 2 0 1 1 4 0v3"/></svg>
+              <span>Slags</span>
+            </button>
+            <button class="feedstock-tab" type="button" role="tab" aria-selected="false" aria-controls="feedstock-tailings" id="tab-tailings" data-panel="feedstock-tailings">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16"/><path d="M6 18l3-7 3 4 3-9 3 12"/></svg>
+              <span>Tailings</span>
+            </button>
+            <button class="feedstock-tab" type="button" role="tab" aria-selected="false" aria-controls="feedstock-residues" id="tab-residues" data-panel="feedstock-residues">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10H7z"/><path d="M4 12h3"/><path d="M17 12h3"/><path d="M12 4v3"/><path d="M12 17v3"/></svg>
+              <span>Fine residues</span>
+            </button>
           </div>
-          <div class="tag-row">
-            <span class="tag">Excavated soils</span>
-            <span class="tag">Treated soils</span>
-            <span class="tag">Construction spoil</span>
-            <span class="tag">Fine mineral fractions</span>
-          </div>
-          <div class="grid-3">
-            <div class="card">
-              <h4>Strong when</h4>
-              <ul class="feature-list">
-                <li>Large volumes require reuse</li>
-                <li>Regulatory pathways allow controlled application</li>
-                <li>Blending or stabilisation is sufficient</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Often overestimated when</h4>
-              <ul class="feature-list">
-                <li>High-value binder roles are assumed</li>
-                <li>Contamination constraints are ignored</li>
-                <li>Variability is underestimated</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Commercial role</h4>
-              <p>Strong in circular, low-cement, and site-specific applications.</p>
-            </div>
-          </div>
-        </article>
 
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">03</div>
-              <h3>Slags</h3>
-            </div>
-            <p>
-              Slags remain benchmark industrial feedstocks, but the strongest opportunities are now selective rather than generic, depending on chemistry, structure, and availability.
-            </p>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Granulated slag</span>
-            <span class="tag">Steel slag</span>
-            <span class="tag">Copper slag</span>
-            <span class="tag">Fe-rich slags</span>
-          </div>
-          <div class="grid-3">
-            <div class="card">
-              <h4>Strong when</h4>
-              <ul class="feature-list">
-                <li>Glass content and reactivity are high</li>
-                <li>Supply is consistent</li>
-                <li>Clear pathway fit exists</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Often overestimated when</h4>
-              <ul class="feature-list">
-                <li>All slags are treated as equivalent</li>
-                <li>Volume stability issues are ignored</li>
-                <li>Route-specific compatibility is unclear</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Commercial role</h4>
-              <p>High-performance systems where quality and route are controlled.</p>
-            </div>
-          </div>
-        </article>
+          <div class="feedstock-stage">
+            <article class="feedstock-panel active" id="feedstock-clays" role="tabpanel" aria-labelledby="tab-clays">
+              <div class="feedstock-layout">
+                <div class="visual-card">
+                  <div class="visual-hero">
+                    <div class="visual-image">
+                    <picture>
+                      <source srcset="assets/clay.webp" type="image/webp">
+                      <img src="assets/clay.webp" alt="Clay feedstock" loading="lazy" decoding="async">
+                    </picture>
+                  </div>
+                    <div class="visual-copy">
+<h3>Clays</h3>
+                      <p>
+                    Clay-rich materials can support calcined SCM routes, activated binder systems, filler strategies, ceramic products, or blended low-cement formulations. The right route depends on mineralogy, impurity profile, available processing, and the target performance level.
+                  </p>
+                      <div class="visual-meta">
+                    <span class="tag">Kaolinitic clays</span>
+                    <span class="tag">Illitic clays</span>
+                    <span class="tag">Smectitic clays</span>
+                    <span class="tag">Mixed clay soils</span>
+                  </div>
+                    </div>
+                  </div>
+                </div>
 
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">04</div>
-              <h3>Tailings</h3>
-            </div>
-            <p>
-              Tailings are scale-driven opportunities. Their value rarely comes from intrinsic reactivity, but from volume, site context, and pathway alignment.
-            </p>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Silicate tailings</span>
-            <span class="tag">Iron ore tailings</span>
-            <span class="tag">Lithium residues</span>
-            <span class="tag">Beneficiation fines</span>
-          </div>
-          <div class="grid-3">
-            <div class="card">
-              <h4>Strong when</h4>
-              <ul class="feature-list">
-                <li>Large volumes justify development</li>
-                <li>Carbonation or low-grade applications are viable</li>
-                <li>Logistics align with local use</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Often overestimated when</h4>
-              <ul class="feature-list">
-                <li>Reactivity is assumed without testing</li>
-                <li>Transport and handling are ignored</li>
-                <li>High-value applications are assumed</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Commercial role</h4>
-              <p>Large-volume, pathway-specific material strategies.</p>
-            </div>
-          </div>
-        </article>
+                <div class="feedstock-body">
+                  <p class="feedstock-summary">Key route-shaping factors and likely commercial role for this feedstock group.</p>
+                  <div class="grid-3">
+                    <div class="card">
+                      <h4>Where they fit well</h4>
+                      <ul class="feature-list">
+                        <li>Calcined SCM and low-clinker substitution strategies</li>
+                        <li>Alkali-activated and hybrid binder systems</li>
+                        <li>Ceramic or thermally processed products where firing already exists</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>What usually decides the route</h4>
+                      <ul class="feature-list">
+                        <li>Clay mineral assemblage and quartz dilution</li>
+                        <li>Whether calcination, classification, or blending is realistic</li>
+                        <li>Regional availability and price pressure on cement replacement</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>Commercial role</h4>
+                      <p>Strong candidate for scalable regional SCM supply and tailored low-carbon binder development.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
 
-        <article class="feedstock-block">
-          <div class="feedstock-head">
-            <div>
-              <div class="number">05</div>
-              <h3>Fine mineral residues</h3>
-            </div>
-            <p>
-              Fine residues are rarely standalone high-value feedstocks, but can be highly useful where they solve blending, packing, or disposal problems.
-            </p>
+            <article class="feedstock-panel" id="feedstock-soils" role="tabpanel" aria-labelledby="tab-soils">
+              <div class="feedstock-layout">
+                <div class="visual-card">
+                  <div class="visual-hero">
+                    <div class="visual-image">
+                    <picture>
+                      <source srcset="assets/soil.webp" type="image/webp">
+                      <img src="assets/soil.webp" alt="Soil feedstock" loading="lazy" decoding="async">
+                    </picture>
+                  </div>
+                    <div class="visual-copy">
+<h3>Soils</h3>
+                      <p>
+                    Soil-derived materials are often application-led rather than chemistry-led. Their value can sit in controlled reuse, low-cement products, site-linked stabilisation, ceramic transformation, or blended systems where circularity and disposal avoidance matter.
+                  </p>
+                      <div class="visual-meta">
+                    <span class="tag">Excavated soils</span>
+                    <span class="tag">Treated soils</span>
+                    <span class="tag">Construction spoil</span>
+                    <span class="tag">Fine mineral fractions</span>
+                  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feedstock-body">
+                  <p class="feedstock-summary">Key route-shaping factors and likely commercial role for this feedstock group.</p>
+                  <div class="grid-3">
+                    <div class="card">
+                      <h4>Where they fit well</h4>
+                      <ul class="feature-list">
+                        <li>Low-cement fills, blocks, and stabilised products</li>
+                        <li>Blended mineral systems with controlled processing</li>
+                        <li>Reuse pathways driven by disposal cost and local circularity</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>What usually decides the route</h4>
+                      <ul class="feature-list">
+                        <li>Variability, contamination status, and compliance pathway</li>
+                        <li>Whether screening, drying, blending, or firing is needed</li>
+                        <li>Whether the application is site-specific or market-facing</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>Commercial role</h4>
+                      <p>Strong in circular, logistics-led, and disposal-offset applications where local material value is enough.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="feedstock-panel" id="feedstock-slags" role="tabpanel" aria-labelledby="tab-slags">
+              <div class="feedstock-layout">
+                <div class="visual-card">
+                  <div class="visual-hero">
+                    <div class="visual-image">
+                    <picture>
+                      <source srcset="assets/slag.webp" type="image/webp">
+                      <img src="assets/slag.webp" alt="Slag feedstock" loading="lazy" decoding="async">
+                    </picture>
+                  </div>
+                    <div class="visual-copy">
+<h3>Slags</h3>
+                      <p>
+                    Some slags suit high-performance binder systems, others fit carbonation, aggregate, ceramic, or route-specific mineral product strategies. The opportunity is rarely generic. It depends on phase assemblage, glass content, expansion risk, and supply reality.
+                  </p>
+                      <div class="visual-meta">
+                    <span class="tag">Granulated slag</span>
+                    <span class="tag">Steel slag</span>
+                    <span class="tag">Copper slag</span>
+                    <span class="tag">Fe-rich slags</span>
+                  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feedstock-body">
+                  <p class="feedstock-summary">Key route-shaping factors and likely commercial role for this feedstock group.</p>
+                  <div class="grid-3">
+                    <div class="card">
+                      <h4>Where they fit well</h4>
+                      <ul class="feature-list">
+                        <li>Supplementary cementitious and activated binder systems</li>
+                        <li>Carbonation-treated products and mineral processing routes</li>
+                        <li>Performance-led applications where chemistry is controlled</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>What usually decides the route</h4>
+                      <ul class="feature-list">
+                        <li>Reactive glass content versus crystalline phases</li>
+                        <li>Volume stability, free lime, MgO, and route compatibility</li>
+                        <li>Consistency of supply and competitive market pull</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>Commercial role</h4>
+                      <p>High-performance option where feedstock quality is understood and a defined pathway can absorb it.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="feedstock-panel" id="feedstock-tailings" role="tabpanel" aria-labelledby="tab-tailings">
+              <div class="feedstock-layout">
+                <div class="visual-card">
+                  <div class="visual-hero">
+                    <div class="visual-image">
+                    <picture>
+                      <source srcset="assets/tailings.webp" type="image/webp">
+                      <img src="assets/tailings.webp" alt="Tailings feedstock" loading="lazy" decoding="async">
+                    </picture>
+                  </div>
+                    <div class="visual-copy">
+<h3>Tailings</h3>
+                      <p>
+                    Tailings can support carbonation routes, mineral fillers, aggregates, ceramics, geotechnical products, or selective binder strategies. Their value often comes from scale, local deployment, and risk reduction rather than from one inherently reactive chemistry.
+                  </p>
+                      <div class="visual-meta">
+                    <span class="tag">Silicate tailings</span>
+                    <span class="tag">Iron ore tailings</span>
+                    <span class="tag">Lithium residues</span>
+                    <span class="tag">Beneficiation fines</span>
+                  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feedstock-body">
+                  <p class="feedstock-summary">Key route-shaping factors and likely commercial role for this feedstock group.</p>
+                  <div class="grid-3">
+                    <div class="card">
+                      <h4>Where they fit well</h4>
+                      <ul class="feature-list">
+                        <li>Large-volume local products and mine-site reuse</li>
+                        <li>Carbonation-led mineral utilisation strategies</li>
+                        <li>Pathways where logistics and storage reduction drive value</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>What usually decides the route</h4>
+                      <ul class="feature-list">
+                        <li>Particle size, mineralogy, and residual processing chemistry</li>
+                        <li>Transport distance and the practicality of local deployment</li>
+                        <li>Whether value is created through volume absorption or upgrading</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>Commercial role</h4>
+                      <p>Large-volume, site-linked opportunity where pathway fit can outweigh low intrinsic margin per tonne.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="feedstock-panel" id="feedstock-residues" role="tabpanel" aria-labelledby="tab-residues">
+              <div class="feedstock-layout">
+                <div class="visual-card">
+                  <div class="visual-hero">
+                    <div class="visual-image">
+                    <picture>
+                      <source srcset="assets/fly-ash.webp" type="image/webp">
+                      <img src="assets/fly-ash.webp" alt="Fly ash and fine residue feedstock" loading="lazy" decoding="async">
+                    </picture>
+                  </div>
+                    <div class="visual-copy">
+<h3>Fine residues</h3>
+                      <p>
+                    Fine mineral residues can create value through packing, blending, controlled reactivity, process integration, ceramics, or logistics-led reuse. They do not need to be headline binder ingredients to become commercially relevant.
+                  </p>
+                      <div class="visual-meta">
+                    <span class="tag">Fly ash</span>
+                    <span class="tag">Kiln dusts</span>
+                    <span class="tag">Crusher fines</span>
+                    <span class="tag">Filter cakes</span>
+                    <span class="tag">Quarry residues</span>
+                  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feedstock-body">
+                  <p class="feedstock-summary">Key route-shaping factors and likely commercial role for this feedstock group.</p>
+                  <div class="grid-3">
+                    <div class="card">
+                      <h4>Where they fit well</h4>
+                      <ul class="feature-list">
+                        <li>Blended systems that benefit from filler or fine-particle effects</li>
+                        <li>Products that can absorb variable secondary mineral inputs</li>
+                        <li>Disposal-offset pathways close to the point of generation</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>What usually decides the route</h4>
+                      <ul class="feature-list">
+                        <li>Particle size distribution, moisture, and handling demand</li>
+                        <li>Chemistry variability and how much control the product needs</li>
+                        <li>Whether the value comes from performance, disposal, or both</li>
+                      </ul>
+                    </div>
+                    <div class="card">
+                      <h4>Commercial role</h4>
+                      <p>Pragmatic feedstocks that strengthen overall material systems and solve process or disposal problems.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
-          <div class="tag-row">
-            <span class="tag">Fly ash</span>
-            <span class="tag">Kiln dusts</span>
-            <span class="tag">Crusher fines</span>
-            <span class="tag">Filter cakes</span>
-            <span class="tag">Quarry residues</span>
-          </div>
-          <div class="grid-3">
-            <div class="card">
-              <h4>Strong when</h4>
-              <ul class="feature-list">
-                <li>Used as system components</li>
-                <li>Close to point of use</li>
-                <li>Performance contribution is sufficient</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Often overestimated when</h4>
-              <ul class="feature-list">
-                <li>Treated as primary reactive feedstocks</li>
-                <li>Chemistry variability is ignored</li>
-                <li>Processing needs are underestimated</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h4>Commercial role</h4>
-              <p>Pragmatic, system-level components rather than headline materials.</p>
-            </div>
-          </div>
-        </article>
+        </div>
       </div>
     </section>
 
@@ -680,127 +669,41 @@
       <div class="container">
         <div class="decision-panel">
           <div class="section-heading" style="margin-bottom: 0;">
-            <h2>What separates strong feedstocks from weak ones</h2>
+            <h2>What defines the right pathway for a feedstock</h2>
             <p>
-              A useful feedstock is not simply the most reactive one. The stronger candidates usually combine a clear material role, a realistic processing route, sufficient scale, and a commercially sensible use case.
+              Every mineral feedstock can be useful when matched to the right application, processing intensity, and commercial context. The main decision is how to position the material so its characteristics create value rather than friction.
             </p>
           </div>
 
           <div class="grid-4" style="margin-top: 22px;">
             <div class="card">
-              <h4>Clear material role</h4>
-              <p>The feedstock must contribute meaningfully to a defined function.</p>
+              <div class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg>
+              </div>
+              <h4>Application fit</h4>
+              <p>Start with the product role the material can serve well, whether reactive, filler, ceramic, carbonation-led, or site-specific.</p>
             </div>
             <div class="card">
-              <h4>Realistic processing pathway</h4>
-              <p>The required processing must be technically and economically credible.</p>
+              <div class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"></path><path d="M7 7v10"></path><path d="M17 7v10"></path><path d="M4 17h16"></path></svg>
+              </div>
+              <h4>Activation strategy</h4>
+              <p>Processing, blending, calcination, carbonation, stabilisation, or beneficiation can shift the most realistic use case.</p>
             </div>
             <div class="card">
-              <h4>Scale and consistency</h4>
-              <p>Volume and variability must align with real deployment.</p>
+              <div class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16"></path><path d="M7 18V9"></path><path d="M12 18V5"></path><path d="M17 18v-6"></path></svg>
+              </div>
+              <h4>Supply reality</h4>
+              <p>Volume, variability, moisture state, and location can matter as much as chemistry once a route is scaled.</p>
             </div>
             <div class="card">
-              <h4>Commercial fit</h4>
-              <p>The pathway must solve a real industry problem, not just a technical curiosity.</p>
+              <div class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+              </div>
+              <h4>Commercial pull</h4>
+              <p>The strongest pathway is the one that solves a real logistics, cost, compliance, or performance problem for industry.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="comparison" class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Reactivity, scalability, and practicality</h2>
-          <p>
-            Most material decisions are not decided by reactivity alone. In practice, the most relevant comparison is across technical promise, scale, and how realistic the route is to actual use.
-          </p>
-        </div>
-
-        <div class="matrix-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Feedstock</th>
-                <th>Technical promise</th>
-                <th>Scalability</th>
-                <th>Practicality</th>
-                <th>Main advantage</th>
-                <th>Main constraint</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Clays</td>
-                <td><span class="pill">High</span></td>
-                <td><span class="pill">Medium–High</span></td>
-                <td><span class="pill">Medium</span></td>
-                <td>Scalable substitution</td>
-                <td>Processing cost</td>
-              </tr>
-              <tr>
-                <td>Soils</td>
-                <td><span class="pill">Low–Medium</span></td>
-                <td><span class="pill">High</span></td>
-                <td><span class="pill">Medium</span></td>
-                <td>Circularity and reuse value</td>
-                <td>Variability and compliance</td>
-              </tr>
-              <tr>
-                <td>Slags</td>
-                <td><span class="pill">High</span></td>
-                <td><span class="pill">Medium</span></td>
-                <td><span class="pill">High</span></td>
-                <td>Performance benchmark</td>
-                <td>Supply and route sensitivity</td>
-              </tr>
-              <tr>
-                <td>Tailings</td>
-                <td><span class="pill">Low–Medium</span></td>
-                <td><span class="pill">High</span></td>
-                <td><span class="pill">Low–Medium</span></td>
-                <td>Very large volume</td>
-                <td>Low intrinsic value in many cases</td>
-              </tr>
-              <tr>
-                <td>Fine residues</td>
-                <td><span class="pill">Low–Medium</span></td>
-                <td><span class="pill">Medium–High</span></td>
-                <td><span class="pill">High</span></td>
-                <td>Practical system contribution</td>
-                <td>Limited standalone reactivity</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Feedstock questions</h2>
-          <p>
-            These are the questions that usually sit underneath early feedstock decisions, especially when a material appears promising on paper but its real development value is still uncertain.
-          </p>
-        </div>
-
-        <div class="faq-grid">
-          <div class="faq-card">
-            <h3>Do you only work with waste materials?</h3>
-            <p>No. Natural minerals, industrial residues, and underused side streams can all be relevant if they offer a credible low-carbon or circular-material opportunity.</p>
-          </div>
-          <div class="faq-card">
-            <h3>Can low-grade clays still be useful?</h3>
-            <p>Yes. Lower-grade materials can still be valuable when the activation route, processing intensity, and local economics are aligned.</p>
-          </div>
-          <div class="faq-card">
-            <h3>Does a reactive material always make the best feedstock?</h3>
-            <p>No. Highly reactive materials can still be unattractive if supply is limited, variability is high, or processing demand is too heavy.</p>
-          </div>
-          <div class="faq-card">
-            <h3>Do contaminants always rule out reuse?</h3>
-            <p>No. But they often narrow pathway options, increase testing burden, or shift the most realistic use case toward more controlled applications.</p>
           </div>
         </div>
       </div>
@@ -811,7 +714,7 @@
         <div class="cta-box">
           <h2>Assess a feedstock opportunity</h2>
           <p>
-            Whether the material is a clay, slag, tailings stream, treated soil, or fine mineral residue, the key question is usually the same: is there a credible route from material availability to useful product value?
+            Whether the material is a clay, slag, tailings stream, treated soil, or fine mineral residue, the key question is usually the same: what is the most credible route from material availability to useful product value?
           </p>
 
           <div class="cta-actions">
@@ -829,5 +732,88 @@
       <div>Science-led mineral feedstock assessment for low-carbon material pathways</div>
     </div>
   </footer>
+  <script>
+    (function () {
+      const tabs = Array.from(document.querySelectorAll('.feedstock-tab'));
+      const panels = Array.from(document.querySelectorAll('.feedstock-panel'));
+      const prevBtn = document.querySelector('[data-action="prev"]');
+      const nextBtn = document.querySelector('[data-action="next"]');
+      const toggleBtn = document.querySelector('[data-action="toggle"]');
+      let current = 0;
+      let autoplay = true;
+      let timer = null;
+      const delay = 5500;
+
+      function showPanel(index) {
+        current = (index + panels.length) % panels.length;
+        tabs.forEach((tab, i) => {
+          const active = i === current;
+          tab.classList.toggle('active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+          tab.setAttribute('tabindex', active ? '0' : '-1');
+        });
+        panels.forEach((panel, i) => {
+          panel.classList.toggle('active', i === current);
+          panel.hidden = i !== current;
+        });
+      }
+
+      function startAuto() {
+        stopAuto();
+        if (!autoplay) return;
+        timer = window.setInterval(() => showPanel(current + 1), delay);
+      }
+
+      function stopAuto() {
+        if (timer) {
+          window.clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      function setAutoplay(nextState) {
+        autoplay = nextState;
+        toggleBtn.classList.toggle('is-paused', !autoplay);
+        toggleBtn.setAttribute('aria-label', autoplay ? 'Pause automatic feedstock rotation' : 'Resume automatic feedstock rotation');
+        startAuto();
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+          showPanel(index);
+          startAuto();
+        });
+        tab.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            const next = (index + 1) % tabs.length;
+            tabs[next].focus();
+            showPanel(next);
+            startAuto();
+          }
+          if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            const prev = (index - 1 + tabs.length) % tabs.length;
+            tabs[prev].focus();
+            showPanel(prev);
+            startAuto();
+          }
+        });
+      });
+
+      prevBtn.addEventListener('click', () => { showPanel(current - 1); startAuto(); });
+      nextBtn.addEventListener('click', () => { showPanel(current + 1); startAuto(); });
+      toggleBtn.addEventListener('click', () => setAutoplay(!autoplay));
+
+      const showcase = document.querySelector('.feedstock-showcase');
+      if (showcase) {
+        showcase.addEventListener('mouseenter', stopAuto);
+        showcase.addEventListener('mouseleave', startAuto);
+      }
+
+      showPanel(0);
+      setAutoplay(true);
+    })();
+  </script>
 </body>
 </html>
