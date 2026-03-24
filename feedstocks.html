@@ -285,6 +285,128 @@
     }
     .btn-secondary:hover { background: rgba(255,255,255,0.12); }
 
+
+    .landscape-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .landscape-intro {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      padding: 28px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f6faf8 100%);
+    }
+    .landscape-intro h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.45rem, 2.2vw, 2rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+    .landscape-intro p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .landscape-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      align-self: start;
+    }
+    .landscape-stat {
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 15px;
+    }
+    .landscape-stat strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .landscape-stat span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .map-preview-wrap {
+      position: relative;
+      padding: 18px;
+      background: linear-gradient(180deg, #f8fbf9 0%, #eef4f1 100%);
+    }
+    .map-preview-frame {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #dfe8e3;
+      min-height: 380px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+    }
+    .map-preview-frame iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      display: block;
+      background: #edf3ef;
+    }
+    .map-preview-overlay {
+      pointer-events: none;
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      background: linear-gradient(180deg, rgba(15, 34, 28, 0) 0%, rgba(15, 34, 28, 0.78) 100%);
+      border-radius: 0 0 22px 22px;
+      min-height: 140px;
+    }
+    .map-preview-note {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 36px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      z-index: 2;
+    }
+    .map-preview-note p {
+      margin: 0;
+      max-width: 600px;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.96rem;
+    }
+    .map-preview-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-weight: 700;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-outline:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.34);
+    }
+
     .site-footer { padding: 28px 0 36px; color: var(--muted); font-size: 0.93rem; }
     .footer-inner {
       border-top: 1px solid var(--line); padding-top: 20px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
@@ -306,6 +428,7 @@
       }
       .nav { gap: 12px 16px; justify-content: flex-start; }
       .feedstock-topbar { align-items: flex-start; flex-direction: column; }
+      .landscape-intro, .map-preview-note { grid-template-columns: 1fr; }
     }
     @media (max-width: 760px) {
       main { padding-top: 26px; }
@@ -316,6 +439,11 @@
       .visual-copy { padding: 22px; }
       .visual-copy h3 { max-width: none; }
       .visual-frame { min-height: 220px; }
+      .landscape-intro { grid-template-columns: 1fr; padding: 22px; }
+      .landscape-stats { grid-template-columns: 1fr 1fr; }
+      .map-preview-wrap { padding: 14px; }
+      .map-preview-frame iframe { height: 340px; }
+      .map-preview-note { left: 26px; right: 26px; bottom: 28px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -334,6 +462,7 @@
         <a href="services.html">Services</a>
         <a href="applications.html">Applications</a>
         <a href="projects.html">Projects</a>
+        <a href="feedstock-map.html">Map</a>
         <a href="contact.html" class="nav-cta">Contact</a>
       </nav>
     </div>
@@ -703,6 +832,59 @@
               </div>
               <h4>Commercial pull</h4>
               <p>The strongest pathway is the one that solves a real logistics, cost, compliance, or performance problem for industry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Australia feedstock landscape</div>
+            <h2>Feedstock availability is spatial, uneven, and commercially decisive</h2>
+          </div>
+          <p>
+            The national picture is not abstract. Tailings, slags, clays, soils, and other fine residues sit in very different regional clusters, with different logistics, processing realities, and pathway fit. The map preview below gives a controlled view of that landscape, while the full map opens the complete interactive dataset.
+          </p>
+        </div>
+
+        <div class="landscape-panel">
+          <div class="landscape-intro">
+            <div>
+              <h3>A national evidence layer, without turning this page into a GIS portal</h3>
+              <p>
+                This preview is here to show scale, spread, and credibility. Use the full-screen map to explore categories, states, subtypes, and site-level details in a more technical view.
+              </p>
+            </div>
+            <div class="landscape-stats" aria-label="Feedstock map summary">
+              <div class="landscape-stat"><strong>186</strong><span>Mapped sites</span></div>
+              <div class="landscape-stat"><strong>5</strong><span>Feedstock groups</span></div>
+              <div class="landscape-stat"><strong>National</strong><span>Coverage scope</span></div>
+              <div class="landscape-stat"><strong>Filtered</strong><span>Interactive exploration</span></div>
+            </div>
+          </div>
+
+          <div class="map-preview-wrap">
+            <div class="map-preview-frame">
+              <iframe
+                src="feedstock-map.html"
+                title="Australia feedstocks map preview"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              ></iframe>
+              <div class="map-preview-overlay" aria-hidden="true"></div>
+              <div class="map-preview-note">
+                <p>
+                  Preview only. The full map opens as a dedicated page for easier navigation, filtering, and technical review.
+                </p>
+                <div class="map-preview-actions">
+                  <a href="feedstock-map.html" class="btn btn-primary">Open full map</a>
+                  <a href="contact.html" class="btn-outline">Discuss a feedstock</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
