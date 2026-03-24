@@ -25,6 +25,7 @@
       --radius-md: 16px;
       --radius-sm: 12px;
       --shadow: 0 10px 30px rgba(20, 48, 39, 0.08);
+      --shadow-soft: 0 16px 40px rgba(20, 48, 39, 0.1);
     }
 
     * {
@@ -187,6 +188,496 @@
       padding: 24px;
     }
 
+    .decision-system {
+      position: relative;
+      padding: 36px 30px 30px;
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top left, rgba(231,242,238,0.96) 0%, rgba(231,242,238,0) 34%),
+        radial-gradient(circle at bottom right, rgba(31,107,87,0.08) 0%, rgba(31,107,87,0) 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.99) 0%, rgba(241,245,243,0.97) 100%);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .decision-system::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, rgba(31,107,87,0.05) 0 14%, transparent 14% 100%),
+        linear-gradient(245deg, rgba(31,107,87,0.04) 0 10%, transparent 10% 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .system-header {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .system-title {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.5vw, 2.05rem);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+
+    .system-subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .tree-flow {
+      position: relative;
+      padding: 12px 0 4px;
+    }
+
+    .tree-root {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto 26px;
+      padding: 28px 28px 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(22,79,65,0.97) 0%, rgba(31,107,87,0.96) 100%);
+      color: #fff;
+      box-shadow: 0 24px 48px rgba(23,79,65,0.28);
+      text-align: center;
+    }
+
+    .tree-root::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 4px;
+      height: 46px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(31,107,87,0.9) 0%, rgba(31,107,87,0.28) 100%);
+      border-radius: 999px;
+    }
+
+    .tree-root h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.35rem, 2.1vw, 1.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .tree-root p {
+      margin: 0;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.98rem;
+    }
+
+    .tree-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 13px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tree-stage-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin: 0 0 28px;
+      padding-top: 46px;
+    }
+
+    .tree-stage-grid::before {
+      content: "";
+      position: absolute;
+      left: 12.5%;
+      right: 12.5%;
+      top: 0;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(31,107,87,0.28) 0%, rgba(31,107,87,0.85) 18%, rgba(31,107,87,0.85) 82%, rgba(31,107,87,0.28) 100%);
+      border-radius: 999px;
+    }
+
+    .tree-stage {
+      position: relative;
+      padding-top: 34px;
+    }
+
+    .tree-stage::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 4px;
+      height: 34px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(31,107,87,0.9) 0%, rgba(31,107,87,0.32) 100%);
+      border-radius: 999px;
+    }
+
+    .tree-card {
+      position: relative;
+      height: 100%;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(220,231,225,0.95);
+      box-shadow: 0 16px 36px rgba(20,48,39,0.08);
+      border-radius: 24px;
+      padding: 22px 22px 20px;
+    }
+
+    .tree-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 5px;
+      border-radius: 24px 24px 0 0;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(31,107,87,0.16) 100%);
+    }
+
+    .tree-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 14px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(31,107,87,0.24);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .tree-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .tree-card p,
+    .tree-outcome-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tree-question {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(220,231,225,0.95);
+      color: var(--text);
+      font-size: 0.91rem;
+    }
+
+    .tree-question strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.73rem;
+      color: var(--accent-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tree-gate {
+      position: relative;
+      max-width: 360px;
+      margin: 0 auto 32px;
+      padding: 22px 24px;
+      border-radius: 26px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.99) 0%, rgba(231,242,238,0.95) 100%);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 36px rgba(20,48,39,0.08);
+    }
+
+    .tree-gate::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      width: 4px;
+      height: 30px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(31,107,87,0.9) 0%, rgba(31,107,87,0.3) 100%);
+      border-radius: 999px;
+    }
+
+    .tree-gate::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 4px;
+      height: 34px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(31,107,87,0.9) 0%, rgba(31,107,87,0.32) 100%);
+      border-radius: 999px;
+    }
+
+    .tree-gate h3 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .tree-gate p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tree-outcomes {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      padding-top: 44px;
+    }
+
+    .tree-outcomes::before {
+      content: "";
+      position: absolute;
+      left: 25%;
+      right: 25%;
+      top: 0;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(31,107,87,0.28) 0%, rgba(31,107,87,0.85) 50%, rgba(31,107,87,0.28) 100%);
+      border-radius: 999px;
+    }
+
+    .tree-outcome {
+      position: relative;
+      padding-top: 32px;
+    }
+
+    .tree-outcome::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 4px;
+      height: 32px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(31,107,87,0.88) 0%, rgba(31,107,87,0.32) 100%);
+      border-radius: 999px;
+    }
+
+    .tree-outcome-card {
+      position: relative;
+      min-height: 100%;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px 24px 22px;
+      box-shadow: 0 14px 32px rgba(20,48,39,0.08);
+    }
+
+    .tree-outcome-card.good::before,
+    .tree-outcome-card.adjust::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 5px;
+      border-radius: 24px 24px 0 0;
+    }
+
+    .tree-outcome-card.good::before { background: linear-gradient(90deg, var(--accent) 0%, rgba(31,107,87,0.18) 100%); }
+    .tree-outcome-card.adjust::before { background: linear-gradient(90deg, rgba(24,48,40,0.92) 0%, rgba(24,48,40,0.18) 100%); }
+
+    .branch-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .branch-label.good { background: rgba(231,242,238,0.95); color: var(--accent-dark); }
+    .branch-label.adjust { background: rgba(24,48,40,0.08); color: var(--text); }
+
+    .tree-outcome-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+    }
+
+    .tree-outputs {
+      position: relative;
+      margin-top: 34px;
+      padding-top: 36px;
+    }
+
+    .tree-outputs::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(720px, calc(100% - 60px));
+      height: 1px;
+      background: linear-gradient(90deg, rgba(31,107,87,0) 0%, rgba(31,107,87,0.22) 16%, rgba(31,107,87,0.52) 50%, rgba(31,107,87,0.22) 84%, rgba(31,107,87,0) 100%);
+    }
+
+    .tree-outputs-header {
+      text-align: center;
+      margin: 0 auto 24px;
+      max-width: 760px;
+    }
+
+    .tree-outputs-header h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+    }
+
+    .tree-outputs-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .tree-output-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .tree-output-column {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(241,245,243,0.74) 100%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px 24px 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .tree-output-column::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 5px;
+    }
+
+    .tree-output-column.good::before {
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(31,107,87,0.18) 100%);
+    }
+
+    .tree-output-column.adjust::before {
+      background: linear-gradient(90deg, rgba(24,48,40,0.92) 0%, rgba(24,48,40,0.18) 100%);
+    }
+
+    .output-column-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tree-output-column.good .output-column-title {
+      background: rgba(231,242,238,0.95);
+      color: var(--accent-dark);
+    }
+
+    .tree-output-column.adjust .output-column-title {
+      background: rgba(24,48,40,0.08);
+      color: var(--text);
+    }
+
+    .tree-output-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .tree-output-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.52;
+    }
+
+    .tree-output-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(31,107,87,0.08);
+    }
+
+    .tree-output-column.adjust .tree-output-list li::before {
+      background: rgba(24,48,40,0.82);
+      box-shadow: 0 0 0 6px rgba(24,48,40,0.06);
+    }
+
+    .tree-output-list strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .workflow-summary {
+      margin-top: 22px;
+      padding: 18px 22px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(231,242,238,0.95) 0%, rgba(255,255,255,0.98) 100%);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.96rem;
+      box-shadow: var(--shadow);
+    }
+
+    .signal-card,
+    .deliverable-card,
+    .value-card {
+      padding: 26px;
+    }
+
+    .signal-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(246,248,247,1) 100%);
+    }
+
     .capability-card h3,
     .scope-card h3,
     .step-card h3 {
@@ -264,6 +755,48 @@
       .section-heading {
         grid-template-columns: 1fr;
       }
+
+      .workflow-map::before {
+        left: 29px;
+        transform: none;
+      }
+
+      .tree-output-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-step {
+        grid-template-columns: 58px 1fr;
+        gap: 16px;
+        align-items: start;
+        margin-bottom: 16px;
+      }
+
+      .workflow-node {
+        grid-column: 1;
+        min-height: 58px;
+        justify-content: flex-start;
+      }
+
+      .workflow-node::before {
+        width: 58px;
+        height: 58px;
+        left: 29px;
+      }
+
+      .workflow-node-label {
+        display: none;
+      }
+
+      .workflow-step.left .workflow-panel,
+      .workflow-step.right .workflow-panel {
+        grid-column: 2;
+        margin: 0;
+      }
+
+      .workflow-connector {
+        display: none;
+      }
     }
 
     @media (max-width: 860px) {
@@ -323,53 +856,51 @@
         <div class="section-heading">
           <h2>Core advisory capabilities</h2>
           <p>
-            Mineral Activation Labs helps organisations determine whether underused mineral streams can become viable feedstocks for low-carbon construction materials. Our work is built around three practical questions: is the material worth developing, what is technically controlling its behaviour, and what pathway could make it usable?
+            Focused technical support for turning mineral streams into realistic product and market directions.
           </p>
         </div>
 
         <div class="grid-3">
           <div class="capability-card">
-            <h3>Feedstock intelligence</h3>
+            <h3>Feedstock review and application fit</h3>
             <p>
-              We assess whether a mineral stream represents a credible technical opportunity. This includes mine tailings, metallurgical slags, clay-rich soils, quarry fines, excavation materials, and mineral processing residues.
+              We evaluate whether a material can enter an existing product pathway without activation, and where the strongest commercial fit is likely to sit first.
             </p>
             <ul class="feature-list">
-              <li>Mineralogical and chemical interpretation</li>
-              <li>Identification of reactive and inert phases</li>
-              <li>Assessment of contaminants, heterogeneity, and supply constraints</li>
-              <li>Early view on technical fit and likely development value</li>
+              <li>Review of existing site, laboratory, and production data</li>
+              <li>Screening against likely applications such as aggregate, SCM, fill, stabilisation, bricks, or related mineral products</li>
+              <li>Translation of mineralogy, chemistry, PSD, and contaminants into development relevance</li>
+              <li>Early ranking of the most credible <a href="applications.html"><strong>application pathways</strong></a></li>
             </ul>
-            <p class="outcome"><strong>Outcome:</strong> a clear view of whether the material deserves further development.</p>
+            <p class="outcome"><strong>Outcome:</strong> a decision-ready view of where the material is most likely to fit first.</p>
           </div>
 
           <div class="capability-card">
-            <h3>Reactivity assessment</h3>
+            <h3>Standards and compliance positioning</h3>
             <p>
-              We assess whether a feedstock can function in cementitious or mineral binder systems by linking phase assemblage, mineral structure, and processing response to realistic performance potential.
+              We compare available material data with the technical intent of relevant AS, NZS, and ASTM frameworks to identify current compliance, likely compliance, and the main gaps.
             </p>
             <ul class="feature-list">
-              <li>Pozzolanic reactivity</li>
-              <li>Latent hydraulic behaviour</li>
-              <li>Alkali-activation potential</li>
-              <li>Calcination pathways for clay-rich materials</li>
-              <li>Relevance for concrete, stabilisation, and low-carbon binders</li>
+              <li>Review against aggregate, SCM, binder, soil improvement, and product-relevant standards</li>
+              <li>Identification of properties already supporting compliance</li>
+              <li>Gap analysis for properties that still require testing or refinement</li>
+              <li>Practical view on whether compliance is realistic without activation</li>
             </ul>
-            <p class="outcome"><strong>Outcome:</strong> identification of viable binder pathways.</p>
+            <p class="outcome"><strong>Outcome:</strong> a clear picture of standards fit, risk, and what evidence is still missing.</p>
           </div>
 
           <div class="capability-card">
-            <h3>Development pathways</h3>
+            <h3>Pathway development and technical de-risking</h3>
             <p>
-              For promising materials, we define the most credible route to unlock value, balancing activation strategy, processing demand, and likely product fit.
+              Where direct use is not strong enough, we define the most credible route to improve fit, performance, and product value.
             </p>
             <ul class="feature-list">
-              <li>Thermal activation and calcined-clay pathways</li>
-              <li>Grinding, classification, or beneficiation strategies</li>
-              <li>Washing and impurity-management options</li>
-              <li>Blending with cementitious materials</li>
-              <li>Stabilisation and ground-improvement uses</li>
+              <li>Selection of the most justified testing sequence for the chosen application</li>
+              <li>Targeted interpretation of why a material passes, underperforms, or fails</li>
+              <li>Recommendation of activation, beneficiation, blending, calcination, washing, or classification routes only where justified</li>
+              <li>Guidance from early product testing toward scale-up priorities and market-facing direction</li>
             </ul>
-            <p class="outcome"><strong>Outcome:</strong> a technically realistic development direction.</p>
+            <p class="outcome"><strong>Outcome:</strong> a technically credible route from material screening to product development.</p>
           </div>
         </div>
       </div>
@@ -378,101 +909,116 @@
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <h2>Typical scope of work</h2>
+          <h2>How a material becomes a viable product</h2>
           <p>
-            Each engagement is structured around a specific development decision rather than a fixed testing package. Depending on the material and stage of work, the scope may combine screening, interpretation, pathway definition, and targeted technical guidance.
+            The workflow is structured around decisions: use existing evidence first, identify the strongest non-activated route, position it against standards, close only the critical gaps, then validate the chosen product pathway before treatment or scale-up.
           </p>
         </div>
 
-        <div class="grid-2">
-          <div class="scope-card">
-            <h3>Feedstock screening and qualification</h3>
-            <ul class="feature-list">
-              <li>Review of available chemistry, mineralogy, and process background to establish initial technical fit</li>
-              <li>Assessment of likely reactive phases, inert fractions, and undesirable components</li>
-              <li>Identification of contaminants, heterogeneity, and development risks</li>
-              <li>Initial view on suitability for cementitious or related mineral applications</li>
-              <li>Go / no-go or priority ranking across one or multiple materials</li>
-            </ul>
+        <div class="decision-system">
+          <div class="tree-flow">
+            <div class="tree-root">
+              <span class="tree-pill">Root decision</span>
+              <h3>Start with the material as it already exists</h3>
+              <p>Use existing site data, internal lab results, process history, and environmental evidence first. Only add new work where it improves the quality of the decision.</p>
+            </div>
+
+            <div class="tree-stage-grid">
+              <div class="tree-stage">
+                <div class="tree-card">
+                  <div class="tree-index">01</div>
+                  <h3>Existing data review</h3>
+                  <p>Review chemistry, mineralogy, PSD, process history, environmental data, and any prior technical work already available.</p>
+                  <div class="tree-question"><strong>Decision</strong>Do we already have enough evidence to shortlist realistic uses?</div>
+                </div>
+              </div>
+
+              <div class="tree-stage">
+                <div class="tree-card">
+                  <div class="tree-index">02</div>
+                  <h3>Application screening</h3>
+                  <p>Rank the strongest first-fit uses such as aggregate, SCM, fill, stabilisation, bricks, ceramics, or related mineral products before activation is proposed.</p>
+                  <div class="tree-question"><strong>Decision</strong>Which <a href="applications.html"><strong>application pathways</strong></a> are worth pursuing first?</div>
+                </div>
+              </div>
+
+              <div class="tree-stage">
+                <div class="tree-card">
+                  <div class="tree-index">03</div>
+                  <h3>Standards positioning</h3>
+                  <p>Compare the existing evidence with relevant AS, NZS, and ASTM frameworks to determine current compliance, near-compliance, or early rejection.</p>
+                  <div class="tree-question"><strong>Decision</strong>Can the material plausibly comply without treatment?</div>
+                </div>
+              </div>
+
+              <div class="tree-stage">
+                <div class="tree-card">
+                  <div class="tree-index">04</div>
+                  <h3>Targeted gap testing</h3>
+                  <p>Where evidence is missing, define only the critical analyses needed to refine compliance, application fit, and commercial credibility.</p>
+                  <div class="tree-question"><strong>Decision</strong>What is the minimum additional evidence needed to confirm viability?</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tree-gate">
+              <span class="small-pill">Product gate</span>
+              <h3>Validate the chosen product route</h3>
+              <p>Test the shortlisted material inside the selected product system and assess performance against standards at finished-product level, not just at feedstock level.</p>
+            </div>
+
+            <div class="tree-outcomes">
+              <div class="tree-outcome">
+                <div class="tree-outcome-card good">
+                  <div class="branch-label good">Pathway A · works</div>
+                  <h3>Proceed to scale-up and market use</h3>
+                  <p>If the route performs strongly, we define scale-up priorities, standards-aligned positioning, and the most promising compliant end-use or client segments.</p>
+                </div>
+              </div>
+
+              <div class="tree-outcome">
+                <div class="tree-outcome-card adjust">
+                  <div class="branch-label adjust">Pathway B · needs refinement</div>
+                  <h3>Apply the simplest justified treatment route</h3>
+                  <p>If performance falls short, we recommend the most defensible upgrade path, such as blending, beneficiation, activation, calcination, washing, grinding, or classification, then re-check the improved route.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="scope-card">
-            <h3>Reactivity and application relevance</h3>
-            <ul class="feature-list">
-              <li>Assessment of pozzolanic, latent hydraulic, or alkali-activation potential</li>
-              <li>Interpretation of which phases are most likely to contribute to performance</li>
-              <li>Consideration of thermal activation potential for clays and fine mineral streams</li>
-              <li>Comparison of candidate pathways for SCM use, activated binders, or blended systems</li>
-              <li>Identification of the technical unknowns most critical to early development decisions</li>
-            </ul>
+          <div class="tree-outputs">
+            <div class="tree-outputs-header">
+              <h3>Typical outputs</h3>
+              <p>Each project results in a clear development position, with outputs shaped by whether the strongest route is already viable or needs selective refinement.</p>
+            </div>
+
+            <div class="tree-output-grid">
+              <div class="tree-output-column good">
+                <div class="output-column-title">Direct pathway</div>
+                <ul class="tree-output-list">
+                  <li><strong>Application shortlist</strong>Standards-aligned uses already viable or close to compliant without activation.</li>
+                  <li><strong>Standards positioning</strong>Clear view of present compliance, near-compliance, and the main technical risks.</li>
+                  <li><strong>Product validation</strong>Confirmed product-level performance for the selected route.</li>
+                  <li><strong>Go decision</strong>Recommendation to proceed with the strongest compliant direction.</li>
+                  <li><strong>Scale-up direction</strong>Priorities for pilot work, production trials, or deployment planning.</li>
+                  <li><strong>Market positioning</strong>Most realistic applications, client types, and end-use segments.</li>
+                </ul>
+              </div>
+
+              <div class="tree-output-column adjust">
+                <div class="output-column-title">Refined pathway</div>
+                <ul class="tree-output-list">
+                  <li><strong>Critical gap definition</strong>Exactly what prevents compliance, performance, or commercial credibility.</li>
+                  <li><strong>Targeted testing package</strong>Only the essential work needed to resolve the decision.</li>
+                  <li><strong>Treatment strategy</strong>Defined activation, blending, beneficiation, or processing route.</li>
+                  <li><strong>Re-validation pathway</strong>How the upgraded material should be reassessed against standards.</li>
+                  <li><strong>Conditional go / redirect</strong>Recommendation to proceed, refine further, or stop development.</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
-          <div class="scope-card">
-            <h3>Mineralogical interpretation and technical insight</h3>
-            <ul class="feature-list">
-              <li>Translation of XRD, XRF, and thermal data into development-relevant conclusions</li>
-              <li>Distinction between attractive bulk chemistry and useful reactive mineral content</li>
-              <li>Interpretation of how mineralogy may influence processing demand, variability, and product fit</li>
-              <li>Explanation of why apparently similar residues can behave very differently</li>
-              <li>Framing of opportunity around realistic technical mechanisms rather than generic claims</li>
-            </ul>
-          </div>
-
-          <div class="scope-card">
-            <h3>Pathway definition and next-step strategy</h3>
-            <ul class="feature-list">
-              <li>Review of likely needs for grinding, classification, washing, drying, calcination, or blending</li>
-              <li>Assessment of whether thermal or chemical activation is technically justified</li>
-              <li>Matching of process intensity to the probable value of the end application</li>
-              <li>Definition of the most useful next laboratory, validation, or pilot-oriented tests</li>
-              <li>Clear recommendation on what should happen next and why</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>How projects usually start</h2>
-          <p>
-            Most collaborations begin with a focused feedstock evaluation. The aim is to move quickly from raw material information to a clear development direction.
-          </p>
-        </div>
-
-        <div class="grid-4">
-          <div class="step-card">
-            <div class="number">1</div>
-            <h3>Define the material</h3>
-            <p>
-              We start with the feedstock itself: what it is, where it comes from, what is already known, and what opportunity or constraint the client is trying to assess.
-            </p>
-          </div>
-
-          <div class="step-card">
-            <div class="number">2</div>
-            <h3>Assess the fundamentals</h3>
-            <p>
-              We review mineralogy, chemistry, likely reactivity, contaminants, variability, and probable processing demand to understand whether the material has credible technical potential.
-            </p>
-          </div>
-
-          <div class="step-card">
-            <div class="number">3</div>
-            <h3>Identify the pathway</h3>
-            <p>
-              We determine where the strongest technical case may sit, including likely activation routes, target applications, and the main issues that need to be resolved next.
-            </p>
-          </div>
-
-          <div class="step-card">
-            <div class="number">4</div>
-            <h3>Make the next decision</h3>
-            <p>
-              The output is a practical next step: targeted testing, deeper evaluation, pilot preparation, reprioritisation, or an early no-go where justified.
-            </p>
-          </div>
+          <div class="workflow-summary"><strong>Typical pathway:</strong> existing data review → first-fit application screening → standards positioning → targeted gap testing → product-level validation → either scale-up and market use, or selective treatment and re-validation.</div>
         </div>
       </div>
     </section>
