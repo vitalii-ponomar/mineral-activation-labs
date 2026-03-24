@@ -90,12 +90,24 @@
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .feedstock-topbar {
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      padding: 18px 22px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #ffffff 0%, #f7faf8 100%);
+    .feedstock-toolbar {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f7faf8 100%);
     }
     .feedstock-controls {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+      flex-wrap: nowrap;
+      padding-right: 16px;
+      margin-right: 2px;
+      border-right: 1px solid var(--line);
     }
     .control-btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -111,11 +123,41 @@
     .play-toggle svg .play-triangle { display: none; }
 
     .feedstock-tabs {
-      display: flex; flex-wrap: wrap; gap: 10px; padding: 18px 22px 0;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+      padding: 0;
+      min-width: 0;
+      align-items: center;
+      justify-content: flex-end;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+    .feedstock-tabs::-webkit-scrollbar {
+      height: 8px;
+    }
+    .feedstock-tabs::-webkit-scrollbar-thumb {
+      background: #d6e2dc;
+      border-radius: 999px;
+    }
+    .feedstock-tabs::-webkit-scrollbar-track {
+      background: transparent;
     }
     .feedstock-tab {
-      display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--line); background: var(--surface);
-      color: var(--muted); border-radius: 999px; padding: 11px 15px; cursor: pointer; font-weight: 600; transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: all 0.18s ease;
     }
     .feedstock-tab:hover { border-color: #c6d7d0; color: var(--text); }
     .feedstock-tab.active {
@@ -427,8 +469,8 @@
         min-height: auto; padding: 14px 0; align-items: flex-start; flex-direction: column;
       }
       .nav { gap: 12px 16px; justify-content: flex-start; }
-      .feedstock-topbar { align-items: flex-start; flex-direction: column; }
-      .landscape-intro, .map-preview-note { grid-template-columns: 1fr; }
+      .feedstock-toolbar { align-items: flex-start; }
+      .feedstock-controls { width: auto; }
     }
     @media (max-width: 760px) {
       main { padding-top: 26px; }
@@ -476,14 +518,10 @@
             <div class="eyebrow">Feedstock categories</div>
             <h2>Different mineral feedstocks create different product pathways</h2>
           </div>
-          <p>
-            The important question is not whether a feedstock is inherently good or bad. It is whether its mineralogy, chemistry, scale, processing route, and site context align with a useful application.
-          </p>
         </div>
 
         <div class="feedstock-showcase" aria-label="Feedstock categories carousel">
-          <div class="feedstock-topbar">
-            
+          <div class="feedstock-toolbar">
             <div class="feedstock-controls">
               <button class="control-btn" type="button" data-action="prev" aria-label="Previous feedstock">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
@@ -498,9 +536,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
               </button>
             </div>
-          </div>
-
-          <div class="feedstock-tabs" role="tablist" aria-label="Feedstock categories">
+            <div class="feedstock-tabs" role="tablist" aria-label="Feedstock categories">
             <button class="feedstock-tab active" type="button" role="tab" aria-selected="true" aria-controls="feedstock-clays" id="tab-clays" data-panel="feedstock-clays">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16c1.5-3.5 4.1-6.4 7-8 2.9 1.6 5.5 4.5 7 8"/><path d="M4 18h16"/><path d="M8 13c.7 1 2.1 1.7 4 1.7s3.3-.7 4-1.7"/></svg>
               <span>Clays</span>
@@ -521,6 +557,8 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10H7z"/><path d="M4 12h3"/><path d="M17 12h3"/><path d="M12 4v3"/><path d="M12 17v3"/></svg>
               <span>Fine residues</span>
             </button>
+                      </div>
+          </div>
           </div>
 
           <div class="feedstock-stage">
@@ -799,9 +837,6 @@
         <div class="decision-panel">
           <div class="section-heading" style="margin-bottom: 0;">
             <h2>What defines the right pathway for a feedstock</h2>
-            <p>
-              Every mineral feedstock can be useful when matched to the right application, processing intensity, and commercial context. The main decision is how to position the material so its characteristics create value rather than friction.
-            </p>
           </div>
 
           <div class="grid-4" style="margin-top: 22px;">
@@ -844,20 +879,14 @@
         <div class="section-heading">
           <div>
             <div class="eyebrow">Australia feedstock landscape</div>
-            <h2>Feedstock availability is spatial, uneven, and commercially decisive</h2>
+            
           </div>
-          <p>
-            The national picture is not abstract. Tailings, slags, clays, soils, and other fine residues sit in very different regional clusters, with different logistics, processing realities, and pathway fit. The map preview below gives a controlled view of that landscape, while the full map opens the complete interactive dataset.
-          </p>
         </div>
 
         <div class="landscape-panel">
           <div class="landscape-intro">
             <div>
-              <h3>A national evidence layer, without turning this page into a GIS portal</h3>
-              <p>
-                This preview is here to show scale, spread, and credibility. Use the full-screen map to explore categories, states, subtypes, and site-level details in a more technical view.
-              </p>
+              <h3>Feedstock availability is spatial, uneven, and commercially decisive</h3>
             </div>
             <div class="landscape-stats" aria-label="Feedstock map summary">
               <div class="landscape-stat"><strong>186</strong><span>Mapped sites</span></div>
@@ -877,9 +906,6 @@
               ></iframe>
               <div class="map-preview-overlay" aria-hidden="true"></div>
               <div class="map-preview-note">
-                <p>
-                  Preview only. The full map opens as a dedicated page for easier navigation, filtering, and technical review.
-                </p>
                 <div class="map-preview-actions">
                   <a href="feedstock-map.html" class="btn btn-primary">Open full map</a>
                   <a href="contact.html" class="btn-outline">Discuss a feedstock</a>
