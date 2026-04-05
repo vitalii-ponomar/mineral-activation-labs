@@ -145,6 +145,7 @@
       margin: 0;
       color: var(--muted);
       font-size: 1rem;
+      max-width: 62ch;
     }
 
     .grid-2 {
@@ -161,6 +162,16 @@
       border-radius: var(--radius-lg);
       padding: 30px;
       box-shadow: var(--shadow);
+    }
+
+    .application-card {
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .application-card:hover {
+      transform: translateY(-2px);
+      border-color: #cbdad3;
+      box-shadow: 0 14px 34px rgba(20, 48, 39, 0.1);
     }
 
     .application-card h3,
@@ -180,7 +191,6 @@
       font-size: 0.97rem;
     }
 
-    .card-label,
     .tag {
       display: inline-flex;
       align-items: center;
@@ -193,8 +203,19 @@
       letter-spacing: 0.02em;
     }
 
-    .card-label {
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 14px;
+      font-size: 1.15rem;
+      line-height: 1;
+      color: var(--accent-dark);
+      box-shadow: inset 0 0 0 1px rgba(31, 107, 87, 0.07);
     }
 
     .subhead {
@@ -365,17 +386,13 @@
         <div class="section-heading">
           <h2>Core application categories</h2>
           <p>
-            Mineral side streams do not all belong in the same product pathway. Some are suited
-            to clinker reduction, some to activated binders, some to large-volume civil use, and
-            others to fired, carbonated, or specialty mineral products. The real challenge is
-            identifying the application where the feedstock has the strongest technical and
-            commercial fit.
+            Mineral side streams do not belong in a single product pathway. The key is identifying where a material has the strongest technical and commercial fit — and which standards it can realistically meet.
           </p>
         </div>
 
         <div class="grid-2">
           <article class="application-card">
-            <div class="card-label">01</div>
+            <div class="card-icon">⚗️</div>
             <h3>Supplementary cementitious materials (SCMs)</h3>
             <p>
               SCM pathways are relevant where a mineral resource can deliver cement replacement
@@ -385,6 +402,12 @@
             <p>
               Reactive phase content, fineness, impurity profile, and compatibility with cement systems.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>AS/NZS 3582 series – fly ash, slag, silica, pozzolans</li>
+              <li>AS 3972 – cement compatibility and blending limits</li>
+              <li>ASTM C618 / C1709 – pozzolanic materials and emerging SCMs</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Calcined clays</span>
               <span class="tag">Selected slags</span>
@@ -394,7 +417,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">02</div>
+            <div class="card-icon">🔬</div>
             <h3>Alkali-activated and alternative binders</h3>
             <p>
               Activated binder systems become attractive when direct SCM use is weak, but the
@@ -405,6 +428,12 @@
               Dissolution behaviour, gel-forming potential, phase assemblage, activator compatibility,
               and binder stability.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>ASTM C1948 – alkali-activated cement specification</li>
+              <li>ASTM C1157 – performance-based cement classification</li>
+              <li>Project-specific performance testing where formal standards remain limited</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Slags</span>
               <span class="tag">Fe-rich byproducts</span>
@@ -414,7 +443,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">03</div>
+            <div class="card-icon">🧱</div>
             <h3>Low-cement concrete and mortar systems</h3>
             <p>
               Some feedstocks are best used in practical clinker-reduction strategies rather than
@@ -424,6 +453,12 @@
             <p>
               Blend performance, water demand, workability, strength retention, and ease of integration.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>AS 3972 – blended cement definitions and general compatibility</li>
+              <li>ASTM C595 – blended hydraulic cements</li>
+              <li>ASTM C1157 – performance-based compliance pathways</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Concrete blends</span>
               <span class="tag">Mortars</span>
@@ -433,7 +468,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">04</div>
+            <div class="card-icon">🌍</div>
             <h3>Soil stabilisation and ground improvement</h3>
             <p>
               Some materials are better directed into stabilisation pathways than into higher-reactivity
@@ -443,6 +478,12 @@
             <p>
               Geotechnical response, constructability, moisture sensitivity, and deployment at scale.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>AS 3798 – earthworks and controlled fill</li>
+              <li>AS 1289 series – soil testing methods</li>
+              <li>Project specifications such as Austroads and TfNSW frameworks</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Treated soils</span>
               <span class="tag">Ground improvement</span>
@@ -452,7 +493,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">05</div>
+            <div class="card-icon">🛣️</div>
             <h3>Road base, subbase, and pavement materials</h3>
             <p>
               Mineral side streams can support pavement-related applications where grading, durability,
@@ -462,6 +503,12 @@
             <p>
               Gradation, stabilisation response, durability, water sensitivity, and practical specification fit.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>AS 2758 series – aggregates</li>
+              <li>ASTM D2940 – graded base materials</li>
+              <li>Austroads and transport authority pavement specifications</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Road base</span>
               <span class="tag">Subbase</span>
@@ -471,7 +518,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">06</div>
+            <div class="card-icon">🏗️</div>
             <h3>Engineered fill and embankment materials</h3>
             <p>
               Where a material does not justify a higher-value binder route, engineered fill and embankment
@@ -481,6 +528,12 @@
             <p>
               Handling behaviour, environmental suitability, moisture response, and logistics.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>AS 3798 – engineered fill classification and control</li>
+              <li>AS 1289 – compaction and density control</li>
+              <li>Environmental and waste classification requirements</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Engineered fill</span>
               <span class="tag">Embankments</span>
@@ -490,7 +543,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">07</div>
+            <div class="card-icon">🔥</div>
             <h3>Fired mineral products</h3>
             <p>
               Thermally processed products may make more sense where heating produces a useful mineral
@@ -500,6 +553,12 @@
             <p>
               Firing response, shrinkage behaviour, product stability, contaminant behaviour, and energy justification.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>AS/NZS 4455 / 4456 – masonry units and testing</li>
+              <li>AS 3700 – masonry durability classes</li>
+              <li>ASTM C216 / C652 – brick performance</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Bricks</span>
               <span class="tag">Ceramics</span>
@@ -509,7 +568,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">08</div>
+            <div class="card-icon">🪶</div>
             <h3>Lightweight aggregates and sintered products</h3>
             <p>
               Certain feedstocks may be suitable for expanded, sintered, or thermally transformed aggregate
@@ -519,6 +578,12 @@
             <p>
               Thermal expansion behaviour, porosity development, product integrity, and firing practicality.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>ASTM C330 – structural lightweight aggregates</li>
+              <li>ASTM C331 – masonry lightweight aggregates</li>
+              <li>AS 2758 – aggregate quality requirements</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Lightweight aggregate</span>
               <span class="tag">Expanded products</span>
@@ -528,7 +593,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">09</div>
+            <div class="card-icon">🌫️</div>
             <h3>Carbonation-cured mineral products</h3>
             <p>
               Carbonation routes are worth considering where a feedstock contains reactive phases that can
@@ -538,6 +603,12 @@
             <p>
               Carbonation kinetics, accessible reactive phases, curing conditions, and product integrity.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>ASTM C1905 – carbonation-cured cements</li>
+              <li>ASTM C1910 – CO₂-cured material testing</li>
+              <li>Emerging standards and project-specific qualification pathways</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Blocks</span>
               <span class="tag">Carbonated products</span>
@@ -547,7 +618,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">10</div>
+            <div class="card-icon">🛡️</div>
             <h3>Immobilisation and containment matrices</h3>
             <p>
               Some mineral streams are better suited to encapsulation, immobilisation, or controlled
@@ -557,6 +628,12 @@
             <p>
               Chemical stability, contaminant behaviour, matrix performance, and environmental compliance.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>ASTM C1308 – accelerated leach testing</li>
+              <li>ANSI/ANS 16.1 – leachability assessment</li>
+              <li>EPA TCLP (Method 1311) – contaminant mobility screening</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Encapsulation</span>
               <span class="tag">Containment</span>
@@ -566,7 +643,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">11</div>
+            <div class="card-icon">⚙️</div>
             <h3>Fillers, fines replacement, and blend components</h3>
             <p>
               Not every useful mineral stream needs to function as a reactive binder precursor. Some create
@@ -576,6 +653,12 @@
             <p>
               Particle size distribution, mineral compatibility, packing contribution, and formulation stability.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>AS/NZS 3582 – mineral additions where relevant</li>
+              <li>AS 1141 – particle size and aggregate testing</li>
+              <li>ASTM routes depend on final formulation and end-use</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Fillers</span>
               <span class="tag">Fines replacement</span>
@@ -585,7 +668,7 @@
           </article>
 
           <article class="application-card">
-            <div class="card-label">12</div>
+            <div class="card-icon">✨</div>
             <h3>Niche mineral products</h3>
             <p>
               Some feedstocks are best directed into smaller but more technically targeted pathways where
@@ -595,6 +678,12 @@
             <p>
               Distinct mineral properties, processing requirements, product differentiation, and market realism.
             </p>
+            <div class="subhead">Standards alignment</div>
+            <ul class="feature-list">
+              <li>Application-specific standards for ceramics, fillers, pigments, or specialty products</li>
+              <li>ISO, ASTM, or client specifications depending on market entry route</li>
+              <li>Performance-driven validation where fixed standards are limited</li>
+            </ul>
             <div class="tag-row">
               <span class="tag">Decorative products</span>
               <span class="tag">Specialty minerals</span>
@@ -609,53 +698,32 @@
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <h2>Not every feedstock belongs in the same product</h2>
+          <h2>Application fit defines value</h2>
           <p>
-            Many mineral resources are tested against the wrong target from the outset. A weak SCM
-            candidate may still be highly suitable for stabilisation, pavement applications, fired
-            products, carbonation-cured systems, or specialty mineral uses.
+            The same material can fail in one pathway and succeed in another. Most development risk comes from choosing the wrong application — not from the material itself.
           </p>
         </div>
 
         <div class="grid-2">
           <div class="fit-box">
-            <h3>The stronger question</h3>
-            <p>
-              The key question is not whether the feedstock looks interesting in isolation, but where
-              it has the strongest development logic.
-            </p>
+            <h3>What typically goes wrong</h3>
+            <ul class="feature-list">
+              <li>forcing weak SCM candidates into cement replacement roles</li>
+              <li>overestimating reactivity instead of using bulk-value pathways</li>
+              <li>testing broadly without a defined product direction</li>
+              <li>ignoring standards until late-stage development</li>
+            </ul>
           </div>
 
           <div class="fit-box">
-            <h3>Why that matters</h3>
-            <p>
-              Getting that decision right early helps avoid wasted testing, weak product positioning,
-              and unnecessary processing effort.
-            </p>
+            <h3>What works better</h3>
+            <ul class="feature-list">
+              <li>start from the strongest technically defensible application</li>
+              <li>align early with realistic standards and specifications</li>
+              <li>prioritise pathways that minimise processing complexity</li>
+              <li>treat application selection as the core decision, not an outcome</li>
+            </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Most relevant where</h2>
-          <p>
-            This page is most relevant when the material has potential, but the right product route
-            is still unclear.
-          </p>
-        </div>
-
-        <div class="fit-box">
-          <ul class="feature-list">
-            <li>clinker reduction is being explored but the right material route is unclear</li>
-            <li>a mineral residue needs a credible use pathway rather than a generic reuse claim</li>
-            <li>a feedstock shows promise but does not fit conventional cement replacement well</li>
-            <li>large-volume civil use may be more realistic than high-reactivity binder use</li>
-            <li>thermally processed or carbonation-based routes are being considered</li>
-            <li>technical justification is needed before broader testing or pilot work</li>
-          </ul>
         </div>
       </div>
     </section>
