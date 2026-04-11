@@ -159,26 +159,20 @@
       justify-self: start;
     }
     .project-media {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-lg);
-      margin-bottom: 0;
-      background: linear-gradient(135deg, rgba(31,107,87,0.08), rgba(24,48,40,0.03)), var(--surface-alt);
-      border: 1px solid var(--line);
       display: flex;
       flex-direction: column;
+      gap: 14px;
       align-self: start;
+      min-width: 0;
     }
 
     .project-media-top {
-      position: relative;
-      z-index: 3;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 18px;
-      padding: 22px 22px 0;
+      gap: 14px;
       flex-wrap: wrap;
+      padding: 0;
     }
 
     .project-title-wrap h3 {
@@ -186,14 +180,12 @@
       font-size: clamp(1.35rem, 2.2vw, 1.95rem);
       line-height: 1.1;
       letter-spacing: -0.03em;
-      color: #fff;
-      text-shadow: 0 1px 14px rgba(0,0,0,0.18);
+      color: var(--text);
     }
 
     .project-subtitle {
-      color: rgba(255,255,255,0.86);
+      color: var(--muted);
       font-size: 0.97rem;
-      text-shadow: 0 1px 10px rgba(0,0,0,0.18);
     }
 
     .project-carousel {
@@ -202,7 +194,9 @@
       aspect-ratio: 16 / 10;
       min-height: 0;
       overflow: hidden;
-      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(31,107,87,0.08), rgba(24,48,40,0.03)), var(--surface-alt);
       flex: none;
     }
 
@@ -211,19 +205,25 @@
       inset: 0;
       opacity: 0;
       transition: opacity 0.9s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 18px;
+      overflow: hidden;
+      padding: 0;
       background:
-        linear-gradient(180deg, rgba(14, 33, 27, 0.28) 0%, rgba(14, 33, 27, 0.18) 24%, rgba(14, 33, 27, 0.34) 100%),
+        linear-gradient(180deg, rgba(14, 33, 27, 0.22) 0%, rgba(14, 33, 27, 0.08) 28%, rgba(14, 33, 27, 0.4) 100%),
         linear-gradient(135deg, rgba(31,107,87,0.18), rgba(24,48,40,0.07)),
         var(--surface-alt);
       color: rgba(255,255,255,0.92);
       font-size: 0.98rem;
       font-weight: 600;
       line-height: 1.35;
+    }
+
+    .project-slide img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .project-slide.active {
@@ -235,21 +235,31 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 30%),
+        linear-gradient(180deg, rgba(17, 40, 33, 0.06) 0%, rgba(17, 40, 33, 0.02) 28%, rgba(17, 40, 33, 0.68) 100%),
+        radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 30%),
         radial-gradient(circle at bottom left, rgba(255,255,255,0.08), transparent 24%);
       pointer-events: none;
+      z-index: 1;
     }
 
     .project-slide span {
-      position: relative;
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 30px;
       z-index: 2;
-      max-width: 220px;
+      max-width: none;
+      text-align: left;
+      font-size: 0.96rem;
+      line-height: 1.32;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.4);
     }
 
     .project-carousel-dots {
       position: absolute;
-      left: 22px;
-      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 12px;
       z-index: 4;
       display: flex;
       gap: 8px;
@@ -406,7 +416,6 @@
 
     @media (max-width: 760px) {
       .project-card, .cta-box { padding: 24px; }
-      .project-media-top { padding: 18px 18px 0; }
       .project-carousel { aspect-ratio: 16 / 10; }
       main { padding-top: 24px; }
       .brand-logo { height: 36px; }
@@ -453,12 +462,12 @@
                 <div class="project-tag">Concrete · soils</div>
               </div>
               <div class="project-carousel" data-carousel>
-                <div class="project-slide active"><span>Project picture 01</span></div>
-                <div class="project-slide"><span>Project picture 02</span></div>
-                <div class="project-slide"><span>Project picture 03</span></div>
-                <div class="project-slide"><span>Project picture 04</span></div>
-                <div class="project-slide"><span>Project picture 05</span></div>
-                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-slide active"><img src="assets/projects/soils/soils-1.webp" alt="Excavated soil feedstock" loading="lazy" onerror="this.style.display='none'" /><span>Excavated soil feedstock</span></div>
+                <div class="project-slide"><img src="assets/projects/soils/soils-2.webp" alt="Coarse-dominated grading" loading="lazy" onerror="this.style.display='none'" /><span>Coarse-dominated grading</span></div>
+                <div class="project-slide"><img src="assets/projects/soils/soils-3.webp" alt="Limited reactive phases" loading="lazy" onerror="this.style.display='none'" /><span>Limited reactive phases</span></div>
+                <div class="project-slide"><img src="assets/projects/soils/soils-4.webp" alt="Packing-driven densification" loading="lazy" onerror="this.style.display='none'" /><span>Packing-driven densification</span></div>
+                <div class="project-slide"><img src="assets/projects/soils/soils-5.webp" alt="Low-cement concrete performance" loading="lazy" onerror="this.style.display='none'" /><span>Low-cement concrete performance</span></div>
+                <div class="project-slide"><img src="assets/projects/soils/soils-6.webp" alt="Civil reuse application" loading="lazy" onerror="this.style.display='none'" /><span>Civil reuse application</span></div>
                 <div class="project-carousel-dots">
                 <button type="button" aria-label="Show slide 1" class="active"></button>
                 <button type="button" aria-label="Show slide 2" class=""></button>
@@ -500,12 +509,12 @@
                 <div class="project-tag">Binders · slag</div>
               </div>
               <div class="project-carousel" data-carousel>
-                <div class="project-slide active"><span>Project picture 01</span></div>
-                <div class="project-slide"><span>Project picture 02</span></div>
-                <div class="project-slide"><span>Project picture 03</span></div>
-                <div class="project-slide"><span>Project picture 04</span></div>
-                <div class="project-slide"><span>Project picture 05</span></div>
-                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-slide active"><img src="assets/projects/slag/slag-1.webp" alt="Fe-rich metallurgical slag" loading="lazy" onerror="this.style.display='none'" /><span>Fe-rich metallurgical slag</span></div>
+                <div class="project-slide"><img src="assets/projects/slag/slag-2.webp" alt="Complex phase assemblage" loading="lazy" onerror="this.style.display='none'" /><span>Complex phase assemblage</span></div>
+                <div class="project-slide"><img src="assets/projects/slag/slag-3.webp" alt="Fe-rich binder gel" loading="lazy" onerror="this.style.display='none'" /><span>Fe-rich binder gel</span></div>
+                <div class="project-slide"><img src="assets/projects/slag/slag-4.webp" alt="Iron participation in structure" loading="lazy" onerror="this.style.display='none'" /><span>Iron participation in structure</span></div>
+                <div class="project-slide"><img src="assets/projects/slag/slag-5.webp" alt="Rapid strength development" loading="lazy" onerror="this.style.display='none'" /><span>Rapid strength development</span></div>
+                <div class="project-slide"><img src="assets/projects/slag/slag-6.webp" alt="High-performance binder" loading="lazy" onerror="this.style.display='none'" /><span>High-performance binder</span></div>
                 <div class="project-carousel-dots">
                 <button type="button" aria-label="Show slide 1" class="active"></button>
                 <button type="button" aria-label="Show slide 2" class=""></button>
@@ -547,12 +556,12 @@
                 <div class="project-tag">Carbonation · precast</div>
               </div>
               <div class="project-carousel" data-carousel>
-                <div class="project-slide active"><span>Project picture 01</span></div>
-                <div class="project-slide"><span>Project picture 02</span></div>
-                <div class="project-slide"><span>Project picture 03</span></div>
-                <div class="project-slide"><span>Project picture 04</span></div>
-                <div class="project-slide"><span>Project picture 05</span></div>
-                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-slide active"><img src="assets/projects/carbon/carbon-1.webp" alt="Low-reactivity slag feedstock" loading="lazy" onerror="this.style.display='none'" /><span>Low-reactivity slag feedstock</span></div>
+                <div class="project-slide"><img src="assets/projects/carbon/carbon-2.webp" alt="Controlled CO₂ curing" loading="lazy" onerror="this.style.display='none'" /><span>Controlled CO₂ curing</span></div>
+                <div class="project-slide"><img src="assets/projects/carbon/carbon-3.webp" alt="Carbonate phase formation" loading="lazy" onerror="this.style.display='none'" /><span>Carbonate phase formation</span></div>
+                <div class="project-slide"><img src="assets/projects/carbon/carbon-4.webp" alt="Dense composite matrix" loading="lazy" onerror="this.style.display='none'" /><span>Dense composite matrix</span></div>
+                <div class="project-slide"><img src="assets/projects/carbon/carbon-5.webp" alt="Strength gain under CO₂" loading="lazy" onerror="this.style.display='none'" /><span>Strength gain under CO₂</span></div>
+                <div class="project-slide"><img src="assets/projects/carbon/carbon-6.webp" alt="Carbon-storing product" loading="lazy" onerror="this.style.display='none'" /><span>Carbon-storing product</span></div>
                 <div class="project-carousel-dots">
                 <button type="button" aria-label="Show slide 1" class="active"></button>
                 <button type="button" aria-label="Show slide 2" class=""></button>
@@ -594,12 +603,12 @@
                 <div class="project-tag">Clays · SCMs</div>
               </div>
               <div class="project-carousel" data-carousel>
-                <div class="project-slide active"><span>Project picture 01</span></div>
-                <div class="project-slide"><span>Project picture 02</span></div>
-                <div class="project-slide"><span>Project picture 03</span></div>
-                <div class="project-slide"><span>Project picture 04</span></div>
-                <div class="project-slide"><span>Project picture 05</span></div>
-                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-slide active"><img src="assets/projects/clays/clays-1.webp" alt="Clay feedstock variability" loading="lazy" onerror="this.style.display='none'" /><span>Clay feedstock variability</span></div>
+                <div class="project-slide"><img src="assets/projects/clays/clays-2.webp" alt="Mineralogical differences" loading="lazy" onerror="this.style.display='none'" /><span>Mineralogical differences</span></div>
+                <div class="project-slide"><img src="assets/projects/clays/clays-3.webp" alt="Thermal activation" loading="lazy" onerror="this.style.display='none'" /><span>Thermal activation</span></div>
+                <div class="project-slide"><img src="assets/projects/clays/clays-4.webp" alt="Structural disorder development" loading="lazy" onerror="this.style.display='none'" /><span>Structural disorder development</span></div>
+                <div class="project-slide"><img src="assets/projects/clays/clays-5.webp" alt="Dissolution-driven reactivity" loading="lazy" onerror="this.style.display='none'" /><span>Dissolution-driven reactivity</span></div>
+                <div class="project-slide"><img src="assets/projects/clays/clays-6.webp" alt="Cement replacement system" loading="lazy" onerror="this.style.display='none'" /><span>Cement replacement system</span></div>
                 <div class="project-carousel-dots">
                 <button type="button" aria-label="Show slide 1" class="active"></button>
                 <button type="button" aria-label="Show slide 2" class=""></button>
@@ -641,12 +650,12 @@
                 <div class="project-tag">Ceramics · soils</div>
               </div>
               <div class="project-carousel" data-carousel>
-                <div class="project-slide active"><span>Project picture 01</span></div>
-                <div class="project-slide"><span>Project picture 02</span></div>
-                <div class="project-slide"><span>Project picture 03</span></div>
-                <div class="project-slide"><span>Project picture 04</span></div>
-                <div class="project-slide"><span>Project picture 05</span></div>
-                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-slide active"><img src="assets/projects/ceramics/ceramic-1.webp" alt="Excavated soil input" loading="lazy" onerror="this.style.display='none'" /><span>Excavated soil input</span></div>
+                <div class="project-slide"><img src="assets/projects/ceramics/ceramic-2.webp" alt="Forming process" loading="lazy" onerror="this.style.display='none'" /><span>Forming process</span></div>
+                <div class="project-slide"><img src="assets/projects/ceramics/ceramic-3.webp" alt="Thermal treatment" loading="lazy" onerror="this.style.display='none'" /><span>Thermal treatment</span></div>
+                <div class="project-slide"><img src="assets/projects/ceramics/ceramic-4.webp" alt="Sintering and densification" loading="lazy" onerror="this.style.display='none'" /><span>Sintering and densification</span></div>
+                <div class="project-slide"><img src="assets/projects/ceramics/ceramic-5.webp" alt="Ceramic microstructure" loading="lazy" onerror="this.style.display='none'" /><span>Ceramic microstructure</span></div>
+                <div class="project-slide"><img src="assets/projects/ceramics/ceramic-6.webp" alt="Finished brick product" loading="lazy" onerror="this.style.display='none'" /><span>Finished brick product</span></div>
                 <div class="project-carousel-dots">
                 <button type="button" aria-label="Show slide 1" class="active"></button>
                 <button type="button" aria-label="Show slide 2" class=""></button>
@@ -688,12 +697,12 @@
                 <div class="project-tag">Tiles · waste sand</div>
               </div>
               <div class="project-carousel" data-carousel>
-                <div class="project-slide active"><span>Project picture 01</span></div>
-                <div class="project-slide"><span>Project picture 02</span></div>
-                <div class="project-slide"><span>Project picture 03</span></div>
-                <div class="project-slide"><span>Project picture 04</span></div>
-                <div class="project-slide"><span>Project picture 05</span></div>
-                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-slide active"><img src="assets/projects/lowtemp/lowtemp-1.webp" alt="Silica-rich sand feedstock" loading="lazy" onerror="this.style.display='none'" /><span>Silica-rich sand feedstock</span></div>
+                <div class="project-slide"><img src="assets/projects/lowtemp/lowtemp-2.webp" alt="Sodium silicate binder" loading="lazy" onerror="this.style.display='none'" /><span>Sodium silicate binder</span></div>
+                <div class="project-slide"><img src="assets/projects/lowtemp/lowtemp-3.webp" alt="Particle coating" loading="lazy" onerror="this.style.display='none'" /><span>Particle coating</span></div>
+                <div class="project-slide"><img src="assets/projects/lowtemp/lowtemp-4.webp" alt="Gel bridge formation" loading="lazy" onerror="this.style.display='none'" /><span>Gel bridge formation</span></div>
+                <div class="project-slide"><img src="assets/projects/lowtemp/lowtemp-5.webp" alt="Low-temperature curing" loading="lazy" onerror="this.style.display='none'" /><span>Low-temperature curing</span></div>
+                <div class="project-slide"><img src="assets/projects/lowtemp/lowtemp-6.webp" alt="Non-fired tile product" loading="lazy" onerror="this.style.display='none'" /><span>Non-fired tile product</span></div>
                 <div class="project-carousel-dots">
                 <button type="button" aria-label="Show slide 1" class="active"></button>
                 <button type="button" aria-label="Show slide 2" class=""></button>
@@ -735,12 +744,12 @@
                 <div class="project-tag">Durability · AAS</div>
               </div>
               <div class="project-carousel" data-carousel>
-                <div class="project-slide active"><span>Project picture 01</span></div>
-                <div class="project-slide"><span>Project picture 02</span></div>
-                <div class="project-slide"><span>Project picture 03</span></div>
-                <div class="project-slide"><span>Project picture 04</span></div>
-                <div class="project-slide"><span>Project picture 05</span></div>
-                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-slide active"><img src="assets/projects/durability/durability-1.webp" alt="Historical alkali-activated concrete" loading="lazy" onerror="this.style.display='none'" /><span>Historical alkali-activated concrete</span></div>
+                <div class="project-slide"><img src="assets/projects/durability/durability-2.webp" alt="Surface and core sampling" loading="lazy" onerror="this.style.display='none'" /><span>Surface and core sampling</span></div>
+                <div class="project-slide"><img src="assets/projects/durability/durability-3.webp" alt="Carbonation stratification" loading="lazy" onerror="this.style.display='none'" /><span>Carbonation stratification</span></div>
+                <div class="project-slide"><img src="assets/projects/durability/durability-4.webp" alt="Gel chemistry reorganisation" loading="lazy" onerror="this.style.display='none'" /><span>Gel chemistry reorganisation</span></div>
+                <div class="project-slide"><img src="assets/projects/durability/durability-5.webp" alt="Depth-resolved durability evidence" loading="lazy" onerror="this.style.display='none'" /><span>Depth-resolved durability evidence</span></div>
+                <div class="project-slide"><img src="assets/projects/durability/durability-6.webp" alt="Long-term field performance" loading="lazy" onerror="this.style.display='none'" /><span>Long-term field performance</span></div>
                 <div class="project-carousel-dots">
                 <button type="button" aria-label="Show slide 1" class="active"></button>
                 <button type="button" aria-label="Show slide 2" class=""></button>
@@ -782,12 +791,12 @@
                 <div class="project-tag">Iron · silica</div>
               </div>
               <div class="project-carousel" data-carousel>
-                <div class="project-slide active"><span>Project picture 01</span></div>
-                <div class="project-slide"><span>Project picture 02</span></div>
-                <div class="project-slide"><span>Project picture 03</span></div>
-                <div class="project-slide"><span>Project picture 04</span></div>
-                <div class="project-slide"><span>Project picture 05</span></div>
-                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-slide active"><img src="assets/projects/tailings/tailings-1.webp" alt="Iron ore tailings" loading="lazy" onerror="this.style.display='none'" /><span>Iron ore tailings</span></div>
+                <div class="project-slide"><img src="assets/projects/tailings/tailings-2.webp" alt="Fine particle dominance" loading="lazy" onerror="this.style.display='none'" /><span>Fine particle dominance</span></div>
+                <div class="project-slide"><img src="assets/projects/tailings/tailings-3.webp" alt="Magnetising roasting" loading="lazy" onerror="this.style.display='none'" /><span>Magnetising roasting</span></div>
+                <div class="project-slide"><img src="assets/projects/tailings/tailings-4.webp" alt="Magnetic separation" loading="lazy" onerror="this.style.display='none'" /><span>Magnetic separation</span></div>
+                <div class="project-slide"><img src="assets/projects/tailings/tailings-5.webp" alt="Iron concentrate" loading="lazy" onerror="this.style.display='none'" /><span>Iron concentrate</span></div>
+                <div class="project-slide"><img src="assets/projects/tailings/tailings-6.webp" alt="Silica powder product" loading="lazy" onerror="this.style.display='none'" /><span>Silica powder product</span></div>
                 <div class="project-carousel-dots">
                 <button type="button" aria-label="Show slide 1" class="active"></button>
                 <button type="button" aria-label="Show slide 2" class=""></button>
