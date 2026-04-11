@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Mineral Activation Labs</title>
-  <meta name="description" content="Selected projects showing how difficult mineral feedstocks can be screened, qualified, and directed toward realistic product pathways." />
+  <meta name="description" content="Selected projects showing how mineral streams can be screened, upgraded, and directed toward realistic product pathways." />
   <style>
     :root {
       --bg: #f6f8f7;
       --surface: #ffffff;
       --surface-soft: #f1f5f3;
+      --surface-alt: #eef4f1;
       --text: #183028;
       --muted: #5d7169;
       --line: #dce7e1;
@@ -17,20 +18,16 @@
       --accent-dark: #174f41;
       --accent-soft: #e7f2ee;
       --max: 1180px;
+      --radius-xl: 28px;
       --radius-lg: 22px;
       --radius-md: 16px;
       --radius-sm: 12px;
       --shadow: 0 10px 30px rgba(20, 48, 39, 0.08);
+      --shadow-strong: 0 18px 42px rgba(20, 48, 39, 0.12);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
@@ -39,15 +36,8 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
       width: min(var(--max), calc(100% - 40px));
@@ -110,89 +100,175 @@
       font-weight: 600;
     }
 
-    .nav-cta:hover {
-      background: var(--accent-dark);
-    }
+    .nav-cta:hover { background: var(--accent-dark); }
 
-    main {
-      padding: 42px 0 80px;
-    }
-
-    .section {
-      margin: 0 0 70px;
-    }
+    main { padding: 34px 0 84px; }
+    .section { margin: 0 0 72px; }
 
     .section-heading {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 26px;
+      display: flex;
       align-items: end;
-      margin-bottom: 26px;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
     }
 
+    .section-heading h1,
     .section-heading h2 {
       margin: 0;
-      font-size: clamp(1.8rem, 3vw, 2.7rem);
-      letter-spacing: -0.03em;
-      line-height: 1.08;
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
+      font-size: clamp(1.9rem, 3vw, 2.9rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
     }
 
     .projects-grid {
       display: grid;
-      gap: 22px;
+      gap: 24px;
     }
 
     .project-card {
       background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       padding: 30px;
       box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: minmax(320px, 0.92fr) minmax(420px, 1.08fr);
+      gap: 28px;
+      align-items: stretch;
     }
 
     .project-card.featured {
-      border-color: rgba(31, 107, 87, 0.22);
-      box-shadow: 0 14px 36px rgba(20, 48, 39, 0.1);
+      border-color: rgba(31, 107, 87, 0.24);
+      box-shadow: var(--shadow-strong);
     }
 
     .project-kicker {
       display: inline-flex;
       align-items: center;
-      padding: 7px 11px;
+      gap: 8px;
+      padding: 7px 12px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent-dark);
       font-size: 0.79rem;
       font-weight: 700;
       letter-spacing: 0.02em;
-      margin-bottom: 16px;
+      margin-bottom: 0;
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+    .project-media {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      margin-bottom: 0;
+      background: linear-gradient(135deg, rgba(31,107,87,0.08), rgba(24,48,40,0.03)), var(--surface-alt);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      align-self: start;
     }
 
-    .project-top {
+    .project-media-top {
+      position: relative;
+      z-index: 3;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 18px;
-      margin-bottom: 18px;
+      padding: 22px 22px 0;
       flex-wrap: wrap;
     }
 
     .project-title-wrap h3 {
-      margin: 0 0 8px;
-      font-size: clamp(1.3rem, 2.2vw, 1.9rem);
-      line-height: 1.12;
+      margin: 0 0 7px;
+      font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+      line-height: 1.1;
       letter-spacing: -0.03em;
+      color: #fff;
+      text-shadow: 0 1px 14px rgba(0,0,0,0.18);
     }
 
     .project-subtitle {
-      color: var(--muted);
+      color: rgba(255,255,255,0.86);
       font-size: 0.97rem;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.18);
+    }
+
+    .project-carousel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      flex: none;
+    }
+
+    .project-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+      background:
+        linear-gradient(180deg, rgba(14, 33, 27, 0.28) 0%, rgba(14, 33, 27, 0.18) 24%, rgba(14, 33, 27, 0.34) 100%),
+        linear-gradient(135deg, rgba(31,107,87,0.18), rgba(24,48,40,0.07)),
+        var(--surface-alt);
+      color: rgba(255,255,255,0.92);
+      font-size: 0.98rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .project-slide.active {
+      opacity: 1;
+    }
+
+    .project-slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(255,255,255,0.08), transparent 24%);
+      pointer-events: none;
+    }
+
+    .project-slide span {
+      position: relative;
+      z-index: 2;
+      max-width: 220px;
+    }
+
+    .project-carousel-dots {
+      position: absolute;
+      left: 22px;
+      bottom: 18px;
+      z-index: 4;
+      display: flex;
+      gap: 8px;
+    }
+
+    .project-carousel-dots button {
+      width: 9px;
+      height: 9px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.32);
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .project-carousel-dots button.active {
+      background: #fff;
+      transform: scale(1.15);
     }
 
     .project-tag {
@@ -212,7 +288,7 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 18px;
+      align-content: start;
     }
 
     .project-block {
@@ -224,8 +300,8 @@
 
     .project-block h4 {
       margin: 0 0 8px;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--accent-dark);
     }
@@ -236,49 +312,7 @@
       font-size: 0.97rem;
     }
 
-    .value-panel {
-      background: linear-gradient(180deg, #ffffff 0%, #f3f7f5 100%);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .value-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 22px;
-    }
-
-    .value-item {
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 18px;
-    }
-
-    .value-item h3 {
-      margin: 0 0 8px;
-      font-size: 1.03rem;
-      letter-spacing: -0.02em;
-    }
-
-    .value-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .sector-line {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .cta-section {
-      margin-top: 70px;
-    }
+    .cta-section { margin-top: 40px; }
 
     .cta-box {
       background: var(--text);
@@ -320,14 +354,8 @@
       transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: #fff;
-      color: var(--text);
-    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: #fff; color: var(--text); }
 
     .btn-secondary {
       color: #fff;
@@ -335,9 +363,7 @@
       background: rgba(255,255,255,0.06);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.12);
-    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.12); }
 
     .site-footer {
       padding: 28px 0 36px;
@@ -354,10 +380,13 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 1000px) {
-      .project-grid,
-      .value-grid,
-      .section-heading {
+    @media (max-width: 940px) {
+      .project-grid { grid-template-columns: 1fr; }
+      .project-carousel { aspect-ratio: 16 / 10; }
+    }
+
+    @media (max-width: 780px) {
+      .project-card {
         grid-template-columns: 1fr;
       }
     }
@@ -369,7 +398,6 @@
         align-items: flex-start;
         flex-direction: column;
       }
-
       .nav {
         gap: 12px 16px;
         justify-content: flex-start;
@@ -377,24 +405,11 @@
     }
 
     @media (max-width: 760px) {
-      .project-grid,
-      .value-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-card,
-      .value-panel,
-      .cta-box {
-        padding: 24px;
-      }
-
-      main {
-        padding-top: 26px;
-      }
-
-      .brand-logo {
-        height: 36px;
-      }
+      .project-card, .cta-box { padding: 24px; }
+      .project-media-top { padding: 18px 18px 0; }
+      .project-carousel { aspect-ratio: 16 / 10; }
+      main { padding-top: 24px; }
+      .brand-logo { height: 36px; }
     }
   </style>
 </head>
@@ -422,246 +437,387 @@
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <h2>Featured projects</h2>
-          <p>
-            Selected projects showing how difficult mineral feedstocks can be screened, qualified, and directed toward realistic product pathways.
-          </p>
+          <h1>Flagship projects</h1>
         </div>
 
         <div class="projects-grid">
+
           <article class="project-card featured">
             <div class="project-kicker">Soils</div>
-            <div class="project-top">
-              <div class="project-title-wrap">
-                <h3>Treated soils for low-cement binder pathways</h3>
-                <div class="project-subtitle">Australia · treated soil reuse</div>
+            <div class="project-media">
+              <div class="project-media-top">
+                <div class="project-title-wrap">
+                  <h3>Treated soils for low-cement concrete</h3>
+                  <div class="project-subtitle">Australia · reuse pathways</div>
+                </div>
+                <div class="project-tag">Concrete · soils</div>
               </div>
-              <div class="project-tag">Reuse qualification</div>
+              <div class="project-carousel" data-carousel>
+                <div class="project-slide active"><span>Project picture 01</span></div>
+                <div class="project-slide"><span>Project picture 02</span></div>
+                <div class="project-slide"><span>Project picture 03</span></div>
+                <div class="project-slide"><span>Project picture 04</span></div>
+                <div class="project-slide"><span>Project picture 05</span></div>
+                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-carousel-dots">
+                <button type="button" aria-label="Show slide 1" class="active"></button>
+                <button type="button" aria-label="Show slide 2" class=""></button>
+                <button type="button" aria-label="Show slide 3" class=""></button>
+                <button type="button" aria-label="Show slide 4" class=""></button>
+                <button type="button" aria-label="Show slide 5" class=""></button>
+                <button type="button" aria-label="Show slide 6" class=""></button>
+                </div>
+              </div>
             </div>
-
             <div class="project-grid">
               <div class="project-block">
-                <h4>The challenge</h4>
-                <p>
-                  Large treated and excavated soil streams are generated with limited high-value reuse options. The core question is whether these materials can support low-cement products or should be ruled out early.
-                </p>
+                <h4>What we found</h4>
+                <p>Treated soils do not behave as strongly reactive binder replacements. Performance is driven mainly by filler packing, surface nucleation, and matrix densification rather than meaningful pozzolanic contribution.</p>
               </div>
               <div class="project-block">
-                <h4>What we did</h4>
-                <p>
-                  Assessed mineralogy, chemistry, impurity constraints, and reactivity, then tested realistic pathways including calcination, blending, and alternative binder use.
-                </p>
+                <h4>Where they fit best</h4>
+                <p>Aggregate replacement, flowable fill, and low-cement blends at moderate replacement levels. These routes use the material for grading, packing, and workability rather than overclaiming chemical reactivity.</p>
               </div>
               <div class="project-block">
-                <h4>What became clear</h4>
-                <p>
-                  Some soil streams showed credible potential as reactive binder components. Others were constrained by low clay reactivity, quartz dilution, or contaminant-related limitations.
-                </p>
+                <h4>Commercial value</h4>
+                <p>The project helps avoid expensive overdevelopment of weak SCM candidates while still identifying credible reuse routes with lower technical risk and simpler specification pathways.</p>
               </div>
               <div class="project-block">
-                <h4>Why it matters</h4>
-                <p>
-                  This helps distinguish between soils worth developing and soils unlikely to justify further processing or pilot effort.
-                </p>
+                <h4>Typical outputs</h4>
+                <p>Replacement windows, mix design direction, pathway ranking, and a clear go / no-go position on whether a soil stream should enter concrete trials, granular reuse, or alternative products.</p>
               </div>
             </div>
           </article>
 
           <article class="project-card featured">
             <div class="project-kicker">Slags</div>
-            <div class="project-top">
-              <div class="project-title-wrap">
-                <h3>Fe-rich slags for low-carbon binder development</h3>
-                <div class="project-subtitle">Finland · steel and slag valorisation</div>
+            <div class="project-media">
+              <div class="project-media-top">
+                <div class="project-title-wrap">
+                  <h3>Fe-rich slags as high-performance binders</h3>
+                  <div class="project-subtitle">Finland · metallurgical residues</div>
+                </div>
+                <div class="project-tag">Binders · slag</div>
               </div>
-              <div class="project-tag">Binder development</div>
+              <div class="project-carousel" data-carousel>
+                <div class="project-slide active"><span>Project picture 01</span></div>
+                <div class="project-slide"><span>Project picture 02</span></div>
+                <div class="project-slide"><span>Project picture 03</span></div>
+                <div class="project-slide"><span>Project picture 04</span></div>
+                <div class="project-slide"><span>Project picture 05</span></div>
+                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-carousel-dots">
+                <button type="button" aria-label="Show slide 1" class="active"></button>
+                <button type="button" aria-label="Show slide 2" class=""></button>
+                <button type="button" aria-label="Show slide 3" class=""></button>
+                <button type="button" aria-label="Show slide 4" class=""></button>
+                <button type="button" aria-label="Show slide 5" class=""></button>
+                <button type="button" aria-label="Show slide 6" class=""></button>
+                </div>
+              </div>
             </div>
-
             <div class="project-grid">
               <div class="project-block">
-                <h4>The challenge</h4>
-                <p>
-                  Fe-rich slags are often treated as difficult or inconsistent feedstocks. The commercial question is whether they can support reliable binder performance and acceptable environmental behaviour.
-                </p>
+                <h4>What we found</h4>
+                <p>Fe-rich slags can form Fe-bearing calcium silicate hydrate networks with very high early strength. Iron is not just a contaminant or diluent; it participates directly in the binding structure.</p>
               </div>
               <div class="project-block">
-                <h4>What we did</h4>
-                <p>
-                  Evaluated phase assemblage, activator response, microstructure development, and leaching behaviour under practical alkali-activation conditions.
-                </p>
+                <h4>Where they fit best</h4>
+                <p>Rapid-strength binders, hybrid cementitious systems, and formulations where activator demand, cost, and leaching behaviour can be tuned together rather than treated separately.</p>
               </div>
               <div class="project-block">
-                <h4>What became clear</h4>
-                <p>
-                  Fe-rich slags are not simply problematic by-products. Under the right chemistry, they can function as viable binder precursors, but performance depends strongly on feedstock chemistry and process control.
-                </p>
+                <h4>Commercial value</h4>
+                <p>This creates a stronger basis for product positioning of non-traditional slags, especially where performance speed and alternative chemistry offer an advantage over conventional binder thinking.</p>
               </div>
               <div class="project-block">
-                <h4>Why it matters</h4>
-                <p>
-                  This supports more confident decisions around slag development, product positioning, and whether further pilot work is justified.
-                </p>
+                <h4>Typical outputs</h4>
+                <p>Activator windows, strength-performance maps, environmental screening, and decisions on whether a given slag should move toward direct binder use, hybrid systems, or be deprioritised.</p>
               </div>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-kicker">Residues</div>
-            <div class="project-top">
-              <div class="project-title-wrap">
-                <h3>Secondary residues for carbonation-based products</h3>
-                <div class="project-subtitle">Europe · processing and scale-up context</div>
+          <article class="project-card featured">
+            <div class="project-kicker">Carbonation</div>
+            <div class="project-media">
+              <div class="project-media-top">
+                <div class="project-title-wrap">
+                  <h3>CO₂-cured binders from steel slags</h3>
+                  <div class="project-subtitle">Europe · carbonation systems</div>
+                </div>
+                <div class="project-tag">Carbonation · precast</div>
               </div>
-              <div class="project-tag">Processing route</div>
+              <div class="project-carousel" data-carousel>
+                <div class="project-slide active"><span>Project picture 01</span></div>
+                <div class="project-slide"><span>Project picture 02</span></div>
+                <div class="project-slide"><span>Project picture 03</span></div>
+                <div class="project-slide"><span>Project picture 04</span></div>
+                <div class="project-slide"><span>Project picture 05</span></div>
+                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-carousel-dots">
+                <button type="button" aria-label="Show slide 1" class="active"></button>
+                <button type="button" aria-label="Show slide 2" class=""></button>
+                <button type="button" aria-label="Show slide 3" class=""></button>
+                <button type="button" aria-label="Show slide 4" class=""></button>
+                <button type="button" aria-label="Show slide 5" class=""></button>
+                <button type="button" aria-label="Show slide 6" class=""></button>
+                </div>
+              </div>
             </div>
-
             <div class="project-grid">
               <div class="project-block">
-                <h4>The challenge</h4>
-                <p>
-                  Many secondary mineral residues are abundant but difficult to use in conventional cementitious systems. The key issue is whether processing can unlock enough value to justify development.
-                </p>
+                <h4>What we found</h4>
+                <p>Low-reactivity steel slags can be turned into useful binders under practical CO₂ curing conditions, developing structural strength through coupled carbonation, hydration, and gel reorganisation.</p>
               </div>
               <div class="project-block">
-                <h4>What we did</h4>
-                <p>
-                  Developed and evaluated carbonation–hydration routes while tracking phase evolution, microstructure, and resulting material performance.
-                </p>
+                <h4>Where they fit best</h4>
+                <p>Precast products, carbonation-bonded mineral systems, and routes where CO₂ uptake and product formation happen in the same process step rather than as a separate environmental add-on.</p>
               </div>
               <div class="project-block">
-                <h4>What became clear</h4>
-                <p>
-                  Combined processing can improve phase stability and create more useful binding behaviour, but only within specific processing windows. Not every residue is a strong candidate.
-                </p>
+                <h4>Commercial value</h4>
+                <p>The work identifies a credible route for residues that are weak in conventional cement systems but stronger when product design is centred on controlled CO₂ curing and early densification.</p>
               </div>
               <div class="project-block">
-                <h4>Why it matters</h4>
-                <p>
-                  This turns broad waste-reuse ambition into a clearer go / no-go position on processing-led product development.
-                </p>
+                <h4>Typical outputs</h4>
+                <p>CO₂-curing windows, likely product classes, strength-versus-uptake maps, and an early decision on whether a residue belongs in carbonated blocks, hybrid systems, or another pathway entirely.</p>
               </div>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-kicker">Clays</div>
-            <div class="project-top">
-              <div class="project-title-wrap">
-                <h3>Calcined clays for SCM feedstock qualification</h3>
-                <div class="project-subtitle">Australia · clay reactivity and qualification</div>
+            <div class="project-media">
+              <div class="project-media-top">
+                <div class="project-title-wrap">
+                  <h3>Calcined clays for cement replacement</h3>
+                  <div class="project-subtitle">Australia · SCM qualification</div>
+                </div>
+                <div class="project-tag">Clays · SCMs</div>
               </div>
-              <div class="project-tag">SCM qualification</div>
+              <div class="project-carousel" data-carousel>
+                <div class="project-slide active"><span>Project picture 01</span></div>
+                <div class="project-slide"><span>Project picture 02</span></div>
+                <div class="project-slide"><span>Project picture 03</span></div>
+                <div class="project-slide"><span>Project picture 04</span></div>
+                <div class="project-slide"><span>Project picture 05</span></div>
+                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-carousel-dots">
+                <button type="button" aria-label="Show slide 1" class="active"></button>
+                <button type="button" aria-label="Show slide 2" class=""></button>
+                <button type="button" aria-label="Show slide 3" class=""></button>
+                <button type="button" aria-label="Show slide 4" class=""></button>
+                <button type="button" aria-label="Show slide 5" class=""></button>
+                <button type="button" aria-label="Show slide 6" class=""></button>
+                </div>
+              </div>
             </div>
-
             <div class="project-grid">
               <div class="project-block">
-                <h4>The challenge</h4>
-                <p>
-                  Calcined clays are attracting strong market interest, but not all clay-rich materials behave the same way. A major risk is assuming feedstocks are interchangeable.
-                </p>
+                <h4>What we found</h4>
+                <p>Clay performance depends on mineral type, structural disorder, and calcination window rather than temperature alone. Some materials respond strongly; others remain weak even after treatment.</p>
               </div>
               <div class="project-block">
-                <h4>What we did</h4>
-                <p>
-                  Combined advanced and laboratory characterisation to examine how mineral type, structural change, and calcination response influence downstream reactivity.
-                </p>
+                <h4>Where they fit best</h4>
+                <p>Kaolinite-rich materials for stronger cement replacement routes, with lower-reactivity clays redirected toward filler roles, ceramics, or activated systems instead of weak SCM positioning.</p>
               </div>
               <div class="project-block">
-                <h4>What became clear</h4>
-                <p>
-                  Feedstock selection matters. Clay mineral type, structural disorder, and thermal response all influence whether a material is likely to perform as a useful SCM.
-                </p>
+                <h4>Commercial value</h4>
+                <p>This improves clay selection before major calcination or pilot commitments and helps distinguish between deposits worth pursuing and materials that should be routed elsewhere.</p>
               </div>
               <div class="project-block">
-                <h4>Why it matters</h4>
-                <p>
-                  This supports more disciplined clay selection before larger processing, product-development, or pilot-stage commitments are made.
-                </p>
+                <h4>Typical outputs</h4>
+                <p>Feedstock qualification, calcination windows, likely replacement performance, and a practical route map linking mineralogy to processing demand and product direction.</p>
               </div>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-kicker">Ceramics</div>
-            <div class="project-top">
-              <div class="project-title-wrap">
-                <h3>Excavated soils for ceramic and brick products</h3>
-                <div class="project-subtitle">Australia · alternative product pathway</div>
+            <div class="project-media">
+              <div class="project-media-top">
+                <div class="project-title-wrap">
+                  <h3>Bricks and ceramics from excavated soils</h3>
+                  <div class="project-subtitle">Australia · thermal processing</div>
+                </div>
+                <div class="project-tag">Ceramics · soils</div>
               </div>
-              <div class="project-tag">Ceramic pathway</div>
+              <div class="project-carousel" data-carousel>
+                <div class="project-slide active"><span>Project picture 01</span></div>
+                <div class="project-slide"><span>Project picture 02</span></div>
+                <div class="project-slide"><span>Project picture 03</span></div>
+                <div class="project-slide"><span>Project picture 04</span></div>
+                <div class="project-slide"><span>Project picture 05</span></div>
+                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-carousel-dots">
+                <button type="button" aria-label="Show slide 1" class="active"></button>
+                <button type="button" aria-label="Show slide 2" class=""></button>
+                <button type="button" aria-label="Show slide 3" class=""></button>
+                <button type="button" aria-label="Show slide 4" class=""></button>
+                <button type="button" aria-label="Show slide 5" class=""></button>
+                <button type="button" aria-label="Show slide 6" class=""></button>
+                </div>
+              </div>
             </div>
-
             <div class="project-grid">
               <div class="project-block">
-                <h4>The challenge</h4>
-                <p>
-                  Excavated soils are widely available, but their suitability for ceramic products depends on mineral composition, contaminant behaviour, and firing response.
-                </p>
+                <h4>What we found</h4>
+                <p>Excavated soils can be converted into useful fired products, but viability depends on mineral composition, gas release, contaminant behaviour, and the firing window that controls sintering and porosity.</p>
               </div>
               <div class="project-block">
-                <h4>What we did</h4>
-                <p>
-                  Evaluated chemistry, mineralogy, firing behaviour, and material evolution during thermal treatment, with attention to both technical and environmental constraints.
-                </p>
+                <h4>Where they fit best</h4>
+                <p>Fired bricks, lightweight ceramic products, and encapsulation routes where difficult soils can be stabilised through controlled thermal treatment and product-specific formulation.</p>
               </div>
               <div class="project-block">
-                <h4>What became clear</h4>
-                <p>
-                  Some soil streams can be directed toward ceramic products through controlled formulation and firing, while others carry composition or emissions risks that limit practicality.
-                </p>
+                <h4>Commercial value</h4>
+                <p>The project helps separate soils with real ceramic potential from materials that carry excessive emissions, composition variability, or firing risk and should not be taken into scale-up.</p>
               </div>
               <div class="project-block">
-                <h4>Why it matters</h4>
-                <p>
-                  This provides a more realistic basis for deciding whether ceramic product development is viable for a given soil stream.
-                </p>
+                <h4>Typical outputs</h4>
+                <p>Firing windows, formulation guidance, risk screening for contaminants and off-gases, and a clearer decision on whether brick or ceramic development is technically justified.</p>
               </div>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="value-panel">
-          <div class="section-heading" style="margin-bottom:0;">
-            <h2>What these projects show</h2>
-            <p>
-              Across different feedstocks, the recurring value is the same: identify viable pathways earlier, reject weak ones sooner, and reduce uncertainty before larger development commitments are made.
-            </p>
-          </div>
+          <article class="project-card">
+            <div class="project-kicker">Low-energy products</div>
+            <div class="project-media">
+              <div class="project-media-top">
+                <div class="project-title-wrap">
+                  <h3>Low-energy mineral tiles from waste sand</h3>
+                  <div class="project-subtitle">Silicate bonding · no firing</div>
+                </div>
+                <div class="project-tag">Tiles · waste sand</div>
+              </div>
+              <div class="project-carousel" data-carousel>
+                <div class="project-slide active"><span>Project picture 01</span></div>
+                <div class="project-slide"><span>Project picture 02</span></div>
+                <div class="project-slide"><span>Project picture 03</span></div>
+                <div class="project-slide"><span>Project picture 04</span></div>
+                <div class="project-slide"><span>Project picture 05</span></div>
+                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-carousel-dots">
+                <button type="button" aria-label="Show slide 1" class="active"></button>
+                <button type="button" aria-label="Show slide 2" class=""></button>
+                <button type="button" aria-label="Show slide 3" class=""></button>
+                <button type="button" aria-label="Show slide 4" class=""></button>
+                <button type="button" aria-label="Show slide 5" class=""></button>
+                <button type="button" aria-label="Show slide 6" class=""></button>
+                </div>
+              </div>
+            </div>
+            <div class="project-grid">
+              <div class="project-block">
+                <h4>What we found</h4>
+                <p>Sodium silicate can create rigid ceramic-like products through gel bonding and polycondensation, without conventional high-temperature firing or full sintering.</p>
+              </div>
+              <div class="project-block">
+                <h4>Where they fit best</h4>
+                <p>Architectural tiles, panels, and low-energy mineral products where visual quality, shaping flexibility, and lower thermal demand matter commercially.</p>
+              </div>
+              <div class="project-block">
+                <h4>Commercial value</h4>
+                <p>This route opens a different product class for waste sand: less focused on bulk construction filler use and more on shaped, higher-value mineral products with lower process energy.</p>
+              </div>
+              <div class="project-block">
+                <h4>Typical outputs</h4>
+                <p>Curing windows, binder-content direction, product concepts, and an early view on where low-energy mineral products can compete with conventional fired alternatives.</p>
+              </div>
+            </div>
+          </article>
 
-          <div class="value-grid">
-            <div class="value-item">
-              <h3>Clarify whether a feedstock is worth developing</h3>
-              <p>
-                Early screening helps separate real technical opportunity from materials unlikely to support a viable pathway.
-              </p>
+          <article class="project-card">
+            <div class="project-kicker">Durability</div>
+            <div class="project-media">
+              <div class="project-media-top">
+                <div class="project-title-wrap">
+                  <h3>Long-term durability of alkali-activated slag concrete</h3>
+                  <div class="project-subtitle">Field evidence · 60-year exposure</div>
+                </div>
+                <div class="project-tag">Durability · AAS</div>
+              </div>
+              <div class="project-carousel" data-carousel>
+                <div class="project-slide active"><span>Project picture 01</span></div>
+                <div class="project-slide"><span>Project picture 02</span></div>
+                <div class="project-slide"><span>Project picture 03</span></div>
+                <div class="project-slide"><span>Project picture 04</span></div>
+                <div class="project-slide"><span>Project picture 05</span></div>
+                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-carousel-dots">
+                <button type="button" aria-label="Show slide 1" class="active"></button>
+                <button type="button" aria-label="Show slide 2" class=""></button>
+                <button type="button" aria-label="Show slide 3" class=""></button>
+                <button type="button" aria-label="Show slide 4" class=""></button>
+                <button type="button" aria-label="Show slide 5" class=""></button>
+                <button type="button" aria-label="Show slide 6" class=""></button>
+                </div>
+              </div>
             </div>
-            <div class="value-item">
-              <h3>Define the most realistic route</h3>
-              <p>
-                Projects narrow the field quickly — whether the answer is calcination, blending, activation, carbonation, ceramics, or no further development.
-              </p>
+            <div class="project-grid">
+              <div class="project-block">
+                <h4>What we found</h4>
+                <p>Natural carbonation in alkali-activated slag concrete is slow, chemically buffered, and structurally heterogeneous rather than a sharp destructive front moving uniformly through the section.</p>
+              </div>
+              <div class="project-block">
+                <h4>Where it matters</h4>
+                <p>Durability positioning, chemistry-based specification, and realistic service-life assessment for low-carbon slag binders in infrastructure exposed to long-term weathering.</p>
+              </div>
+              <div class="project-block">
+                <h4>Commercial value</h4>
+                <p>The work gives a stronger evidence base for clients or partners who need confidence that accelerated tests are not over-penalising viable binder systems intended for real structures.</p>
+              </div>
+              <div class="project-block">
+                <h4>Typical outputs</h4>
+                <p>Durability interpretation, chemistry-linked performance narratives, and a more credible basis for field-oriented specification or product positioning of alkali-activated slag concrete.</p>
+              </div>
             </div>
-            <div class="value-item">
-              <h3>Expose constraints before scale-up</h3>
-              <p>
-                Mineralogy, impurities, variability, and processing demand often determine viability well before formal pilot work begins.
-              </p>
-            </div>
-            <div class="value-item">
-              <h3>Turn testing into direction</h3>
-              <p>
-                The goal is not more data for its own sake, but a clearer go / no-go position and a stronger next step.
-              </p>
-            </div>
-          </div>
+          </article>
 
-          <div class="sector-line">
-            Relevant to remediation, construction materials, cementitious products, ceramics, and industrial residue valorisation.
-          </div>
+          <article class="project-card">
+            <div class="project-kicker">Beneficiation</div>
+            <div class="project-media">
+              <div class="project-media-top">
+                <div class="project-title-wrap">
+                  <h3>Iron recovery and silica products from tailings</h3>
+                  <div class="project-subtitle">Mineral processing · dual-product recovery</div>
+                </div>
+                <div class="project-tag">Iron · silica</div>
+              </div>
+              <div class="project-carousel" data-carousel>
+                <div class="project-slide active"><span>Project picture 01</span></div>
+                <div class="project-slide"><span>Project picture 02</span></div>
+                <div class="project-slide"><span>Project picture 03</span></div>
+                <div class="project-slide"><span>Project picture 04</span></div>
+                <div class="project-slide"><span>Project picture 05</span></div>
+                <div class="project-slide"><span>Project picture 06</span></div>
+                <div class="project-carousel-dots">
+                <button type="button" aria-label="Show slide 1" class="active"></button>
+                <button type="button" aria-label="Show slide 2" class=""></button>
+                <button type="button" aria-label="Show slide 3" class=""></button>
+                <button type="button" aria-label="Show slide 4" class=""></button>
+                <button type="button" aria-label="Show slide 5" class=""></button>
+                <button type="button" aria-label="Show slide 6" class=""></button>
+                </div>
+              </div>
+            </div>
+            <div class="project-grid">
+              <div class="project-block">
+                <h4>What we found</h4>
+                <p>Fine iron tailings can be magnetically upgraded after controlled roasting, splitting one waste stream into a high-grade iron concentrate and a quartz-rich fine powder.</p>
+              </div>
+              <div class="project-block">
+                <h4>Where they fit best</h4>
+                <p>Upstream beneficiation where a residue should first be separated into product-grade mineral streams before downstream material development or low-carbon product design begins.</p>
+              </div>
+              <div class="project-block">
+                <h4>Commercial value</h4>
+                <p>This creates a clearer recovery story, reduces tailings burden, and opens the possibility of linking recovered iron and silica streams into separate industrial markets rather than one compromised reuse case.</p>
+              </div>
+              <div class="project-block">
+                <h4>Typical outputs</h4>
+                <p>Feed zoning, target fraction selection, beneficiation windows, recovery-grade expectations, and a clearer decision on whether a tailings stream should be processed before any product pathway is assessed.</p>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -670,9 +826,7 @@
       <div class="container">
         <div class="cta-box">
           <h2>Discuss a project</h2>
-          <p>
-            Assessing a mineral feedstock, residue, or clay-rich material? We help determine whether it is worth developing, and what the most realistic next step looks like.
-          </p>
+          <p>Assessing a mineral feedstock, residue, or clay-rich material? We help determine whether it is worth developing, where it fits best, and what the most realistic next step looks like.</p>
           <div class="cta-actions">
             <a href="contact.html" class="btn btn-primary">Contact us</a>
             <a href="services.html" class="btn btn-secondary">View services</a>
@@ -688,5 +842,46 @@
       <div>Science-led mineral feedstock assessment for low-carbon material pathways</div>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+      const slides = Array.from(carousel.querySelectorAll('.project-slide'));
+      const dots = Array.from(carousel.querySelectorAll('.project-carousel-dots button'));
+      if (!slides.length) return;
+      let index = 0;
+      let timer = null;
+
+      const showSlide = (nextIndex) => {
+        index = (nextIndex + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      };
+
+      const start = () => {
+        stop();
+        timer = window.setInterval(() => showSlide(index + 1), 2800);
+      };
+
+      const stop = () => {
+        if (timer) window.clearInterval(timer);
+      };
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          showSlide(i);
+          start();
+        });
+      });
+
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      carousel.addEventListener('focusin', stop);
+      carousel.addEventListener('focusout', start);
+
+      showSlide(0);
+      start();
+    });
+  </script>
+
 </body>
 </html>
