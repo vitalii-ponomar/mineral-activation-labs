@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1900" height="680" viewBox="0 0 1900 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="210" y1="560" x2="560" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0A5C2E"/>
+      <stop offset="56%" stop-color="#3F8D39"/>
+      <stop offset="100%" stop-color="#B8D83E"/>
+    </linearGradient>
+    <style>
+      .main {font-family: Inter, Arial, sans-serif; font-size: 104px; font-weight: 900; letter-spacing: 0.11em; fill: #154C31;}
+      .sub {font-family: Inter, Arial, sans-serif; font-size: 42px; font-weight: 500; letter-spacing: 0.16em; fill: #2B6A43;}
+      .rule {stroke: #2B6A43; stroke-width: 4; stroke-linecap: square;}
+      .mark {fill: none; stroke: url(#g); stroke-width: 34; stroke-linecap: square; stroke-linejoin: miter;}
+    </style>
+  </defs>
+
+  <!-- ICON -->
+  <g transform="translate(120,74) scale(0.88)">
+    <path class="mark" d="M260 130 L400 -10 L540 130"/>
+    <path class="mark" d="M190 210 L400 420 L610 210"/>
+    <path class="mark" d="M155 255 L400 500 L645 255"/>
+    <path class="mark" d="M120 300 L400 580 L680 300"/>
+    <path class="mark" d="M85 345 L400 660 L715 345"/>
+  </g>
+
+  <!-- TEXT -->
+  <g transform="translate(780,0)">
+
+    <!-- centered main title -->
+    <text x="395" y="312" text-anchor="middle" class="main">MINERAL</text>
+
+    <!-- subtitle block perfectly aligned -->
+    <line x1="20" y1="368" x2="145" y2="368" class="rule"/>
+    <text x="395" y="388" text-anchor="middle" class="sub">ACTIVATION LABS</text>
+    <line x1="645" y1="368" x2="770" y2="368" class="rule"/>
+
+  </g>
+</svg>

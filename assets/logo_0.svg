@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="760" height="680" viewBox="0 0 760 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="170" y1="560" x2="520" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0A5C2E"/>
+      <stop offset="56%" stop-color="#3F8D39"/>
+      <stop offset="100%" stop-color="#B8D83E"/>
+    </linearGradient>
+    <style>
+      .mark {
+        fill: none;
+        stroke: url(#g);
+        stroke-width: 34;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(20,74) scale(0.88)">
+    <path class="mark" d="M260 130 L400 -10 L540 130"/>
+    <path class="mark" d="M190 210 L400 420 L610 210"/>
+    <path class="mark" d="M155 255 L400 500 L645 255"/>
+    <path class="mark" d="M120 300 L400 580 L680 300"/>
+    <path class="mark" d="M85 345 L400 660 L715 345"/>
+  </g>
+</svg>
